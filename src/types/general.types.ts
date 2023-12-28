@@ -34,3 +34,25 @@ export interface ErrorGeneralResponse {
   error: string;
   success: boolean;
 }
+interface DataMember {
+  number_of_messages_sent: number;
+  percentile_messages: number;
+  messages_top_perc: string;
+  number_of_links: number;
+  percentile_links: number;
+  resources_top_perc: string;
+  number_of_questions: number;
+  percentile_questions: number;
+  questions_top_perc: string;
+  message_impact_score: number;
+  percentile_impact: number;
+  message_impact_top_perc: string;
+  peak_weekday: number;
+  peak_hour: number;
+  peak_day_and_hour: string;
+}
+
+export interface SuccessMemberResponse {
+  data: DataMember;
+  success: boolean;
+}
