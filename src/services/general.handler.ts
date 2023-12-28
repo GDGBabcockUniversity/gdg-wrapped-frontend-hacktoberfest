@@ -4,6 +4,7 @@ import {
   SuccessGeneralResponse,
   SuccessMemberResponse,
 } from "@/types/general.types";
+import { formatPhoneNumber } from "@/utilities/utils";
 
 export async function fetchGeneralData(): Promise<
   SuccessGeneralResponse | ErrorGeneralResponse
@@ -25,6 +26,7 @@ export async function fetchGeneralData(): Promise<
 export async function fetchMemberData(
   number: string
 ): Promise<SuccessMemberResponse | ErrorGeneralResponse> {
+  number = formatPhoneNumber(number);
   try {
     const response = await axios.get<SuccessMemberResponse>(
       `https://gdsc-wrapped.onrender.com/2023/member/${number}`
