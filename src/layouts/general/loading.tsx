@@ -36,28 +36,14 @@ const LoadingGeneral: React.FC<LoadingGeneralProps> = ({
       id="TopMessageRoot"
       className="bg-black flex flex-col gap-20 w-full items-start pt-16 pb-24 px-[148px]"
     >
-      <img
-        src="https://file.rendit.io/n/0X2PrexSkI3MegIbq8xo.png"
+      <Image
+        src="/logo.png"
         alt="GDSCBabcockUniversityHorizontalWhite"
+        height={100}
+        width={655}
       />
       <div className="flex flex-col ml-12 gap-6 w-4/5 items-start">
-        <div className="flex flex-row justify-between ml-[873px] w-6 items-start">
-          <img
-            src="https://file.rendit.io/n/IGSpDpsBQM17AGPLR8fw.svg"
-            alt="Vector5"
-            className="mt-3 w-3"
-          />
-          <img
-            src="https://file.rendit.io/n/uCvOfw6BA0L1JUSGg5UQ.svg"
-            alt="Vector3"
-            className="mb-1 w-px"
-          />
-          <img
-            src="https://file.rendit.io/n/Kxhw1TyhJbhwWYi5ZUJY.svg"
-            alt="Vector4"
-            className="mt-3 w-2"
-          />
-        </div>
+        <div className="flex flex-row justify-between ml-[873px] w-6 items-start"></div>
         <div className="relative flex flex-row  w-full font-['Inter'] items-start pt-[303px] px-20">
           <div className="text-5xl font-semibold text-[#34a853] absolute top-2 left-px h-[648px] w-full">
             And now, the section you have been waiting for...

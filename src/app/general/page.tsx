@@ -112,12 +112,6 @@ export default function General() {
               >
                 Next
               </div>
-              <img
-                src="https://file.rendit.io/n/RI1WKAmDhwD3Iv4hdaMB.svg"
-                alt="Right"
-                id="Right"
-                className="mt-2 w-4"
-              />
             </button>
           </div>
         </div>
