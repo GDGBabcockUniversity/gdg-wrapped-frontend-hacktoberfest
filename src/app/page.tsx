@@ -20,13 +20,16 @@ import LoadingQuestionPercentile from "@/layouts/index/questionpercentile/loadin
 import QuestionPercentile from "@/layouts/index/questionpercentile/questionpercentile";
 import LoadingMessages from "@/layouts/index/messagesperc/loading";
 import MessagesPerc from "@/layouts/index/messagesperc/messagesperc";
+import LoadingMessagesImpact from "@/layouts/index/messagesimpact/loading";
+import MessagesImpact from "@/layouts/index/messagesimpact/messagesimpact";
 
 export default function Home() {
   const [phoneNumber, setPhoneNumber] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isDone, setIsDone] = useState<boolean>(false);
   const [isDoneForMessages, setIsDoneForMessages] = useState<boolean>(false);
-
+  const [isDoneForMessagesImpact, setIsDoneForMessagesImpact] =
+    useState<boolean>(false);
   const [isDoneForResource, setIsDoneForResource] = useState<boolean>(false);
   const [isDoneForQuestion, setIsDoneForQuestion] = useState<boolean>(false);
 
@@ -121,6 +124,22 @@ export default function Home() {
           handleNext={() => setStep(7)}
         />
       )}
+      {member?.message_impact_top_perc &&
+        !isDoneForMessagesImpact &&
+        step === 7 && (
+          <LoadingMessagesImpact
+            isDone={isDoneForMessagesImpact}
+            setIsDone={setIsDoneForMessagesImpact}
+          />
+        )}
+      {member?.message_impact_top_perc &&
+        isDoneForMessagesImpact &&
+        step === 7 && (
+          <MessagesImpact
+            messageimpact={member?.message_impact_top_perc}
+            handleNext={() => setStep(8)}
+          />
+        )}
     </>
   );
 }
