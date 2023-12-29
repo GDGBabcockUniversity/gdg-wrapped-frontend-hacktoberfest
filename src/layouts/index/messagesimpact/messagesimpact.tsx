@@ -18,11 +18,18 @@ const MessagesImpact: React.FC<MessagesImpactProps> = ({
     >
       <Image
         src="/topprogress.svg"
+        height={8}
+        width={500}
         alt="Vector"
-        className="w-[500px] h-0 origin-top-left rotate-[-0.32deg] absolute top-48 left-24"
+        className="w-[500px] h-2 origin-top-left rotate-[-0.32deg] absolute top-48 left-24"
       />
       <div className="relative flex flex-row justify-between w-full items-start">
-        <Image src="/logo.png" alt="GDSCBabcockUniversityHorizontalWhite" />
+        <Image
+          src="/logo.png"
+          alt="GDSCBabcockUniversityHorizontalWhite"
+          height={100}
+          width={655}
+        />
         <div
           id="MESSAGEIMPACT"
           className="text-3xl font-black leading-[34.8px] text-[#4286f5] mt-8"
@@ -147,12 +154,6 @@ const MessagesImpact: React.FC<MessagesImpactProps> = ({
           >
             Next
           </div>
-          <img
-            src="https://file.rendit.io/n/RI1WKAmDhwD3Iv4hdaMB.svg"
-            alt="Right"
-            id="Right"
-            className="mt-2 w-4"
-          />
         </button>
       </div>
     </div>

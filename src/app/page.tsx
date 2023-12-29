@@ -22,6 +22,7 @@ import LoadingMessages from "@/layouts/index/messagesperc/loading";
 import MessagesPerc from "@/layouts/index/messagesperc/messagesperc";
 import LoadingMessagesImpact from "@/layouts/index/messagesimpact/loading";
 import MessagesImpact from "@/layouts/index/messagesimpact/messagesimpact";
+import SharePage from "@/layouts/index/share/share";
 
 export default function Home() {
   const [phoneNumber, setPhoneNumber] = useState<string>("");
@@ -140,6 +141,7 @@ export default function Home() {
             handleNext={() => setStep(8)}
           />
         )}
+      {step === 8 && <SharePage />}
     </>
   );
 }

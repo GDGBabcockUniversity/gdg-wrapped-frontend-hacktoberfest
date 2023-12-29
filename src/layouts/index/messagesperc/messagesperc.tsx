@@ -17,8 +17,10 @@ const MessagesPerc: React.FC<MessagesPercProps> = ({
     >
       <Image
         src="/topprogress.svg"
+        width={500}
+        height={8}
         alt="Vector"
-        className="w-[500px] h-0 origin-top-left rotate-[-0.32deg] absolute top-48 left-24"
+        className="w-[500px] h-2 origin-top-left rotate-[-0.32deg] absolute top-48 left-24"
       />
 
       <div className="relative flex flex-row justify-between w-full items-start">
