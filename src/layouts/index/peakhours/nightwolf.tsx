@@ -4,31 +4,8 @@ export default function Nigtwold() {
       id="PeakHoursActivityRoot"
       className="bg-black relative flex flex-col justify-between gap-[173px] w-full font-['Inter'] items-start pt-12 pb-[317px] px-20"
     >
-      <img
-        src="https://file.rendit.io/n/nYBPO8HJR2EW2NKFUWYP.svg"
-        alt="Vector"
-        className="w-[500px] h-0 origin-top-left rotate-[-0.32deg] absolute top-48 left-24"
-      />
-      <img
-        src="https://file.rendit.io/n/O8JGdMhrKQkuYfZeh2zX.svg"
-        alt="Vector1"
-        className="w-[663px] h-0 origin-top-left rotate-[-0.32deg] absolute top-48 left-[388.7841796875px]"
-      />
-      <img
-        src="https://file.rendit.io/n/f4Gb8MXUwHFDe2C3XdmK.svg"
-        alt="Vector2"
-        className="w-[242px] h-0 origin-top-left rotate-[-0.32deg] absolute top-48 left-[854.4814453125px]"
-      />
-      <img
-        src="https://file.rendit.io/n/XNwVUwE0L4lGTcRPQAkX.svg"
-        alt="Vector3"
-        className="w-[380px] h-0 origin-top-left rotate-[-0.32deg] absolute top-48 left-[974.15771484375px]"
-      />
       <div className="relative flex flex-row justify-between w-full items-start">
-        <img
-          src="https://file.rendit.io/n/0X2PrexSkI3MegIbq8xo.png"
-          alt="GDSCBabcockUniversityHorizontalWhite"
-        />
+        <img src="/logo.png" alt="GDSCBabcockUniversityHorizontalWhite" />
         <div
           id="PEAKHOURSOFACTIVITY"
           className="text-3xl font-black leading-[34.8px] text-[#4286f5] mt-6"
@@ -63,12 +40,6 @@ export default function Nigtwold() {
           >
             Next
           </div>
-          <img
-            src="https://file.rendit.io/n/RI1WKAmDhwD3Iv4hdaMB.svg"
-            alt="Right"
-            id="Right"
-            className="mt-2 w-4"
-          />
         </button>
       </div>
     </div>

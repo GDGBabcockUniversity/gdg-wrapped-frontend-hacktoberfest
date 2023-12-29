@@ -14,11 +14,17 @@ import DawnPatrol from "@/layouts/index/peakhours/dawnpatrol";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Console } from "console";
+import LoadingResource from "@/layouts/index/resourcecontributors/loading";
+import EsteemedObserver from "@/layouts/index/resourcecontributors/esteemedobserver";
+import LoadingQuestionPercentile from "@/layouts/index/questionpercentile/loading";
 
 export default function Home() {
   const [phoneNumber, setPhoneNumber] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isDone, setIsDone] = useState<boolean>(false);
+  const [isDoneForResource, setIsDoneForResource] = useState<boolean>(false);
+  const [isDoneForQuestion, setIsDoneForQuestion] = useState<boolean>(false);
+
   const [step, setStep] = useState<number>(1);
   const [member, setMember] = useState<DataMember>();
 
@@ -69,7 +75,26 @@ export default function Home() {
         <DawnPatrol
           hour={member?.peak_hour}
           setHour={() => console.log("hey")}
-          hanldeNext={() => console.log("hey")}
+          hanldeNext={() => setStep(4)}
+        />
+      )}
+      {member?.messages_top_perc && !isDoneForResource && step === 4 && (
+        <LoadingResource
+          isDone={isDoneForResource}
+          setIsDone={setIsDoneForResource}
+        />
+      )}
+      {member?.messages_top_perc && isDoneForResource && step === 4 && (
+        <EsteemedObserver
+          resourcePerc={member?.resources_top_perc}
+          handleNext={() => setStep(5)}
+        />
+      )}
+
+      {member?.questions_top_perc && !isDoneForQuestion && step === 5 && (
+        <LoadingQuestionPercentile
+          isDone={isDoneForQuestion}
+          setIsDone={setIsDoneForQuestion}
         />
       )}
     </>
