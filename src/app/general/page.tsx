@@ -15,9 +15,8 @@ export default function General() {
   const [general, setGeneral] = useState<Data>();
 
   useEffect(() => {
-    // Simulate fetching JSON data
     async function fetchData() {
-      const response = await getYourDataFunction();
+      const response = await FetchGeneralData();
       setGeneral((response as SuccessGeneralResponse).data);
     }
     fetchData();
@@ -120,7 +119,7 @@ export default function General() {
   );
 }
 
-async function getYourDataFunction(): Promise<
+async function FetchGeneralData(): Promise<
   SuccessGeneralResponse | ErrorGeneralResponse
 > {
   const data = await fetchGeneralData();

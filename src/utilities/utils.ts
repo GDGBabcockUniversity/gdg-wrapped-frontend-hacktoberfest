@@ -4,5 +4,8 @@ export function formatPhoneNumber(phoneNumber: string): string {
   const mainPart = phoneNumber.substring(4, 13);
   const remainingPart = phoneNumber.substring(13);
   const formattedMainPart = mainPart.match(/.{1,3}/g)?.join("%20");
+  console.log("number is ",phoneNumber);
+
   return firstPart + formattedMainPart + remainingPart;
+
 }

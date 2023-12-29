@@ -55,7 +55,7 @@ const LandingPage: React.FC<LandingPageProps> = ({
                 type="text"
                 className="text-neutral-600 text-base leading-6 whitespace-nowrap justify-center rounded border border-[color:var(--Primary-M\_Blue,#0671E0)] bg-blue-50 self-stretch mt-3.5 pl-5 pr-16 py-8 border-solid items-start max-md:max-w-full max-md:pr-5"
                 placeholder="+234 000 0000 000"
-                onBlur={(e) => handleSetPhoneNumber(e.target.value)}
+                onChange={(e) => handleSetPhoneNumber(e.target.value)}
                 onKeyDown={(e) => {
                   if (e.key === "Enter") {
                     handleSubmitProp();

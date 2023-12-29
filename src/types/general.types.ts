@@ -34,7 +34,7 @@ export interface ErrorGeneralResponse {
   error: string;
   success: boolean;
 }
-interface DataMember {
+export interface DataMember {
   number_of_messages_sent: number;
   percentile_messages: number;
   messages_top_perc: string;
