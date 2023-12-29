@@ -1,4 +1,5 @@
 import axios from "axios";
+import { formatPhoneNumber } from "@/utilities/utils";
 import {
   ErrorGeneralResponse,
   SuccessGeneralResponse,
@@ -10,7 +11,7 @@ export async function fetchGeneralData(): Promise<
 > {
   try {
     const response = await axios.get<SuccessGeneralResponse>(
-      "https://gdsc-wrapped.onrender.com/2023/general"
+      "https://gdsc-wrapped.onrender.com/2023/general",
     );
     return response.data;
   } catch (error: any) {
@@ -32,13 +33,13 @@ function formatPhoneNumber(phoneNumber: string): string {
 }
 
 export async function fetchMemberData(
-  number: string
+  number: string,
 ): Promise<SuccessMemberResponse | ErrorGeneralResponse> {
   number = formatPhoneNumber(number);
-  console.log("number is ",number);
+  console.log("number is ", number);
   try {
     const response = await axios.get<SuccessMemberResponse>(
-    "https://gdsc-wrapped.onrender.com/2023/member/"+number+""
+      `https://gdsc-wrapped.onrender.com/2023/member/${number}`,
     );
     return response.data;
   } catch (error: any) {
