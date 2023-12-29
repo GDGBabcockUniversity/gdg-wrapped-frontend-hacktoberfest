@@ -26,11 +26,13 @@ export default function Home() {
         handleSubmit={fetchGeneral}
         style={isLoading ? { display: "none" } : { display: "block" }}
       />
-      <SitTight
-        style={isLoading ? { display: "block" } : { display: "none" }}
-        isDone={isDone}
-        setIsDone={setIsDone}
-      />
+      {isLoading && (
+        <SitTight
+          style={isLoading ? { display: "block" } : { display: "none" }}
+          isDone={isDone}
+          setIsDone={setIsDone}
+        />
+      )}
     </>
   );
 }
