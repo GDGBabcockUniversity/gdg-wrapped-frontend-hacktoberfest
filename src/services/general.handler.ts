@@ -22,18 +22,13 @@ export async function fetchGeneralData(): Promise<
   }
 }
 function formatPhoneNumber(phoneNumber: string): string {
-  // Check if the number starts with the country code and has a sufficient length to format
   
-  const countryCode: string = phoneNumber.slice(0, 4);
-  const mainNumber: string = phoneNumber.slice(4);
-  const formattedMainNumber: string | undefined = mainNumber
-    .match(/.{1,3}/g)?.map((chunk, index, array) => 
-      index < array.length - 1 ? chunk + '%20' : chunk
-    )
-    .join('');
-
-  // Combine the country code and the formatted main part of the number
-  return countryCode + formattedMainNumber;
+  if (phoneNumber.length < 12) return phoneNumber;
+    const firstPart = phoneNumber.substring(0, 4); 
+    const mainPart = phoneNumber.substring(4, 13); 
+    const remainingPart = phoneNumber.substring(13); 
+    const formattedMainPart = mainPart.match(/.{1,3}/g)?.join('%20');
+    return firstPart + "%20" + formattedMainPart + remainingPart;
 }
 
 export async function fetchMemberData(
