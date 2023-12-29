@@ -75,6 +75,18 @@ const LandingPage: React.FC<LandingPageProps> = ({
             />
           </div>
         </div>
+        <button
+          id="Button1"
+          className="bg-[#4286f5] flex flex-row justify-center pt-4 gap-3 w-1/3 h-12 cursor-pointer font-['Inter'] items-start rounded"
+          onClick={handleSubmitProp}
+        >
+          <div
+            id="Label"
+            className="text-center text-lg leading-[24px] text-white"
+          >
+            Next
+          </div>
+        </button>
       </div>
     </div>
   );

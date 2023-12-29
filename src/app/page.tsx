@@ -38,6 +38,10 @@ export default function Home() {
   const [member, setMember] = useState<DataMember>();
 
   async function fetchData() {
+    if (phoneNumber.length < 11) {
+      toast.error("Please enter a valid phone number");
+      return;
+    }
     setStep(2);
     setIsLoading(true);
     const response = await fetchMemberDataInfo(phoneNumber);
