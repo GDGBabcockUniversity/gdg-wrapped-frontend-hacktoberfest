@@ -18,11 +18,15 @@ import LoadingResource from "@/layouts/index/resourcecontributors/loading";
 import EsteemedObserver from "@/layouts/index/resourcecontributors/esteemedobserver";
 import LoadingQuestionPercentile from "@/layouts/index/questionpercentile/loading";
 import QuestionPercentile from "@/layouts/index/questionpercentile/questionpercentile";
+import LoadingMessages from "@/layouts/index/messagesperc/loading";
+import MessagesPerc from "@/layouts/index/messagesperc/messagesperc";
 
 export default function Home() {
   const [phoneNumber, setPhoneNumber] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isDone, setIsDone] = useState<boolean>(false);
+  const [isDoneForMessages, setIsDoneForMessages] = useState<boolean>(false);
+
   const [isDoneForResource, setIsDoneForResource] = useState<boolean>(false);
   const [isDoneForQuestion, setIsDoneForQuestion] = useState<boolean>(false);
 
@@ -103,6 +107,18 @@ export default function Home() {
         <QuestionPercentile
           question={member?.questions_top_perc}
           handleNext={() => setStep(6)}
+        />
+      )}
+      {member?.messages_top_perc && step === 6 && !isDoneForMessages && (
+        <LoadingMessages
+          isDone={isDoneForMessages}
+          setIsDone={setIsDoneForMessages}
+        />
+      )}
+      {member?.messages_top_perc && step === 6 && isDoneForMessages && (
+        <MessagesPerc
+          messages={member?.messages_top_perc}
+          handleNext={() => setStep(7)}
         />
       )}
     </>
