@@ -1,4 +1,5 @@
 export function formatPhoneNumber(phoneNumber: string): string {
+  console.log("number is ", phoneNumber);
   phoneNumber = phoneNumber.replaceAll(" ", "");
 
   if (phoneNumber.length == 10) {

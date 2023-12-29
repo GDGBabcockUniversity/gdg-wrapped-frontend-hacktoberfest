@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { use, useEffect, useRef, useState } from "react";
 import {
   Data,
   DataMember,
@@ -13,7 +13,6 @@ import SitTight from "@/layouts/index/sittight";
 import DawnPatrol from "@/layouts/index/peakhours/dawnpatrol";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Console } from "console";
 import LoadingResource from "@/layouts/index/resourcecontributors/loading";
 import EsteemedObserver from "@/layouts/index/resourcecontributors/esteemedobserver";
 import LoadingQuestionPercentile from "@/layouts/index/questionpercentile/loading";
@@ -23,8 +22,11 @@ import MessagesPerc from "@/layouts/index/messagesperc/messagesperc";
 import LoadingMessagesImpact from "@/layouts/index/messagesimpact/loading";
 import MessagesImpact from "@/layouts/index/messagesimpact/messagesimpact";
 import SharePage from "@/layouts/index/share/share";
+import { useRouter, useSearchParams } from "next/navigation";
+import { formatPhoneNumber } from "@/utilities/utils";
 
-export default function Home() {
+const VideoPage: React.FC = () => {
+  const router = useRouter();
   const [phoneNumber, setPhoneNumber] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isDone, setIsDone] = useState<boolean>(false);
@@ -33,51 +35,59 @@ export default function Home() {
     useState<boolean>(false);
   const [isDoneForResource, setIsDoneForResource] = useState<boolean>(false);
   const [isDoneForQuestion, setIsDoneForQuestion] = useState<boolean>(false);
-
-  const [step, setStep] = useState<number>(1);
+  const hasRun = useRef(false);
+  const [step, setStep] = useState<number>(2);
   const [member, setMember] = useState<DataMember>();
-  // const [mediaRecorder, setMediaRecorder] = useState<MediaRecorder | null>(
-  //   null
-  // );
-  // const [chunks, setChunks] = useState<BlobPart[]>([]);
+  const searchParams = useSearchParams();
+  var someQueryParam = searchParams.get("number");
+  someQueryParam = formatPhoneNumber(someQueryParam?.toString()!);
 
-  // const startRecording = () => {
-  //   navigator.mediaDevices
-  //     .getDisplayMedia({ video: true })
-  //     .then((stream) => {
-  //       const recorder = new MediaRecorder(stream);
-  //       recorder.ondataavailable = (e) => {
-  //         setChunks((currentChunks) => [...currentChunks, e.data]);
-  //       };
-  //       recorder.start();
-  //       setMediaRecorder(recorder);
-  //     })
-  //     .catch((err) => {
-  //       console.error("Error during getDisplayMedia()", err);
-  //     });
-  // };
+  // useEffect(() => {
+  //   if (someQueryParam && !hasRun.current) {
+  //     hasRun.current = true;
+  //     fetchData(someQueryParam);
+  //     setTimeout(() => {
+  //       setStep(4);
+  //     }, 10000);
+  //     setTimeout(() => {
+  //       setStep(5);
+  //     }, 20000);
+  //     setTimeout(() => {
+  //       setStep(6);
+  //     }, 2000);
+  //     setTimeout(() => {
+  //       setStep(7);
+  //     }, 48000);
+  //     setTimeout(() => {
+  //       setStep(8);
+  //     }, 96000);
+  //   }
+  // }, [someQueryParam, fetchData]);
+  useEffect(() => {
+    if (step === 2) {
+      fetchData(someQueryParam!);
+      setTimeout(() => {}, 2000);
+    }
+    const intervalId = setInterval(() => {
+      if (step < 8) {
+        setStep((prevStep) => prevStep + 1);
+      } else {
+        clearInterval(intervalId);
+      }
+    }, 10000);
 
-  // const stopRecording = () => {
-  //   mediaRecorder?.stop();
-  //   mediaRecorder!.onstop = () => {
-  //     const blob = new Blob(chunks, { type: "video/mp4" });
-  //     setChunks([]);
-  //     const videoURL = window.URL.createObjectURL(blob);
-  //     const a = document.createElement("a");
-  //     a.href = videoURL;
-  //     a.download = "recording.mp4";
-  //     a.click();
-  //     window.URL.revokeObjectURL(videoURL);
-  //   };
-  // };
-  async function fetchData() {
-    if (phoneNumber.length < 11) {
+    return () => clearInterval(intervalId);
+  }, [step]);
+
+  async function fetchData(numbers: string) {
+    if (numbers.length < 11) {
       toast.error("Please enter a valid phone number");
+      console.log("Please enter a valid phone number" + numbers);
       return;
     }
     setStep(2);
     setIsLoading(true);
-    const response = await fetchMemberDataInfo(phoneNumber);
+    const response = await fetchMemberDataInfo(numbers);
     console.log(response);
 
     if (!response.success) {
@@ -100,7 +110,7 @@ export default function Home() {
         <LandingPage
           phoneNumber={phoneNumber}
           setPhoneNumber={setPhoneNumber}
-          handleSubmit={fetchData}
+          handleSubmit={() => fetchData(phoneNumber)}
           style={isLoading ? { display: "none" } : { display: "block" }}
         />
       )}
@@ -181,7 +191,7 @@ export default function Home() {
       {step === 8 && <SharePage />}
     </>
   );
-}
+};
 
 async function fetchMemberDataInfo(
   phoneNumber: string
@@ -189,3 +199,5 @@ async function fetchMemberDataInfo(
   const data = await fetchMemberData(phoneNumber);
   return data;
 }
+
+export default VideoPage;
