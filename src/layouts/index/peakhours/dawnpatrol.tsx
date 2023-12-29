@@ -19,9 +19,9 @@ const DawnPatrol: React.FC<DawnPatrolProps> = ({
   return (
     <div
       id="PeakHoursActivityRoot"
-      className="bg-black relative flex flex-col justify-between gap-[149px] w-full font-['Inter'] items-start pt-12 pb-[271px] px-24"
+      className="bg-black relative flex flex-col justify-between gap-[149px] w-full font-['Inter'] items-start md:pt-12 md:pb-[271px] md:px-24 p-5"
     >
-      <div className="relative flex flex-row justify-between w-full font-['Inter'] items-start pl-3 pr-16">
+      <div className="relative md:flex flex-row justify-between w-full font-['Inter'] items-start md:pl-3 md:pr-16">
         <Image
           src="/topprogress.svg"
           alt="blueprogress"
@@ -50,7 +50,7 @@ const DawnPatrol: React.FC<DawnPatrolProps> = ({
         height={6}
         className="w-[380px] h-1.5 origin-top-left rotate-[-0.32deg] absolute top-48 left-[967.15771484375px]"
       /> */}
-        <div className="relative flex flex-row justify-between w-full items-start">
+        <div className="relative md:flex flex-row justify-between w-full items-start">
           <Image
             src="/logo.png"
             alt="GDSCBabcockUniversityHorizontalWhite"
@@ -59,14 +59,14 @@ const DawnPatrol: React.FC<DawnPatrolProps> = ({
           />
           <div
             id="PEAKHOURSOFACTIVITY"
-            className="text-3xl font-black leading-[34.8px] text-[#4286f5] mt-5"
+            className="text-xl md:text-3xl font-black leading-[34.8px] text-[#4286f5] mt-5"
           >
-            PEAK HOURS OF <br />
+            PEAK HOURS OF <br className="hidden md:block" />
             ACTIVITY
           </div>
         </div>
       </div>
-      <div className="relative flex flex-col ml-32 gap-20 w-3/4 items-start">
+      <div className="relative flex flex-col md:ml-32 gap-20 w-full md:w-3/4 items-start">
         {hour >= 1 && hour <= 11 && (
           <div className="flex flex-col gap-6 w-full items-start">
             <div className="text-4xl font-semibold leading-[56px] text-white">
@@ -82,7 +82,7 @@ const DawnPatrol: React.FC<DawnPatrolProps> = ({
                 Grateful” Association.{" "}
               </span>
             </div>
-            <div className="text-3xl leading-[42px] text-[#cecece]">
+            <div className="text-xl md:text-3xl leading-[42px] text-[#cecece]">
               Your city thanks you for always waking us up with chatter. <br />
               <br />
               You are mostly active
@@ -102,7 +102,7 @@ const DawnPatrol: React.FC<DawnPatrolProps> = ({
                 Express Manager!{" "}
               </span>
             </div>
-            <div className="text-3xl leading-[42px] text-white">
+            <div className="text-xl md:text-3xl leading-[42px] text-white">
               You have kept us
               {"  "}
               entertained through multiple boring classes. <br />
@@ -125,7 +125,7 @@ const DawnPatrol: React.FC<DawnPatrolProps> = ({
               </span>
               <span className="font-['Inter'] text-white"> FM! </span>
             </div>
-            <div className="text-3xl leading-[42px] text-white">
+            <div className="text-xl md:text-3xl leading-[42px] text-white">
               Our evening walks are all that more pleasant because of you.{" "}
               <br />
               Three gbosa for you! <br />
@@ -145,7 +145,7 @@ const DawnPatrol: React.FC<DawnPatrolProps> = ({
                 Nightingale!
               </span>
             </div>
-            <div className="text-3xl leading-[42px] text-white">
+            <div className="text-xl md:text-3xl leading-[42px] text-white">
               Normally we suppose dey sleep by this time but you <br />
               showed us that sleep is for the weak. You too much! <br />
               <br />
@@ -155,7 +155,7 @@ const DawnPatrol: React.FC<DawnPatrolProps> = ({
         )}
         <button
           id="Button1"
-          className="bg-[#4286f5] flex flex-row justify-center pt-4 gap-3 w-1/3 h-12 cursor-pointer items-start rounded"
+          className="bg-[#4286f5] md:w-1/3 h-12 cursor-pointer font-['Inter'] rounded w-full mt-2 md:mt-0"
           onClick={hanldeNext}
         >
           <div
