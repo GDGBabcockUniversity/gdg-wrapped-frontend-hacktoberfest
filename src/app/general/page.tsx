@@ -1,0 +1,113 @@
+"use client";
+import LoadingGeneral from "@/layouts/general/loading";
+import Image from "next/image";
+import { useState } from "react";
+
+export default function General() {
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isDone, setIsDone] = useState<boolean>(false);
+
+  return (
+    <>
+      {isLoading && !isDone && (
+        <LoadingGeneral setIsDone={setIsDone} isDone={isDone} />
+      )}
+
+      {isDone && (
+        <div
+          id="GeneralRoot"
+          className="bg-black relative flex flex-col justify-between gap-48 w-full font-['Inter'] items-start pt-12 pb-[245px] px-32"
+        >
+          <Image
+            src="/blueprogress.svg"
+            alt="progress"
+            width={500}
+            height={500}
+            className="w-[500px] h-0 origin-top-left rotate-[-0.32deg] absolute top-48 left-32"
+          />
+          <Image
+            src="/yellowprogress.svg"
+            alt="progress"
+            width={663}
+            height={500}
+            className="w-[663px] h-0 origin-top-left rotate-[-0.32deg] absolute top-48 left-[422.7841796875px]"
+          />
+          <Image
+            src="greenprogress.svg"
+            alt="progress"
+            width={242}
+            height={500}
+            className="w-[242px] h-0 origin-top-left rotate-[-0.32deg] absolute top-48 left-[888.4813232421875px]"
+          />
+          <Image
+            src="redprogress.svg"
+            alt="progress"
+            width={380}
+            height={500}
+            className="w-[380px] h-0 origin-top-left rotate-[-0.32deg] absolute top-48 left-[1008.15771484375px]"
+          />
+          <div className="relative flex flex-row justify-between ml-4 w-full items-start">
+            <Image
+              src="/logo.png"
+              alt="GDSCBabcockUniversityHorizontalWhite"
+              width={655}
+              height={100}
+            />
+            <div className="text-3xl font-black leading-[34.8px] text-[#ea4235] mt-5">
+              GENERAL GDSC
+              <br />
+              BABCOCK WRAPPED
+            </div>
+          </div>
+          <div className="relative flex flex-col justify-between ml-8 gap-[117px] w-3/4 items-start">
+            <div className="flex flex-col gap-2 w-full items-start">
+              <div className="text-4xl font-bold leading-[56px] text-[#34a853]">
+                Most active GDSC Babcock members
+              </div>
+              <div className="flex flex-row ml-px gap-24 w-full items-start">
+                <div className="text-2xl leading-[33.6px] text-[#cecece] mt-10">
+                  • Ikeaba Adrian - GHØßT
+                  <br />• Damilola Soji-Oderinde - Soji jr
+                  <br />• Akpotohwo Chukwuneku⁩ - Chukwuneku⁩
+                  <br />• Edekobi Phillip - luxury.dev
+                  <br />• Oladosu Emmanuel - Dosu
+                </div>
+                <div className="text-2xl leading-[33.6px] text-[#cecece] mb-2">
+                  <br />
+                  <div className="font-['Inter']">
+                    Abolo Samuel - That Guy
+                    <br />
+                    Onofiok Lillian - Onofiok
+                    <br />
+                    Ajao Rotimi Favour - Ajao Rotimi
+                    <br />
+                    Onuada Alfred - M.I
+                    <br />
+                    Igwedinma Divine - 🐼.is.Him
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button
+              id="Button1"
+              className="bg-[#ea4235] flex flex-row justify-center pt-4 gap-3 w-1/3 h-12 cursor-pointer items-start rounded"
+            >
+              <div
+                id="Label"
+                className="text-center text-lg leading-[24px] text-white"
+              >
+                Next
+              </div>
+              <img
+                src="https://file.rendit.io/n/RI1WKAmDhwD3Iv4hdaMB.svg"
+                alt="Right"
+                id="Right"
+                className="mt-2 w-4"
+              />
+            </button>
+          </div>
+        </div>
+      )}
+    </>
+  );
+}
