@@ -37,7 +37,7 @@ const LandingPage: React.FC<LandingPageProps> = ({
                 width={655}
                 height={100}
               />
-              <div className="text-green-600 text-5xl font-bold self-stretch mt-32 max-md:max-w-full max-md:text-4xl max-md:mt-10">
+              <div className="text-white-600 text-5xl font-bold self-stretch mt-32 max-md:max-w-full max-md:text-4xl max-md:mt-10">
                 <span className="font-medium">
                   Please type in your WhatsApp phone number to view your
                   personalized{" "}
@@ -48,12 +48,22 @@ const LandingPage: React.FC<LandingPageProps> = ({
                 <span className="font-medium text-green-600">C </span>
                 <span className="font-medium">Babcock Wrapped.</span>
               </div>
+              <div className="md:hidden flex flex-col items-stretch w-[35%] ml-5 max-md:w-full max-md:ml-0">
+                <Image
+                  loading="lazy"
+                  alt="Woman Vector"
+                  width={500}
+                  height={500}
+                  src="/woman.svg"
+                  className="aspect-[0.93] object-contain object-center w-full overflow-hidden grow mt-56 max-md:mt-10"
+                />
+              </div>
               <div className="text-white text-xl leading-6 self-stretch mt-20 max-md:max-w-full max-md:mt-10">
                 Input your whatsapp Number
               </div>
               <input
                 type="text"
-                className="text-neutral-600 text-base leading-6 whitespace-nowrap justify-center rounded border border-[color:var(--Primary-M\_Blue,#0671E0)] bg-blue-50 self-stretch mt-3.5 pl-5 pr-16 py-8 border-solid items-start max-md:max-w-full max-md:pr-5"
+                className="text-neutral-600 text-base leading-6 whitespace-nowrap justify-center rounded border border-[color:var(--Primary-M\_Blue,#0671E0)] bg-blue-50 self-stretch mt-3.5 pl-5 pr-16 py-5 border-solid items-start max-md:max-w-full max-md:pr-5"
                 placeholder="+234 000 0000 000"
                 onChange={(e) => handleSetPhoneNumber(e.target.value)}
                 onKeyDown={(e) => {
@@ -64,20 +74,20 @@ const LandingPage: React.FC<LandingPageProps> = ({
               ></input>
             </div>
           </div>
-          <div className="flex flex-col items-stretch w-[35%] ml-5 max-md:w-full max-md:ml-0">
+          <div className="hidden md:flex md:flex-col md:items-stretch w-[35%] ml-5 max-md:w-full max-md:ml-0">
             <Image
               loading="lazy"
               alt="Woman Vector"
               width={500}
               height={500}
               src="/woman.svg"
-              className="aspect-[0.93] object-contain object-center w-full overflow-hidden grow mt-56 max-md:mt-10"
+              className="aspect-[1] object-contain object-center w-full overflow-hidden grow mt-56 max-md:mt-10"
             />
           </div>
         </div>
         <button
           id="Button1"
-          className="bg-[#4286f5] flex flex-row justify-center pt-4 gap-3 w-1/3 h-12 cursor-pointer font-['Inter'] items-start rounded"
+          className="bg-[#4286f5] md:w-1/3 h-12 cursor-pointer font-['Inter'] rounded w-full mt-2 md:mt-0"
           onClick={handleSubmitProp}
         >
           <div
