@@ -17,6 +17,7 @@ import { Console } from "console";
 import LoadingResource from "@/layouts/index/resourcecontributors/loading";
 import EsteemedObserver from "@/layouts/index/resourcecontributors/esteemedobserver";
 import LoadingQuestionPercentile from "@/layouts/index/questionpercentile/loading";
+import QuestionPercentile from "@/layouts/index/questionpercentile/questionpercentile";
 
 export default function Home() {
   const [phoneNumber, setPhoneNumber] = useState<string>("");
@@ -95,6 +96,13 @@ export default function Home() {
         <LoadingQuestionPercentile
           isDone={isDoneForQuestion}
           setIsDone={setIsDoneForQuestion}
+        />
+      )}
+
+      {member?.questions_top_perc && isDoneForQuestion && step === 5 && (
+        <QuestionPercentile
+          question={member?.questions_top_perc}
+          handleNext={() => setStep(6)}
         />
       )}
     </>
