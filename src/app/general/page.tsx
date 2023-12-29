@@ -3,7 +3,6 @@ import LoadingGeneral from "@/layouts/general/loading";
 import { fetchGeneralData } from "@/services/general.handler";
 import {
   Data,
-  ErrorGeneralResponse,
   SuccessGeneralResponse,
 } from "@/types/general.types";
 import Image from "next/image";
@@ -120,7 +119,7 @@ export default function General() {
 }
 
 async function FetchGeneralData(): Promise<
-  SuccessGeneralResponse | ErrorGeneralResponse
+  SuccessGeneralResponse 
 > {
   const data = await fetchGeneralData();
   return data;

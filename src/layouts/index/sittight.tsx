@@ -33,7 +33,7 @@ const SitTight: React.FC<sitTightProps> = ({
   }, []);
   return (
     <div
-      className="bg-black flex flex-col justify-center items-center px-16 py-12 max-md:px-5"
+      className="bg-black flex flex-col justify-center items-center px-16 py-12 max-md:px-5 scale-100 opacity-100 transform transition-all duration-1000 ease-in-out"
       style={style}
     >
       <div className="flex w-full max-w-[1176px] items-stretch gap-1.5 mt-4 mb-56 max-md:max-w-full max-md:flex-wrap max-md:mb-10">

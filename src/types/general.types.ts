@@ -26,14 +26,12 @@ export interface Data {
 }
 
 export interface SuccessGeneralResponse {
-  data: Data;
+  data?: Data;
   success: boolean;
+  error?: string;
 }
 
-export interface ErrorGeneralResponse {
-  error: string;
-  success: boolean;
-}
+
 export interface DataMember {
   number_of_messages_sent: number;
   percentile_messages: number;
@@ -53,6 +51,7 @@ export interface DataMember {
 }
 
 export interface SuccessMemberResponse {
-  data: DataMember;
+  data?: DataMember;
   success: boolean;
+  error?: string;
 }
