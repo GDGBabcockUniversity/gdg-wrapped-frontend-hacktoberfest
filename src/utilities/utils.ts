@@ -12,7 +12,7 @@ export function formatPhoneNumber(phoneNumber: string): string {
   const firstPart = phoneNumber.substring(0, 4);
   const mainPart = phoneNumber.substring(4, 13);
   const remainingPart = phoneNumber.substring(13);
-  const formattedMainPart = mainPart.match(/.{1,3}/g)?.join("%20");
+  const formattedMainPart = mainPart.match(/.{1,3}/g)?.join(" ");
 
-  return firstPart + "%020" + formattedMainPart + remainingPart;
+  return firstPart + " " + formattedMainPart + remainingPart;
 }
