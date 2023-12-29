@@ -52,8 +52,9 @@ const SitTight: React.FC<sitTightProps> = ({
               <div className="flex flex-col items-stretch w-[62%] max-md:w-full max-md:ml-0">
                 <div className="flex flex-col items-stretch my-auto max-md:max-w-full max-md:mt-10">
                   <div className="text-white text-5xl font-semibold max-md:max-w-full max-md:text-4xl">
-                    Sit tight and enjoy your <br />
-                    GDSC year in review!
+                    <span className="text-red-500">Omo Ologo!</span> <br/><br/><br/>
+                    Welcome to the review 
+                    of your GDSC activity.
                   </div>
                   <div className="border bg-zinc-100 flex flex-col justify-center items-stretch mt-16 py-2 rounded-xl border-solid border-neutral-200 max-md:max-w-full max-md:mt-10">
                     <div
@@ -63,7 +64,7 @@ const SitTight: React.FC<sitTightProps> = ({
                   </div>
                 </div>
               </div>
-              <div className="flex flex-col items-stretch w-[38%] ml-5 max-md:w-full max-md:ml-0">
+              <div className="hidden md:flex flex-col items-stretch w-[38%] ml-5 max-md:w-full max-md:ml-0">
                 <Image
                   loading="lazy"
                   src="/woman.svg"
