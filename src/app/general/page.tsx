@@ -1,12 +1,27 @@
 "use client";
 import LoadingGeneral from "@/layouts/general/loading";
+import { fetchGeneralData } from "@/services/general.handler";
+import {
+  Data,
+  ErrorGeneralResponse,
+  SuccessGeneralResponse,
+} from "@/types/general.types";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function General() {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [isDone, setIsDone] = useState<boolean>(false);
+  const [general, setGeneral] = useState<Data>();
 
+  useEffect(() => {
+    // Simulate fetching JSON data
+    async function fetchData() {
+      const response = await getYourDataFunction();
+      setGeneral((response as SuccessGeneralResponse).data);
+    }
+    fetchData();
+  }, []);
   return (
     <>
       {isLoading && !isDone && (
@@ -65,26 +80,25 @@ export default function General() {
                 Most active GDSC Babcock members
               </div>
               <div className="flex flex-row ml-px gap-24 w-full items-start">
-                <div className="text-2xl leading-[33.6px] text-[#cecece] mt-10">
-                  • Ikeaba Adrian - GHØßT
-                  <br />• Damilola Soji-Oderinde - Soji jr
-                  <br />• Akpotohwo Chukwuneku⁩ - Chukwuneku⁩
-                  <br />• Edekobi Phillip - luxury.dev
-                  <br />• Oladosu Emmanuel - Dosu
+                <div className="text-2xl leading-[33.6px] text-[#cecece] ">
+                  {general?.most_active_members_per_track
+                    .slice(0, 6)
+                    .map((member) => (
+                      <div key={member.phone_number}>
+                        {member.phone_number} - {member.group_chat}
+                        <br />
+                      </div>
+                    ))}
                 </div>
                 <div className="text-2xl leading-[33.6px] text-[#cecece] mb-2">
-                  <br />
-                  <div className="font-['Inter']">
-                    Abolo Samuel - That Guy
-                    <br />
-                    Onofiok Lillian - Onofiok
-                    <br />
-                    Ajao Rotimi Favour - Ajao Rotimi
-                    <br />
-                    Onuada Alfred - M.I
-                    <br />
-                    Igwedinma Divine - 🐼.is.Him
-                  </div>
+                  {general?.most_active_members_per_track
+                    .slice(7)
+                    .map((member) => (
+                      <div key={member.phone_number}>
+                        {member.phone_number} - {member.group_chat}
+                        <br />
+                      </div>
+                    ))}
                 </div>
               </div>
             </div>
@@ -110,4 +124,11 @@ export default function General() {
       )}
     </>
   );
+}
+
+async function getYourDataFunction(): Promise<
+  SuccessGeneralResponse | ErrorGeneralResponse
+> {
+  const data = await fetchGeneralData();
+  return data;
 }
