@@ -43,7 +43,7 @@ const LoadingMessages: React.FC<LoadingMessagesProps> = ({
               <br />
               <span className="text-white">
                 <br />
-                Want to know how much buzz your were able to create in the
+                Want to know how much buzz you were able to create in the
                 community?
               </span>
             </div>

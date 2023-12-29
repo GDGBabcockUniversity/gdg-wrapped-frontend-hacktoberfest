@@ -35,9 +35,6 @@ const QuestionPercentile: React.FC<QuestionPercentileProps> = ({
         </div>
       </div>
       <div className="relative flex flex-col ml-32 gap-10 w-4/5 items-start">
-        <div className="text-4xl font-bold leading-[56px] text-[#fabc05] mb-1">
-          Hey there!
-        </div>
         {question !== "Top 1%" &&
           question !== "Top 5%" &&
           question !== "Top 10%" &&
