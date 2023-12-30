@@ -21,7 +21,7 @@ const DawnPatrol: React.FC<DawnPatrolProps> = ({
   return (
     <div
       id="PeakHoursActivityRoot"
-      className="bg-black relative flex flex-col justify-between gap-[149px] w-full font-['Inter'] items-start md:pt-12 md:pb-[271px] md:px-24 p-5"
+      className="bg-black relative flex flex-col justify-between gap-[20px] md:gap-[149px] w-full font-['Inter'] items-start md:pt-12 md:pb-[271px] md:px-24 p-5"
     >
       <div className="relative md:flex flex-row justify-between w-full font-['Inter'] items-start md:pl-3 md:pr-16">
         <Image
@@ -29,7 +29,7 @@ const DawnPatrol: React.FC<DawnPatrolProps> = ({
           alt="Vector"
           width={1269}
           height={181}
-          className="w-[1269px] h-10 origin-top-left rotate-[-0.16deg] absolute top-48 left-24"
+          className="w-[1269px] h-10 origin-top-left rotate-[-0.16deg] absolute md:top-48 top-[6.5rem] md:left-24"
         />
         {/* <Image
         src="/yellowprogress.svg"

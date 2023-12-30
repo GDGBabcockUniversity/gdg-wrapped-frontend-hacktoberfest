@@ -15,23 +15,26 @@ const EsteemedObserver: React.FC<EsteemedObserverProps> = ({
   return (
     <div
       id="ResourceCRoot"
-      className="bg-black relative flex flex-col justify-between gap-[177px] w-full font-['Inter'] items-start pt-12 pb-[293px] px-24"
+      className="bg-black relative flex flex-col justify-between md:gap-[177px] w-full font-['Inter'] items-start pt-12 md:pb-[293px] md:px-24"
     >
       <Image
         src="/topprogress.svg"
         alt="Vector"
         width={1269}
         height={181}
-        className="w-[1269px] h-10 origin-top-left rotate-[-0.16deg] absolute top-48 left-24"
+        className="w-[90%] md:w-[1269px] h-10 origin-top-left rotate-[-0.16deg] absolute top-[12rem] md:top-48 md:left-24 left-[5%]"
       />
-      <div className="relative flex flex-row gap-20 w-full items-start">
-        <img src="/logo.png" alt="GDSCBabcockUniversityHorizontalWhite" />
-        <div className="text-3xl font-black leading-[34.8px] text-[#fabc05] mt-5">
-          This is a measure of all the good <br />
+      <div className="relative md:flex flex-row gap-20 w-full items-start">
+        <img src="/logo.png" 
+            alt="GDSCBabcockUniversityHorizontalWhite" 
+            width={500}
+            height={500} />
+        <div className="text-xl md:text-3xl font-black leading-[34.8px] text-[#fabc05] mt-5 md:ml-0 ml-4">
+          This is a measure of all the good <br className="md:block hidden" />
           stuff you have shared with us.
         </div>
       </div>
-      <div className="relative flex flex-col ml-32 gap-20 w-4/5 items-start">
+      <div className="relative flex flex-col mt-10 md:mt-0 ml-4 md:ml-32 md:gap-20 w-full md:w-4/5 items-start">
         {resourcePerc !== "Top 1%" &&
           resourcePerc !== "Top 5%" &&
           resourcePerc !== "Top 10%" &&
@@ -47,7 +50,7 @@ const EsteemedObserver: React.FC<EsteemedObserverProps> = ({
                 Esteemed<span className="font-['Inter'] text-white"> </span>
                 <span className="font-['Inter'] text-[#4286f5]">Observer!</span>
               </div>
-              <div className="text-3xl leading-[42px] text-[#cecece] w-full">
+              <div className="text-xl md:text-3xl md:px-0 leading-[42px] text-[#cecece] w-[95%]">
                 At this point you are our Oga. We live to supply all your
                 resource needs and you no even do giveaway for us. <br />
                 <br />
@@ -61,7 +64,7 @@ const EsteemedObserver: React.FC<EsteemedObserverProps> = ({
             <div className="text-4xl font-bold leading-[56px] text-[#4286f5]">
               Top 1%
             </div>
-            <div className="text-3xl leading-[42px] text-[#cecece]">
+            <div className="text-xl md:text-3xl leading-[42px] text-[#cecece] w-[95%]">
               You are in the top 1% of resource contributors to our community.
               <br />
               With you on board,we can always rest easy. Our ultimate MVP!
@@ -74,7 +77,7 @@ const EsteemedObserver: React.FC<EsteemedObserverProps> = ({
             <div className="text-4xl font-bold leading-[56px] text-[#4286f5]">
               Top 5%
             </div>
-            <div className="text-3xl leading-[42px] text-[#cecece]">
+            <div className="text-xl md:text-3xl leading-[42px] text-[#cecece] w-[95%]">
               You are a top 5% of resource contributors to our community. <br />
               The cream of the crop!
               <br />
@@ -87,7 +90,7 @@ const EsteemedObserver: React.FC<EsteemedObserverProps> = ({
             <div className="text-4xl font-bold leading-[56px] text-[#4286f5]">
               Top 10%
             </div>
-            <div className="text-3xl leading-[42px] text-[#cecece]">
+            <div className="text-xl md:text-3xl leading-[42px] text-[#cecece] w-[95%]">
               You are in the top 10% of resource contributors to our community.
               <br />
               Not just the icing on top, you are the whole treat itself!
@@ -99,7 +102,7 @@ const EsteemedObserver: React.FC<EsteemedObserverProps> = ({
             <div className="text-4xl font-bold leading-[56px] text-[#4286f5]">
               Top 20%
             </div>
-            <div className="text-3xl leading-[42px] text-[#cecece]">
+            <div className="text-xl md:text-3xl leading-[42px] text-[#cecece] w-[95%]">
               You are in the top 20% of resource contributors to our community.
               <br />
               Our tech journey is smooth because of you.
@@ -111,7 +114,7 @@ const EsteemedObserver: React.FC<EsteemedObserverProps> = ({
             <div className="text-4xl font-bold leading-[56px] text-[#4286f5]">
               Top 30%
             </div>
-            <div className="text-3xl leading-[42px] text-[#cecece]">
+            <div className="text-xl md:text-3xl leading-[42px] text-[#cecece] w-[95%]">
               You are in the top 30% of resource contributors to our community.
               <br />
               Thank you for all that you give to us.
@@ -120,7 +123,7 @@ const EsteemedObserver: React.FC<EsteemedObserverProps> = ({
         )}
         <button
           id="Button1"
-          className="bg-[#fabc05] flex flex-row justify-center pt-4 gap-3 w-1/3 h-12 cursor-pointer items-start rounded"
+          className="bg-[#fabc05] w-[95%] md:w-1/3 h-12 cursor-pointer items-start rounded"
           onClick={handleNext}
           style={{ visibility: isbuttonVisible ? "visible" : "hidden" }}
         >
