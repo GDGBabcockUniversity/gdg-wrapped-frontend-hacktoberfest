@@ -81,7 +81,7 @@ export default function General() {
                     .slice(0, 6)
                     .map((member) => (
                       <div key={member.name}>
-                        {member.name} - {member.group_chat}
+                        • {member.name}
                         <br />
                       </div>
                     ))}
@@ -91,7 +91,7 @@ export default function General() {
                     .slice(7)
                     .map((member) => (
                       <div key={member.name}>
-                        {member.name} - {member.group_chat}
+                        • {member.name}
                         <br />
                       </div>
                     ))}
@@ -139,60 +139,46 @@ export default function General() {
           <div className="text-green-600 text-4xl font-bold leading-[56px] ml-14 mt-36 self-start max-md:max-w-full max-md:mt-10">
             Most active members per group
           </div>
-          <div className="self-center w-full max-w-[1224px] mt-11 max-md:max-w-full max-md:mt-10">
-            <div className="gap-5 flex max-md:flex-col max-md:items-stretch max-md:gap-0">
-              <div className="flex flex-col items-stretch w-[51%] max-md:w-full max-md:ml-0">
-                <div className="text-stone-300 text-2xl italic leading-9 mt-3 max-md:max-w-full max-md:mt-10">
+          <div className="relative flex flex-col justify-between ml-8 gap-[117px] w-3/4 items-start">
+            <div className="flex flex-col gap-2 w-full items-start">
+              <div className="flex flex-row ml-px gap-24 w-full items-start">
+                <div className="text-2xl leading-[33.6px] text-[#cecece] ">
                   {general?.most_active_members_per_track
                     .slice(0, 6)
-                    .map((chat, index) => (
-                      <div key={index.toString()}>
-                        <ul>
-                          <li>
-                            • {chat.name}{" "}
-                            <span className="font-bold">
-                              {/* ({chat.group_chat[0]} {chat.group_chat[-1]}) */}
-                            </span>{" "}
-                            -{chat.group_chat}
-                          </li>
-                        </ul>
+                    .map((member) => (
+                      <div key={member.name}>
+                        • {member.group_chat} - {member.name}
+                        <br />
                       </div>
                     ))}
                 </div>
-              </div>
-              <div className="flex flex-col items-stretch w-[49%] ml-5 max-md:w-full max-md:ml-0">
-                <div className="text-stone-300 text-2xl italic leading-10 max-md:max-w-full max-md:mt-8">
+                <div className="text-2xl leading-[33.6px] text-[#cecece] mb-2">
                   {general?.most_active_members_per_track
                     .slice(7)
-                    .map((chat, index) => (
-                      <div key={index.toString()}>
-                        <ul>
-                          <li>
-                            • {chat.name}{" "}
-                            <span className="font-bold">
-                              {/* ({chat.group_chat[0]} {chat.group_chat[-1]}) */}
-                            </span>{" "}
-                            -{chat.group_chat}
-                          </li>
-                        </ul>
+                    .map((member) => (
+                      <div key={member.name}>
+                        •{member.group_chat} - {member.name}
+                        <br />
                       </div>
                     ))}
                 </div>
               </div>
             </div>
-          </div>
-          <button
-            className="justify-center items-center rounded bg-red-500 flex w-[286px] max-w-full flex-col ml-16 mt-20 mb-36 px-16 py-4 self-start max-md:ml-2.5 max-md:my-10 max-md:px-5"
-            onClick={() => {
-              setStep(3);
-            }}
-          >
-            <div className="flex w-[73px] max-w-full items-stretch gap-2">
-              <div className="text-white text-center text-lg leading-6">
+            <button
+              id="Button1"
+              className="bg-[#ea4235] flex flex-row justify-center pt-4 gap-3 w-1/3 h-12 cursor-pointer items-start rounded"
+              onClick={() => {
+                setStep(2);
+              }}
+            >
+              <div
+                id="Label"
+                className="text-center text-lg leading-[24px] text-white"
+              >
                 Next
               </div>
-            </div>
-          </button>
+            </button>
+          </div>
         </div>
       )}
       {isDone && step === 3 && (
