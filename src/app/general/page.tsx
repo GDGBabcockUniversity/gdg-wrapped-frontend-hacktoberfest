@@ -119,7 +119,6 @@ export default function General() {
         <div className="bg-black flex flex-col px-20 py-12 max-md:px-5">
           <div className="self-stretch flex items-stretch justify-between gap-5 ml-3.5 max-md:max-w-full max-md:flex-wrap">
             <Image
-              loading="lazy"
               src="/logo.png"
               alt="GDSCBabcockUniversityHorizontalWhite"
               width={655}
@@ -131,7 +130,6 @@ export default function General() {
             </div>
           </div>
           <Image
-            loading="lazy"
             src="/topprogress.svg"
             alt="progress"
             width={1269}

@@ -30,13 +30,7 @@ const LandingPage: React.FC<LandingPageProps> = ({
         <div className="gap-5 flex max-md:flex-col max-md:items-stretch max-md:gap-0">
           <div className="flex flex-col items-stretch w-[65%] max-md:w-full max-md:ml-0">
             <div className="flex grow flex-col max-md:max-w-full max-md:mt-10">
-              <Image
-                loading="lazy"
-                src="/logo.png"
-                alt="GDS Logo"
-                width={655}
-                height={100}
-              />
+              <Image src="/logo.png" alt="GDS Logo" width={655} height={100} />
               <div className="text-white text-5xl font-bold self-stretch mt-32 max-md:max-w-full max-md:text-4xl max-md:mt-10">
                 <span className="font-medium">
                   Please type in your WhatsApp phone number to view your
@@ -50,7 +44,6 @@ const LandingPage: React.FC<LandingPageProps> = ({
               </div>
               <div className="md:hidden flex flex-col items-stretch w-[35%] ml-5 max-md:w-full max-md:ml-0">
                 <Image
-                  loading="lazy"
                   alt="Woman Vector"
                   width={500}
                   height={500}
@@ -76,7 +69,6 @@ const LandingPage: React.FC<LandingPageProps> = ({
           </div>
           <div className="hidden md:flex md:flex-col md:items-stretch w-[35%] ml-5 max-md:w-full max-md:ml-0">
             <Image
-              loading="lazy"
               alt="Woman Vector"
               width={500}
               height={500}
