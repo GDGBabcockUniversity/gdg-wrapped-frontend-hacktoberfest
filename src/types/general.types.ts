@@ -16,6 +16,7 @@ interface MemberActivity {
   phone_number: string;
   message_count: number;
   group_chat: string;
+  name: string;
 }
 
 export interface Data {
@@ -30,7 +31,6 @@ export interface SuccessGeneralResponse {
   success: boolean;
   error?: string;
 }
-
 
 export interface DataMember {
   number_of_messages_sent: number;

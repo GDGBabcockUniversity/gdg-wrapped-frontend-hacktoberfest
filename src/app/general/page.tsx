@@ -80,8 +80,8 @@ export default function General() {
                   {general?.most_active_members_per_track
                     .slice(0, 6)
                     .map((member) => (
-                      <div key={member.phone_number}>
-                        {member.phone_number} - {member.group_chat}
+                      <div key={member.name}>
+                        {member.name} - {member.group_chat}
                         <br />
                       </div>
                     ))}
@@ -90,8 +90,8 @@ export default function General() {
                   {general?.most_active_members_per_track
                     .slice(7)
                     .map((member) => (
-                      <div key={member.phone_number}>
-                        {member.phone_number} - {member.group_chat}
+                      <div key={member.name}>
+                        {member.name} - {member.group_chat}
                         <br />
                       </div>
                     ))}
@@ -149,7 +149,7 @@ export default function General() {
                       <div key={index.toString()}>
                         <ul>
                           <li>
-                            • {chat.phone_number}{" "}
+                            • {chat.name}{" "}
                             <span className="font-bold">
                               {/* ({chat.group_chat[0]} {chat.group_chat[-1]}) */}
                             </span>{" "}
@@ -168,7 +168,7 @@ export default function General() {
                       <div key={index.toString()}>
                         <ul>
                           <li>
-                            • {chat.phone_number}{" "}
+                            • {chat.name}{" "}
                             <span className="font-bold">
                               {/* ({chat.group_chat[0]} {chat.group_chat[-1]}) */}
                             </span>{" "}
