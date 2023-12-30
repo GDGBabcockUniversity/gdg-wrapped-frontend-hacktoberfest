@@ -22,7 +22,7 @@ interface MemberActivity {
 export interface Data {
   most_active_group: MostActiveGroup;
   most_active_time: MostActiveTime;
-  most_active_members: MostActiveMembers;
+  most_active_members: MostActiveMembers[];
   most_active_members_per_track: MemberActivity[];
 }
 
