@@ -168,7 +168,7 @@ export default function General() {
               id="Button1"
               className="bg-[#ea4235] flex flex-row justify-center pt-4 gap-3 w-1/3 h-12 cursor-pointer items-start rounded"
               onClick={() => {
-                setStep(2);
+                setStep(3);
               }}
             >
               <div
