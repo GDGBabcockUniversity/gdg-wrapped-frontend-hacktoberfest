@@ -78,7 +78,6 @@ export default function Home() {
     setStep(2);
     setIsLoading(true);
     const response = await fetchMemberDataInfo(phoneNumber);
-    console.log(response);
 
     if (!response.success) {
       toast.error((response as SuccessMemberResponse).error);
@@ -120,7 +119,8 @@ export default function Home() {
       {member?.peak_hour && member.peak_hour >= 19 && step === 3 && (
         <DawnPatrol
           hour={member?.peak_hour}
-          setHour={() => console.log("hey")}
+          setHour={() => console.log()}
+          isbuttonVisible={true}
           hanldeNext={() => setStep(4)}
         />
       )}
@@ -133,6 +133,7 @@ export default function Home() {
       {member?.messages_top_perc && isDoneForResource && step === 4 && (
         <EsteemedObserver
           resourcePerc={member?.resources_top_perc}
+          isbuttonVisible={true}
           handleNext={() => setStep(5)}
         />
       )}
@@ -147,6 +148,7 @@ export default function Home() {
       {member?.questions_top_perc && isDoneForQuestion && step === 5 && (
         <QuestionPercentile
           question={member?.questions_top_perc}
+          isbuttonVisible={true}
           handleNext={() => setStep(6)}
         />
       )}
@@ -159,6 +161,7 @@ export default function Home() {
       {member?.messages_top_perc && step === 6 && isDoneForMessages && (
         <MessagesPerc
           messages={member?.messages_top_perc}
+          isbuttonVisible={true}
           handleNext={() => setStep(7)}
         />
       )}
@@ -175,6 +178,7 @@ export default function Home() {
         step === 7 && (
           <MessagesImpact
             messageimpact={member?.message_impact_top_perc}
+            isbuttonVisible={true}
             handleNext={() => setStep(8)}
           />
         )}

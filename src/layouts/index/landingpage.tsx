@@ -37,7 +37,7 @@ const LandingPage: React.FC<LandingPageProps> = ({
                 width={655}
                 height={100}
               />
-              <div className="text-white-600 text-5xl font-bold self-stretch mt-32 max-md:max-w-full max-md:text-4xl max-md:mt-10">
+              <div className="text-white text-5xl font-bold self-stretch mt-32 max-md:max-w-full max-md:text-4xl max-md:mt-10">
                 <span className="font-medium">
                   Please type in your WhatsApp phone number to view your
                   personalized{" "}

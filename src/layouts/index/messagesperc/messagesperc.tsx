@@ -4,10 +4,12 @@ import { useState } from "react";
 type MessagesPercProps = {
   messages: string;
   handleNext: () => void;
+  isbuttonVisible: boolean;
 };
 const MessagesPerc: React.FC<MessagesPercProps> = ({
   messages: messagesProp,
   handleNext,
+  isbuttonVisible,
 }) => {
   const [messages, setMessages] = useState<string>(messagesProp);
   return (
@@ -139,6 +141,7 @@ const MessagesPerc: React.FC<MessagesPercProps> = ({
           id="Button1"
           className="bg-[#fabc05] flex flex-row justify-center pt-4 gap-3 w-1/3 h-12 cursor-pointer font-['Inter'] items-start rounded"
           onClick={handleNext}
+          style={{ visibility: isbuttonVisible ? "visible" : "hidden" }}
         >
           <div
             id="Label"

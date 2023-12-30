@@ -4,11 +4,13 @@ import { useState } from "react";
 type MessagesImpactProps = {
   messageimpact: string;
   handleNext: () => void;
+  isbuttonVisible: boolean;
 };
 
 const MessagesImpact: React.FC<MessagesImpactProps> = ({
   messageimpact: messageimpactProp,
   handleNext,
+  isbuttonVisible,
 }) => {
   const [messageimpact, setMessageImpact] = useState<string>(messageimpactProp);
   return (
@@ -147,6 +149,7 @@ const MessagesImpact: React.FC<MessagesImpactProps> = ({
           id="Button1"
           className="bg-[#4286f5] flex flex-row justify-center pt-4 gap-3 w-1/3 h-12 cursor-pointer font-['Inter'] items-start rounded"
           onClick={handleNext}
+          style={{ visibility: isbuttonVisible ? "visible" : "hidden" }}
         >
           <div
             id="Label"

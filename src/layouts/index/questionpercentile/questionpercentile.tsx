@@ -4,11 +4,13 @@ import { useState } from "react";
 type QuestionPercentileProps = {
   question: string;
   handleNext: () => void;
+  isbuttonVisible: boolean;
 };
 
 const QuestionPercentile: React.FC<QuestionPercentileProps> = ({
   question: questionProp,
   handleNext,
+  isbuttonVisible,
 }) => {
   const [question, setQuestion] = useState<string>(questionProp);
   return (
@@ -124,6 +126,7 @@ const QuestionPercentile: React.FC<QuestionPercentileProps> = ({
           id="Button1"
           className="bg-[#34a853] flex flex-row justify-center pt-4 gap-3 w-1/3 h-12 cursor-pointer font-['Inter'] items-start rounded"
           onClick={() => handleNext()}
+          style={{ visibility: isbuttonVisible ? "visible" : "hidden" }}
         >
           <div
             id="Label"

@@ -3,10 +3,12 @@ import React from "react";
 type EsteemedObserverProps = {
   resourcePerc: string;
   handleNext: () => void;
+  isbuttonVisible: boolean;
 };
 const EsteemedObserver: React.FC<EsteemedObserverProps> = ({
   resourcePerc: resourcePercProp,
   handleNext,
+  isbuttonVisible,
 }) => {
   const [resourcePerc, setResourcePerc] =
     React.useState<string>(resourcePercProp);
@@ -120,6 +122,7 @@ const EsteemedObserver: React.FC<EsteemedObserverProps> = ({
           id="Button1"
           className="bg-[#fabc05] flex flex-row justify-center pt-4 gap-3 w-1/3 h-12 cursor-pointer items-start rounded"
           onClick={handleNext}
+          style={{ visibility: isbuttonVisible ? "visible" : "hidden" }}
         >
           <div
             id="Label"

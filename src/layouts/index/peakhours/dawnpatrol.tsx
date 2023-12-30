@@ -3,6 +3,7 @@ import React, { use, useEffect } from "react";
 type DawnPatrolProps = {
   style?: React.CSSProperties;
   hour: number;
+  isbuttonVisible: boolean;
   setHour: (value: number) => void;
   hanldeNext: () => void;
 };
@@ -11,6 +12,7 @@ const DawnPatrol: React.FC<DawnPatrolProps> = ({
   hour: hourProp,
   setHour: setHourProp,
   hanldeNext,
+  isbuttonVisible,
 }) => {
   const [hour, setHour] = React.useState<number>(hourProp);
   useEffect(() => {
@@ -157,6 +159,7 @@ const DawnPatrol: React.FC<DawnPatrolProps> = ({
           id="Button1"
           className="bg-[#4286f5] md:w-1/3 h-12 cursor-pointer font-['Inter'] rounded w-full mt-2 md:mt-0"
           onClick={hanldeNext}
+          style={{ visibility: isbuttonVisible ? "visible" : "hidden" }}
         >
           <div
             id="Label"

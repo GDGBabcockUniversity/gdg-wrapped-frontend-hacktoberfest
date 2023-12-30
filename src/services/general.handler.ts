@@ -33,7 +33,6 @@ export async function fetchMemberData(
   number: string
 ): Promise<SuccessMemberResponse> {
   number = formatPhoneNumber(number);
-  console.log("number is ", number);
   try {
     const response = await axios.get<SuccessMemberResponse>(
       `https://gdsc-wrapped.onrender.com/2023/member/${number}`

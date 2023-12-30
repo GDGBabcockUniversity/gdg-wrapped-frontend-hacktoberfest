@@ -82,13 +82,11 @@ const VideoPage: React.FC = () => {
   async function fetchData(numbers: string) {
     if (numbers.length < 11) {
       toast.error("Please enter a valid phone number");
-      console.log("Please enter a valid phone number" + numbers);
       return;
     }
     setStep(2);
     setIsLoading(true);
     const response = await fetchMemberDataInfo(numbers);
-    console.log(response);
 
     if (!response.success) {
       toast.error((response as SuccessMemberResponse).error);
@@ -111,7 +109,7 @@ const VideoPage: React.FC = () => {
           phoneNumber={phoneNumber}
           setPhoneNumber={setPhoneNumber}
           handleSubmit={() => fetchData(phoneNumber)}
-          style={isLoading ? { display: "none" } : { display: "block" }}
+          style={isLoading ? { display: "hi" } : { display: "block" }}
         />
       )}
       {isLoading && step === 2 && (
@@ -132,6 +130,7 @@ const VideoPage: React.FC = () => {
           hour={member?.peak_hour}
           setHour={() => console.log("hey")}
           hanldeNext={() => setStep(4)}
+          isbuttonVisible={false}
         />
       )}
       {member?.messages_top_perc && !isDoneForResource && step === 4 && (
@@ -143,6 +142,7 @@ const VideoPage: React.FC = () => {
       {member?.messages_top_perc && isDoneForResource && step === 4 && (
         <EsteemedObserver
           resourcePerc={member?.resources_top_perc}
+          isbuttonVisible={false}
           handleNext={() => setStep(5)}
         />
       )}
@@ -157,6 +157,7 @@ const VideoPage: React.FC = () => {
       {member?.questions_top_perc && isDoneForQuestion && step === 5 && (
         <QuestionPercentile
           question={member?.questions_top_perc}
+          isbuttonVisible={false}
           handleNext={() => setStep(6)}
         />
       )}
@@ -169,6 +170,7 @@ const VideoPage: React.FC = () => {
       {member?.messages_top_perc && step === 6 && isDoneForMessages && (
         <MessagesPerc
           messages={member?.messages_top_perc}
+          isbuttonVisible={false}
           handleNext={() => setStep(7)}
         />
       )}
@@ -185,6 +187,7 @@ const VideoPage: React.FC = () => {
         step === 7 && (
           <MessagesImpact
             messageimpact={member?.message_impact_top_perc}
+            isbuttonVisible={false}
             handleNext={() => setStep(8)}
           />
         )}
