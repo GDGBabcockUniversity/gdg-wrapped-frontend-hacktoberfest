@@ -129,7 +129,7 @@ export default function General() {
                     .slice(0, 6)
                     .map((member) => (
                       <div key={member.name}>
-                        • {member.group_chat} - {member.name}
+                        • {member.name} - {member.group_chat}
                         <br />
                       </div>
                     ))}
@@ -139,7 +139,7 @@ export default function General() {
                     .slice(7)
                     .map((member) => (
                       <div key={member.name}>
-                        • {member.group_chat} - {member.name}
+                        • {member.name} - {member.group_chat}
                         <br />
                       </div>
                     ))}
