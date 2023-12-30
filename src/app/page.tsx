@@ -23,6 +23,7 @@ import MessagesPerc from "@/layouts/index/messagesperc/messagesperc";
 import LoadingMessagesImpact from "@/layouts/index/messagesimpact/loading";
 import MessagesImpact from "@/layouts/index/messagesimpact/messagesimpact";
 import SharePage from "@/layouts/index/share/share";
+import Head from "next/head";
 
 export default function Home() {
   const [phoneNumber, setPhoneNumber] = useState<string>("");
@@ -95,25 +96,15 @@ export default function Home() {
   return (
     <>
       <ToastContainer />
+
+      {isLoading && step === 2 && (
+        <SitTight isDone={isDone} setIsDone={setIsDone} />
+      )}
       {!isLoading && step === 1 && (
         <LandingPage
           phoneNumber={phoneNumber}
           setPhoneNumber={setPhoneNumber}
           handleSubmit={fetchData}
-          style={isLoading ? { display: "none" } : { display: "block" }}
-        />
-      )}
-      {isLoading && step === 2 && (
-        <SitTight
-          style={
-            isLoading
-              ? {
-                  display: "block",
-                }
-              : { display: "none" }
-          }
-          isDone={isDone}
-          setIsDone={setIsDone}
         />
       )}
       {member?.peak_hour && step === 3 && (
