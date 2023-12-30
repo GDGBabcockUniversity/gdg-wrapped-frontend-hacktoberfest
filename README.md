@@ -33,11 +33,11 @@ npm run dev
 ### To create an optimized build :
 
 ```sh
-npm run build
+npx next build
 ```
 
 ### To start the application in production mode:
 
 ```sh
-npm start
+npx next start
 ```
