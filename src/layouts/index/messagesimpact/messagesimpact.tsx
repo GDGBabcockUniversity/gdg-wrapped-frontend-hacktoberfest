@@ -16,16 +16,16 @@ const MessagesImpact: React.FC<MessagesImpactProps> = ({
   return (
     <div
       id="TopMessageRoot"
-      className="bg-black relative flex flex-col justify-between gap-[177px] w-full font-['Inter'] items-start pt-12 pb-[369px] px-24"
+      className="bg-black relative flex flex-col justify-between gap-[90px] md:gap-[177px] w-full font-['Inter'] items-start pt-12 md:pb-[369px] md:px-24"
     >
       <Image
         src="/topprogress.svg"
         alt="Vector"
         width={1269}
         height={181}
-        className="w-[1269px] h-10 origin-top-left rotate-[-0.16deg] absolute top-48 left-24"
+        className="w-[90%] md:w-[1269px] h-10 origin-top-left rotate-[-0.16deg] absolute top-[12rem] md:top-48 md:left-24 left-[5%]"
       />
-      <div className="relative flex flex-row justify-between w-full items-start">
+      <div className="relative md:flex flex-row gap-20 w-full items-start">
         <Image
           src="/logo.png"
           alt="GDSCBabcockUniversityHorizontalWhite"
@@ -34,12 +34,12 @@ const MessagesImpact: React.FC<MessagesImpactProps> = ({
         />
         <div
           id="MESSAGEIMPACT"
-          className="text-3xl font-black leading-[34.8px] text-[#4286f5] mt-8"
+          className="md:text-start text-center text-3xl font-black leading-[34.8px] text-[#4286f5] mt-8"
         >
           MESSAGE IMPACT{" "}
         </div>
       </div>
-      <div className="relative flex flex-col ml-32 gap-12 w-3/4 items-start">
+      <div className="relative flex flex-col mt-10 md:mt-0 ml-4 md:ml-32 md:gap-20 w-full md:w-4/5 items-start">
         {messageimpact !== "Top 1%" &&
           messageimpact !== "Top 5%" &&
           messageimpact !== "Top 10%" &&
@@ -55,7 +55,7 @@ const MessagesImpact: React.FC<MessagesImpactProps> = ({
                 Ghost<span className="font-['Inter'] text-white"> </span>
                 <span className="font-['Inter'] text-[#fabc05]">Writer!</span>
               </div>
-              <div className="text-3xl leading-[42px] text-[#cecece]">
+              <div className="text-xl md:text-3xl leading-[42px] text-[#cecece]">
                 We didn’t feel you this year as much as we would have loved to.
                 <br />
                 <br />
@@ -72,7 +72,7 @@ const MessagesImpact: React.FC<MessagesImpactProps> = ({
                 Oga Patapata of Tech!
               </span>
             </div>
-            <div className="text-3xl leading-[42px] text-[#cecece] mb-[-21px] w-full">
+            <div className="text-xl md:text-3xl leading-[42px] text-[#cecece] md:mb-[-21px] w-full">
               You carry this community on your shoulders by showing us that
               sharing is caring. <br />
               <br />
@@ -89,7 +89,7 @@ const MessagesImpact: React.FC<MessagesImpactProps> = ({
                 Tech Titan!
               </span>
             </div>
-            <div className="text-3xl leading-[42px] text-[#cecece]">
+            <div className="text-xl md:text-3xl leading-[42px] text-[#cecece]">
               You are the one who always knows the right things to send our way.
               <br />
               <br />
@@ -105,7 +105,7 @@ const MessagesImpact: React.FC<MessagesImpactProps> = ({
                 Tech Pepper!
               </span>
             </div>
-            <div className="text-3xl leading-[42px] text-[#cecece]">
+            <div className="text-xl md:text-3xl leading-[42px] text-[#cecece]">
               You have Stack Overflow memorized to a T. <br />
               <br />
               Thank you for contributing to the progress of this community!
@@ -122,7 +122,7 @@ const MessagesImpact: React.FC<MessagesImpactProps> = ({
                 Tech Terminator!
               </span>
             </div>
-            <div className="text-3xl leading-[42px] text-[#cecece]">
+            <div className="text-xl md:text-3xl leading-[42px] text-[#cecece]">
               When our code misbehaves, you are there to make it behave. <br />
               <br />
               Thank you for sharing with us.
@@ -137,7 +137,7 @@ const MessagesImpact: React.FC<MessagesImpactProps> = ({
                 Tech Whisperer!
               </span>
             </div>
-            <div className="text-3xl leading-[42px] text-[#cecece]">
+            <div className="text-xl md:text-3xl leading-[42px] text-[#cecece]">
               You have gone to great lengths to bring knowledge our way.
               <br />
               <br />
@@ -147,7 +147,7 @@ const MessagesImpact: React.FC<MessagesImpactProps> = ({
         )}
         <button
           id="Button1"
-          className="bg-[#4286f5] flex flex-row justify-center pt-4 gap-3 w-1/3 h-12 cursor-pointer font-['Inter'] items-start rounded"
+          className="bg-[#4286f5] w-[95%] md:w-1/3 h-12 cursor-pointer items-start rounded"
           onClick={handleNext}
           style={{ visibility: isbuttonVisible ? "visible" : "hidden" }}
         >

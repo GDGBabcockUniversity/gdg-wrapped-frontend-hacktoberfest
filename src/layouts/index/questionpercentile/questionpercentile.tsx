@@ -55,10 +55,10 @@ const QuestionPercentile: React.FC<QuestionPercentileProps> = ({
 
         {question === "Top 1%" && (
           <>
-            <div className="text-xl md:text-3xl font-bold leading-[56px] text-[#fabc05]">
+            <div className="text-4xl font-bold leading-[56px] text-[#fabc05]">
               Top 1%
             </div>
-            <div className="text-3xl leading-[42px] text-[#cecece]">
+            <div className="text-xl md:text-3xl leading-[42px] text-[#cecece]">
               You are in the top 1% of those who ask questions in our group
               chats! <br />
               <br />
@@ -69,10 +69,10 @@ const QuestionPercentile: React.FC<QuestionPercentileProps> = ({
 
         {question === "Top 5%" && (
           <>
-            <div className="text-xl md:text-3xl font-bold leading-[56px] text-[#fabc05]">
+            <div className="text-4xl font-bold leading-[56px] text-[#fabc05]">
               Top 5%
             </div>
-            <div className="text-3xl leading-[42px] text-[#cecece] ml-px">
+            <div className="text-xl md:text-3xl leading-[42px] text-[#cecece] ml-px">
               You are in the top 5% of those who ask questions in our group
               chats! <br />
               <br />
@@ -83,10 +83,10 @@ const QuestionPercentile: React.FC<QuestionPercentileProps> = ({
 
         {question === "Top 10%" && (
           <>
-            <div className="text-xl md:text-3xl font-bold leading-[56px] text-[#fabc05]">
+            <div className="text-4xl font-bold leading-[56px] text-[#fabc05]">
               Top 10%
             </div>
-            <div className="text-3xl leading-[42px] text-[#cecece]">
+            <div className="text-xl md:text-3xl leading-[42px] text-[#cecece]">
               You are in the top 10% of those who ask questions in our group
               chats! <br />
               <br />
@@ -97,10 +97,10 @@ const QuestionPercentile: React.FC<QuestionPercentileProps> = ({
 
         {question === "Top 20%" && (
           <>
-            <div className="text-xl md:text-3xl font-bold leading-[56px] text-[#fabc05]">
+            <div className="text-4xl font-bold leading-[56px] text-[#fabc05]">
               Top 20%
             </div>
-            <div className="text-3xl leading-[42px] text-[#cecece]">
+            <div className="text-xl md:text-3xl leading-[42px] text-[#cecece]">
               You are in the top 20% of those who ask questions in our group
               chats! <br />
               <br />
@@ -110,10 +110,10 @@ const QuestionPercentile: React.FC<QuestionPercentileProps> = ({
         )}
         {question === "Top 30%" && (
           <>
-            <div className="text-xl md:text-3xl font-bold leading-[56px] text-[#fabc05]">
+            <div className="text-4xl font-bold leading-[56px] text-[#fabc05]">
               Top 30%
             </div>
-            <div className="text-3xl leading-[42px] text-[#cecece]">
+            <div className="text-xl md:text-3xl leading-[42px] text-[#cecece]">
               You are in the top 30% of those who ask questions in our group
               chats! <br />
               <br />

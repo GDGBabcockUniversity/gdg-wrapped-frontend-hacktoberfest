@@ -15,23 +15,25 @@ const MessagesPerc: React.FC<MessagesPercProps> = ({
   return (
     <div
       id="TopMessageRoot"
-      className="bg-black relative flex flex-col justify-between gap-[177px] w-full font-['Inter'] items-start pt-12 pb-[369px] px-24"
+      className="bg-black relative flex flex-col justify-between gap-[90px] md:gap-[177px] w-full font-['Inter'] items-start pt-12 md:pb-[369px] md:px-24"
     >
       <Image
         src="/topprogress.svg"
         alt="Vector"
         width={1269}
         height={181}
-        className="w-[1269px] h-10 origin-top-left rotate-[-0.16deg] absolute top-48 left-24"
+        className="w-[90%] md:w-[1269px] h-10 origin-top-left rotate-[-0.16deg] absolute top-[12rem] md:top-48 md:left-24 left-[5%]"
       />
-
-      <div className="relative flex flex-row justify-between w-full items-start">
-        <img src="/logo.png" alt="GDSCBabcockUniversityHorizontalWhite" />
-        <div className="text-3xl font-black leading-[34.8px] text-[#fabc05] mt-8">
+      <div className="relative md:flex flex-row gap-20 w-full items-start">
+        <img src="/logo.png" 
+            alt="GDSCBabcockUniversityHorizontalWhite" 
+            width={500}
+            height={500} />
+        <div className="text-xl md:text-3xl font-black leading-[34.8px] text-[#fabc05] mt-5 md:ml-0 ml-4">
           CHATTER LEVEL
         </div>
       </div>
-      <div className="relative flex flex-col ml-32 gap-12 w-2/3 items-start">
+      <div className="relative flex flex-col mt-10 md:mt-0 ml-4 md:ml-32 md:gap-20 w-full md:w-4/5 items-start">
         {messages !== "Top 1%" &&
           messages !== "Top 5%" &&
           messages !== "Top 10%" &&
@@ -47,7 +49,7 @@ const MessagesPerc: React.FC<MessagesPercProps> = ({
                 The{" "}
                 <span className="font-['Inter'] text-[#ea4235]">Hoverine!</span>
               </div>
-              <div className="text-3xl leading-[42px] text-[#cecece]">
+              <div className="text-xl md:text-3xl leading-[42px] text-[#cecece]">
                 It’s a cool name for people who never engage in the group.{" "}
                 <br />
                 <br />
@@ -64,7 +66,7 @@ const MessagesPerc: React.FC<MessagesPercProps> = ({
               </span>
               <div className="font-['Inter']">Association.</div>
             </div>
-            <div className="text-3xl leading-[42px] text-[#cecece]">
+            <div className="text-xl md:text-3xl leading-[42px] text-[#cecece]">
               You are in the top 1% of chatterboxes in our community. <br />
               <br />
               Always there to spark gist and discussion and gist for us all.
@@ -76,14 +78,14 @@ const MessagesPerc: React.FC<MessagesPercProps> = ({
             <div className="text-4xl font-bold leading-[56px] text-[#34a853] ml-px">
               <div
                 id="TheNewsFlashRoot"
-                className="text-4xl font-['Inter'] font-bold leading-[56px] text-[#34a853] w-min"
+                className="text-4xl font-['Inter'] font-bold leading-[56px] text-[#34a853] md:w-min"
               >
                 The News <span className="text-[#ea4235]">Flash!</span>
               </div>
 
               <div className="font-['Inter']">Association.</div>
             </div>
-            <div className="text-3xl leading-[42px] text-[#cecece]">
+            <div className="text-xl md:text-3xl leading-[42px] text-[#cecece]">
               You are in the top 5% of chatterboxes in our community. <br />
               <br />
               Always there to spark gist and discussion and gist for us all.
@@ -99,7 +101,7 @@ const MessagesPerc: React.FC<MessagesPercProps> = ({
               Cruise{" "}
               <span className="font-['Inter'] text-[#ea4235]">Director!</span>
             </div>
-            <div className="text-3xl leading-[42px] text-[#cecece]">
+            <div className="text-xl md:text-3xl leading-[42px] text-[#cecece]">
               You are in the top 10% of chatterboxes in our community. <br />
               <br />
               Don’t stop talking.
@@ -114,7 +116,7 @@ const MessagesPerc: React.FC<MessagesPercProps> = ({
             >
               Oga <span className="font-['Inter'] text-[#ea4235]">Radio!</span>
             </div>
-            <div className="text-3xl leading-[42px] text-[#cecece]">
+            <div className="text-xl md:text-3xl leading-[42px] text-[#cecece]">
               You are in the top 20% of chatterboxes in our community. <br />
               <br />
               Don’t stop talking.
@@ -130,7 +132,7 @@ const MessagesPerc: React.FC<MessagesPercProps> = ({
               Dr.{" "}
               <span className="font-['Inter'] text-[#ea4235]">Discourse!</span>
             </div>
-            <div className="text-3xl leading-[42px] text-[#cecece]">
+            <div className="text-xl md:text-3xl leading-[42px] text-[#cecece]">
               You are in the top 30% of chatterboxes in our community. <br />
               <br />
               Don’t stop talking.
@@ -139,7 +141,7 @@ const MessagesPerc: React.FC<MessagesPercProps> = ({
         )}
         <button
           id="Button1"
-          className="bg-[#fabc05] flex flex-row justify-center pt-4 gap-3 w-1/3 h-12 cursor-pointer font-['Inter'] items-start rounded"
+          className="bg-[#fabc05] w-[95%] md:w-1/3 h-12 cursor-pointer items-start rounded"
           onClick={handleNext}
           style={{ visibility: isbuttonVisible ? "visible" : "hidden" }}
         >
