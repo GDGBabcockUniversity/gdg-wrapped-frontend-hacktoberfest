@@ -1,4 +1,5 @@
-import Reace from "react"
+import "@/app/globals.css"
+import React from "react"
 import { Composition } from "remotion"
 import WrappedComposition from "./WrappedComp";
 

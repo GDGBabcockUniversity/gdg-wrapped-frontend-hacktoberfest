@@ -1,8 +1,9 @@
 import { Config } from "@remotion/cli/config";
+import { enableTailwind } from "@remotion/tailwind";
 import path from "path";
 
 Config.overrideWebpackConfig((currentConfig) => {
-  return {
+  return enableTailwind({
     ...currentConfig,
     resolve: {
       ...currentConfig.resolve,
@@ -11,5 +12,5 @@ Config.overrideWebpackConfig((currentConfig) => {
         "@": path.join(process.cwd(), "src"),
       },
     },
-  };
+  });
 });
