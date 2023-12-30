@@ -46,7 +46,7 @@ const LoadingGeneral: React.FC<LoadingGeneralProps> = ({
         <div className="flex flex-row justify-between ml-[873px] w-6 items-start"></div>
         <div className="relative flex flex-row  w-full font-['Inter'] items-start pt-[303px] px-20">
           <div className="text-5xl font-semibold text-[#34a853] absolute top-2 left-px h-[648px] w-full">
-            And now, the section you have been waiting for...
+            And now presenting...
             <br />
             <span className="font-['Inter'] text-white">
               <br />
