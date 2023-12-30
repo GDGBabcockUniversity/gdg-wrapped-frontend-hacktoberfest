@@ -24,9 +24,9 @@ import MessagesImpact from "@/layouts/index/messagesimpact/messagesimpact";
 import SharePage from "@/layouts/index/share/share";
 import { useRouter, useSearchParams } from "next/navigation";
 import { formatPhoneNumber } from "@/utilities/utils";
+import { getFromLocalStorage } from "@/utilities/localstorage";
 
 const VideoPage: React.FC = () => {
-  const router = useRouter();
   const [phoneNumber, setPhoneNumber] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isDone, setIsDone] = useState<boolean>(false);
@@ -39,7 +39,7 @@ const VideoPage: React.FC = () => {
   const [step, setStep] = useState<number>(2);
   const [member, setMember] = useState<DataMember>();
   const searchParams = useSearchParams();
-  var someQueryParam = searchParams.get("number");
+  var someQueryParam = getFromLocalStorage("number", "09131869375");
   someQueryParam = formatPhoneNumber(someQueryParam?.toString()!);
 
   // useEffect(() => {

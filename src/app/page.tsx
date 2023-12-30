@@ -24,6 +24,7 @@ import LoadingMessagesImpact from "@/layouts/index/messagesimpact/loading";
 import MessagesImpact from "@/layouts/index/messagesimpact/messagesimpact";
 import SharePage from "@/layouts/index/share/share";
 import Head from "next/head";
+import { saveToLocalStorage } from "@/utilities/localstorage";
 
 export default function Home() {
   const [phoneNumber, setPhoneNumber] = useState<string>("");
@@ -78,6 +79,7 @@ export default function Home() {
     }
     setStep(2);
     setIsLoading(true);
+    saveToLocalStorage("number", phoneNumber);
     const response = await fetchMemberDataInfo(phoneNumber);
 
     if (!response.success) {
