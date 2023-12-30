@@ -1,10 +1,7 @@
 "use client";
 import LoadingGeneral from "@/layouts/general/loading";
 import { fetchGeneralData } from "@/services/general.handler";
-import {
-  Data,
-  SuccessGeneralResponse,
-} from "@/types/general.types";
+import { Data, SuccessGeneralResponse } from "@/types/general.types";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
@@ -12,6 +9,7 @@ export default function General() {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [isDone, setIsDone] = useState<boolean>(false);
   const [general, setGeneral] = useState<Data>();
+  const [step, setStep] = useState<number>(1);
 
   useEffect(() => {
     async function fetchData() {
@@ -26,7 +24,7 @@ export default function General() {
         <LoadingGeneral setIsDone={setIsDone} isDone={isDone} />
       )}
 
-      {isDone && (
+      {isDone && step === 1 && (
         <div
           id="GeneralRoot"
           className="bg-black relative flex flex-col justify-between gap-48 w-full font-['Inter'] items-start pt-12 pb-[245px] px-32"
@@ -103,6 +101,9 @@ export default function General() {
             <button
               id="Button1"
               className="bg-[#ea4235] flex flex-row justify-center pt-4 gap-3 w-1/3 h-12 cursor-pointer items-start rounded"
+              onClick={() => {
+                setStep(2);
+              }}
             >
               <div
                 id="Label"
@@ -114,13 +115,156 @@ export default function General() {
           </div>
         </div>
       )}
+      {isDone && step === 2 && (
+        <div className="bg-black flex flex-col px-20 py-12 max-md:px-5">
+          <div className="self-stretch flex items-stretch justify-between gap-5 ml-3.5 max-md:max-w-full max-md:flex-wrap">
+            <Image
+              loading="lazy"
+              src="/logo.png"
+              alt="GDSCBabcockUniversityHorizontalWhite"
+              width={655}
+              height={100}
+              className="aspect-[6.62] object-contain object-center w-[655px] overflow-hidden max-md:max-w-full"
+            />
+            <div className="text-red-500 text-3xl font-black leading-9 self-center grow shrink basis-auto my-auto max-md:max-w-full">
+              GDSC BABCOCK WRAPPED
+            </div>
+          </div>
+          <Image
+            loading="lazy"
+            src="/topprogress.svg"
+            alt="progress"
+            width={1269}
+            height={181}
+            className="aspect-[181.29] object-contain object-center w-[1269px] overflow-hidden self-center ml-3.5 mt-10 max-md:max-w-full max-md:mt-10"
+          />
+          <div className="text-green-600 text-4xl font-bold leading-[56px] ml-14 mt-36 self-start max-md:max-w-full max-md:mt-10">
+            Most active members per group
+          </div>
+          <div className="self-center w-full max-w-[1224px] mt-11 max-md:max-w-full max-md:mt-10">
+            <div className="gap-5 flex max-md:flex-col max-md:items-stretch max-md:gap-0">
+              <div className="flex flex-col items-stretch w-[51%] max-md:w-full max-md:ml-0">
+                <div className="text-stone-300 text-2xl italic leading-9 mt-3 max-md:max-w-full max-md:mt-10">
+                  {general?.most_active_members_per_track
+                    .slice(0, 6)
+                    .map((chat, index) => (
+                      <div key={index.toString()}>
+                        <ul>
+                          <li>
+                            • {chat.phone_number}{" "}
+                            <span className="font-bold">
+                              {/* ({chat.group_chat[0]} {chat.group_chat[-1]}) */}
+                            </span>{" "}
+                            -{chat.group_chat}
+                          </li>
+                        </ul>
+                      </div>
+                    ))}
+                </div>
+              </div>
+              <div className="flex flex-col items-stretch w-[49%] ml-5 max-md:w-full max-md:ml-0">
+                <div className="text-stone-300 text-2xl italic leading-10 max-md:max-w-full max-md:mt-8">
+                  {general?.most_active_members_per_track
+                    .slice(7)
+                    .map((chat, index) => (
+                      <div key={index.toString()}>
+                        <ul>
+                          <li>
+                            • {chat.phone_number}{" "}
+                            <span className="font-bold">
+                              {/* ({chat.group_chat[0]} {chat.group_chat[-1]}) */}
+                            </span>{" "}
+                            -{chat.group_chat}
+                          </li>
+                        </ul>
+                      </div>
+                    ))}
+                </div>
+              </div>
+            </div>
+          </div>
+          <button
+            className="justify-center items-center rounded bg-red-500 flex w-[286px] max-w-full flex-col ml-16 mt-20 mb-36 px-16 py-4 self-start max-md:ml-2.5 max-md:my-10 max-md:px-5"
+            onClick={() => {
+              setStep(3);
+            }}
+          >
+            <div className="flex w-[73px] max-w-full items-stretch gap-2">
+              <div className="text-white text-center text-lg leading-6">
+                Next
+              </div>
+            </div>
+          </button>
+        </div>
+      )}
+      {isDone && step === 3 && (
+        <div
+          id="GeneralRoot"
+          className="bg-black relative flex flex-col justify-between gap-[146px] w-full font-['Inter'] items-start pt-12 pb-[237px] px-20"
+        >
+          <Image
+            src="/topprogress.svg"
+            alt="Vector"
+            width={1269}
+            height={181}
+            className="w-[1269px] h-10 origin-top-left rotate-[-0.16deg] absolute top-48 left-24"
+          />
+          <div className="relative flex flex-row justify-between ml-12 w-full items-start">
+            <Image
+              src="/logo.png"
+              alt="GDSCBabcockUniversityHorizontalWhite"
+              width={655}
+              height={100}
+            />
+            <div className="text-3xl font-black leading-[34.8px] text-[#ea4235] mt-5">
+              GDSC BABCOCK WRAPPED
+            </div>
+          </div>
+          <div className="relative flex flex-col ml-[114px] gap-20 w-2/3 items-start">
+            <div className="flex flex-col gap-10 w-full items-start">
+              <div className="text-4xl font-bold leading-[56px] text-[#34a853]">
+                The most active track in GDSC Babcock is <br />
+                the{" "}
+                <span className="font-['Inter'] text-[#ea4235]">
+                  {general?.most_active_group.group} Development
+                </span>
+                <div className="font-['Inter']"> Track!</div>
+              </div>
+              <div className="text-3xl leading-[42px] text-[#cecece] ml-1 w-full font-['Inter']">
+                Under the leadership of{" "}
+                <span className="font-bold">Onuada Alfred </span>
+                {/* integrate when data is ready */}
+                <div>and</div>
+                <span className="font-bold"> Falomo Sharon </span>{" "}
+                {/* integrate when data is ready */}
+                <div>
+                  this team has flourished by sparking intellectual discourse
+                  and generally impacting the lives of their team members.{" "}
+                  <br />
+                  <br />
+                  Cheers to the Web guys!
+                </div>
+              </div>
+            </div>
+            <button
+              id="Button1"
+              className="bg-[#ea4235] flex flex-row justify-center ml-1 pt-4 gap-3 w-1/3 h-12 cursor-pointer items-start rounded"
+            >
+              <div
+                id="Label"
+                className="text-center text-lg leading-[24px] text-white"
+              >
+                Done
+              </div>
+            </button>
+          </div>
+        </div>
+      )}
     </>
   );
 }
 
-async function FetchGeneralData(): Promise<
-  SuccessGeneralResponse 
-> {
+async function FetchGeneralData(): Promise<SuccessGeneralResponse> {
   const data = await fetchGeneralData();
   return data;
 }

@@ -26,10 +26,10 @@ const DawnPatrol: React.FC<DawnPatrolProps> = ({
       <div className="relative md:flex flex-row justify-between w-full font-['Inter'] items-start md:pl-3 md:pr-16">
         <Image
           src="/topprogress.svg"
-          alt="blueprogress"
-          height={6}
-          width={1730}
-          className="w-[1730px] h-1.5 origin-top-left rotate-[-0.32deg] absolute top-[147.0733642578125px] left-0"
+          alt="Vector"
+          width={1269}
+          height={181}
+          className="w-[1269px] h-10 origin-top-left rotate-[-0.16deg] absolute top-48 left-24"
         />
         {/* <Image
         src="/yellowprogress.svg"

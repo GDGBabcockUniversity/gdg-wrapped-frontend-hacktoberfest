@@ -17,14 +17,14 @@ const EsteemedObserver: React.FC<EsteemedObserverProps> = ({
       id="ResourceCRoot"
       className="bg-black relative flex flex-col justify-between gap-[177px] w-full font-['Inter'] items-start pt-12 pb-[293px] px-24"
     >
+      <Image
+        src="/topprogress.svg"
+        alt="Vector"
+        width={1269}
+        height={181}
+        className="w-[1269px] h-10 origin-top-left rotate-[-0.16deg] absolute top-48 left-24"
+      />
       <div className="relative flex flex-row gap-20 w-full items-start">
-        <Image
-          src="/topprogress.svg"
-          alt="blueprogress"
-          height={6}
-          width={500}
-          className="w-auto h-1.5 origin-top-left rotate-[-0.32deg] absolute top-[147.0733642578125px] left-0"
-        />
         <img src="/logo.png" alt="GDSCBabcockUniversityHorizontalWhite" />
         <div className="text-3xl font-black leading-[34.8px] text-[#fabc05] mt-5">
           This is a measure of all the good <br />
