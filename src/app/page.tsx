@@ -116,7 +116,7 @@ export default function Home() {
           setIsDone={setIsDone}
         />
       )}
-      {member?.peak_hour && member.peak_hour >= 19 && step === 3 && (
+      {member?.peak_hour && step === 3 && (
         <DawnPatrol
           hour={member?.peak_hour}
           setHour={() => console.log()}
