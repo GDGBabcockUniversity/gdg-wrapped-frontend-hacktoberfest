@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import { useEffect, useState } from "react";
 import {
   Data,
@@ -13,7 +12,6 @@ import SitTight from "@/layouts/index/sittight";
 import DawnPatrol from "@/layouts/index/peakhours/dawnpatrol";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Console } from "console";
 import LoadingResource from "@/layouts/index/resourcecontributors/loading";
 import EsteemedObserver from "@/layouts/index/resourcecontributors/esteemedobserver";
 import LoadingQuestionPercentile from "@/layouts/index/questionpercentile/loading";
@@ -23,9 +21,9 @@ import MessagesPerc from "@/layouts/index/messagesperc/messagesperc";
 import LoadingMessagesImpact from "@/layouts/index/messagesimpact/loading";
 import MessagesImpact from "@/layouts/index/messagesimpact/messagesimpact";
 import SharePage from "@/layouts/index/share/share";
-import Head from "next/head";
 import { saveToLocalStorage } from "@/utilities/localstorage";
 import StoryBar from "./StoryBar";
+import General from "./general/page";
 
 export default function Home() {
   const [phoneNumber, setPhoneNumber] = useState<string>("");
@@ -39,7 +37,7 @@ export default function Home() {
 
   const [step, setStep] = useState<number>(1);
   const [member, setMember] = useState<DataMember>();
-  const totalSteps = 8; // Define the total number of steps
+  const totalSteps = 9; // Define the total number of steps
   const [currentStep, setCurrentStep] = useState<number>(0); // State to track the current step
 
   // Function to simulate changing the current step
@@ -189,7 +187,8 @@ export default function Home() {
             handleNext={() => setStep(8)}
           />
         )}
-      {step === 8 && <SharePage />}
+      {step === 8 && <General handleDoneGeneral={() => setStep(9)} />}
+      {step === 9 && <SharePage />}
     </>
   );
 }
@@ -198,5 +197,10 @@ async function fetchMemberDataInfo(
   phoneNumber: string
 ): Promise<SuccessMemberResponse> {
   const data = await fetchMemberData(phoneNumber);
+  return data;
+}
+
+async function FetchGeneralData(): Promise<SuccessGeneralResponse> {
+  const data = await fetchGeneralData();
   return data;
 }
