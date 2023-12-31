@@ -36,7 +36,7 @@ export default function General() {
             width={1269}
             height={181}
             loading="eager"
-            className="md:w-[1269px] w-[90%] h-10 origin-top-left rotate-[-0.16deg] absolute top-48 left-[5%] md:left-24"
+            className="md:w-[1269px] w-[90%] h-10 origin-top-left rotate-[-0.16deg] absolute top-[10rem] md:top-48 left-[5%] md:left-24"
           />
           <div className="relative md:flex flex-row justify-between ml-4 w-full items-start">
             <Image
@@ -44,20 +44,21 @@ export default function General() {
               alt="GDSCBabcockUniversityHorizontalWhite"
               width={655}
               height={100}
+              className="w-[90%]"
             />
-            <div className="text-3xl font-black leading-[34.8px] text-[#ea4235] mt-5">
-              GENERAL GDSC
-              <br />
+            <div className="text-xl md:text-3xl font-black leading-[34.8px] text-[#ea4235] mt-5">
+              GENERAL GDSC <span className="md:hidden"> </span>
+              <br className="hidden md:block" />
               BABCOCK WRAPPED
             </div>
           </div>
-          <div className="relative flex flex-col justify-between ml-8 gap-[117px] md:w-3/4 items-start">
+          <div className="relative flex flex-col justify-between ml-8 gap-[60px] md:gap-[117px] md:w-3/4 mt-[20px] md:mt-0 items-start">
             <div className="flex flex-col gap-2 w-full items-start mt-10">
-              <div className="text-4xl font-bold leading-[56px] text-[#34a853]">
+              <div className="text-2xl md:text-4xl font-bold md:leading-[56px] text-[#34a853]">
                 Most active GDSC Babcock members
               </div>
               <div className="md:flex flex-row ml-px gap-24 w-full items-start">
-                <div className="text-2xl leading-[33.6px] text-[#cecece] ">
+                <div className="text-lg md:text-2xl md:leading-[33.6px] text-[#cecece] ">
                   {general?.most_active_members.slice(0, 6).map((member) => (
                     <div key={member.name}>
                       • {member.name}
@@ -65,7 +66,7 @@ export default function General() {
                     </div>
                   ))}
                 </div>
-                <div className="text-2xl leading-[33.6px] text-[#cecece] mb-2">
+                <div className="text-lg md:text-2xl md:leading-[33.6px] text-[#cecece] mb-2">
                   {general?.most_active_members_per_track
                     .slice(7)
                     .map((member) => (
@@ -79,7 +80,7 @@ export default function General() {
             </div>
             <button
               id="Button1"
-              className="bg-[#ea4235] flex flex-row justify-center pt-4 gap-3 w-1/3 h-12 cursor-pointer items-start rounded"
+              className="bg-[#ea4235] px-2 w-1/3 h-12 cursor-pointer items-start rounded"
               onClick={() => {
                 setStep(2);
               }}
@@ -104,7 +105,7 @@ export default function General() {
             alt="Vector"
             width={1269}
             height={181}
-            className="md:w-[1269px] w-[90%] h-10 origin-top-left rotate-[-0.16deg] absolute top-48 left-[5%] md:left-24"
+            className="md:w-[1269px] w-[90%] h-10 origin-top-left rotate-[-0.16deg] absolute top-[10rem] md:top-48 left-[5%] md:left-24"
           />
           <div className="relative md:flex flex-row justify-between ml-4 w-full items-start">
             <Image
@@ -112,20 +113,21 @@ export default function General() {
               alt="GDSCBabcockUniversityHorizontalWhite"
               width={655}
               height={100}
+              className="w-[90%]"
             />
-            <div className="text-3xl font-black leading-[34.8px] text-[#ea4235] mt-5">
-              GENERAL GDSC
-              <br />
+            <div className="text-xl md:text-3xl font-black leading-[34.8px] text-[#ea4235] mt-5">
+              GENERAL GDSC <span className="md:hidden"> </span>
+              <br className="hidden md:block" />
               BABCOCK WRAPPED
             </div>
           </div>
-          <div className="relative flex flex-col justify-between ml-8 gap-[117px] w-3/4 items-start">
+          <div className="relative flex flex-col justify-between ml-8 gap-[60px] md:gap-[117px] w-3/4 items-start">
             <div className="flex flex-col gap-2 w-full items-start">
-              <div className="text-4xl font-bold leading-[56px] text-[#34a853]">
+              <div className="text-2xl md:text-4xl font-bold md:leading-[56px] text-[#34a853]">
                 Most active members per group
               </div>
               <div className="md:flex flex-row ml-px gap-24 w-full items-start">
-                <div className="text-2xl leading-[33.6px] text-[#cecece] ">
+                <div className="text-lg md:text-2xl md:leading-[33.6px] text-[#cecece] ">
                   {general?.most_active_members_per_track
                     .slice(0, 6)
                     .map((member) => (
@@ -135,7 +137,7 @@ export default function General() {
                       </div>
                     ))}
                 </div>
-                <div className="text-2xl leading-[33.6px] text-[#cecece] mb-2">
+                <div className="text-lg md:text-2xl md:leading-[33.6px] text-[#cecece] mb-2">
                   {general?.most_active_members_per_track
                     .slice(7)
                     .map((member) => (
@@ -149,7 +151,7 @@ export default function General() {
             </div>
             <button
               id="Button1"
-              className="bg-[#ea4235] flex flex-row justify-center pt-4 gap-3 w-1/3 h-12 cursor-pointer items-start rounded"
+              className="bg-[#ea4235] px-2 w-1/3 h-12 cursor-pointer items-start rounded"
               onClick={() => {
                 setStep(3);
               }}
@@ -174,7 +176,7 @@ export default function General() {
             alt="Vector"
             width={1269}
             height={181}
-            className="md:w-[1269px] w-full h-10 origin-top-left rotate-[-0.16deg] absolute top-48 left-[5%] md:left-24"
+            className="md:w-[1269px] w-[90%] h-10 origin-top-left rotate-[-0.16deg] absolute top-[10rem] md:top-48 left-[5%] md:left-24"
           />
           <div className="relative md:flex flex-row justify-between ml-12 w-full items-start">
             <Image
@@ -182,22 +184,23 @@ export default function General() {
               alt="GDSCBabcockUniversityHorizontalWhite"
               width={655}
               height={100}
+              className="w-[90%]"
             />
-            <div className="text-3xl font-black leading-[34.8px] text-[#ea4235] mt-5">
+            <div className="text-xl md:text-3xl font-black leading-[34.8px] text-[#ea4235] mt-5">
               GDSC BABCOCK WRAPPED
             </div>
           </div>
           <div className="relative flex flex-col ml-[20px] md:ml-[114px] gap-20 md:w-2/3 items-start">
             <div className="flex flex-col gap-10 w-full items-start">
-              <div className="text-4xl font-bold leading-[56px] text-[#34a853]">
-                The most active track in GDSC Babcock is <br />
+              <div className="text-xl md:text-4xl font-bold md:leading-[56px] text-[#34a853]">
+                The most active track in GDSC Babcock is <br className="hidden md:block" />
                 the{" "}
                 <span className="font-['Inter'] text-[#ea4235]">
                   {general?.most_active_group.group} Development
                 </span>
                 <div className="font-['Inter']"> Track!</div>
               </div>
-              <div className="text-3xl leading-[42px] text-[#cecece] ml-1 w-full font-['Inter']">
+              <div className="text-lg md:text-3xl leading-[42px] text-[#cecece] ml-1 w-full font-['Inter']">
                 Under the leadership of{" "}
                 <span className="font-bold">Onuada Alfred </span>
                 {/* integrate when data is ready */}
