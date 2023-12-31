@@ -18,8 +18,14 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         {children}
-        <audio id="song" style={{display: "none"}} controls src="/sound.mp3" />
-      </body> 
+        <audio
+          id="song"
+          style={{ display: "none" }}
+          controls
+          src="/sound.mp3"
+          loop
+        />
+      </body>
     </html>
   );
 }
