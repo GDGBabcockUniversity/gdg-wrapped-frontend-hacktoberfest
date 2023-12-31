@@ -168,16 +168,16 @@ const General: React.FC<generalProp> = ({ handleDoneGeneral }) => {
       {isDone && step === 3 && (
         <div
           id="GeneralRoot"
-          className="bg-black h-full relative flex flex-col justify-between gap-[146px] w-full font-['Inter'] items-start pt-12 pb-[237px] px-20"
+          className="bg-black h-full relative flex flex-col justify-between gap-[100px] md:gap-[146px] w-full font-['Inter'] items-start pt-12 md:pb-[237px] md:px-20"
         >
           <Image
             src="/topprogress.svg"
             alt="Vector"
             width={1269}
             height={181}
-            className="w-[1269px] h-10 origin-top-left rotate-[-0.16deg] absolute top-48 left-24"
+            className="md:w-[1269px] w-full h-10 origin-top-left rotate-[-0.16deg] absolute top-48 left-[5%] md:left-24"
           />
-          <div className="relative flex flex-row justify-between ml-12 w-full items-start">
+          <div className="relative md:flex flex-row justify-between ml-12 w-full items-start">
             <Image
               src="/logo.png"
               alt="GDSCBabcockUniversityHorizontalWhite"
@@ -188,7 +188,7 @@ const General: React.FC<generalProp> = ({ handleDoneGeneral }) => {
               GDSC BABCOCK WRAPPED
             </div>
           </div>
-          <div className="relative flex flex-col ml-[114px] gap-20 w-2/3 items-start">
+          <div className="relative flex flex-col ml-[20px] md:ml-[114px] gap-20 md:w-2/3 items-start">
             <div className="flex flex-col gap-10 w-full items-start">
               <div className="text-4xl font-bold leading-[56px] text-[#34a853]">
                 The most active track in GDSC Babcock is <br />
