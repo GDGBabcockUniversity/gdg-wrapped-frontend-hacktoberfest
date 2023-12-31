@@ -27,7 +27,7 @@ export default function General() {
       {isDone && step === 1 && (
         <div
           id="GeneralRoot"
-          className="bg-black relative flex flex-col justify-between gap-48 w-full font-['Inter'] items-start pt-12 pb-[245px] px-32"
+          className="bg-black relative flex flex-col justify-between gap-35 md:gap-48 w-full font-['Inter'] items-start pt-12 md:pb-[245px] md:px-32"
         >
           <Image
             src="/topprogress.svg"
@@ -35,9 +35,9 @@ export default function General() {
             width={1269}
             height={181}
             loading="eager"
-            className="w-[1269px] h-10 origin-top-left rotate-[-0.16deg] absolute top-48 left-24"
+            className="md:w-[1269px] w-[90%] h-10 origin-top-left rotate-[-0.16deg] absolute top-48 left-[5%] md:left-24"
           />
-          <div className="relative flex flex-row justify-between ml-4 w-full items-start">
+          <div className="relative md:flex flex-row justify-between ml-4 w-full items-start">
             <Image
               src="/logo.png"
               alt="GDSCBabcockUniversityHorizontalWhite"
@@ -50,12 +50,12 @@ export default function General() {
               BABCOCK WRAPPED
             </div>
           </div>
-          <div className="relative flex flex-col justify-between ml-8 gap-[117px] w-3/4 items-start">
-            <div className="flex flex-col gap-2 w-full items-start">
+          <div className="relative flex flex-col justify-between ml-8 gap-[117px] md:w-3/4 items-start">
+            <div className="flex flex-col gap-2 w-full items-start mt-10">
               <div className="text-4xl font-bold leading-[56px] text-[#34a853]">
                 Most active GDSC Babcock members
               </div>
-              <div className="flex flex-row ml-px gap-24 w-full items-start">
+              <div className="md:flex flex-row ml-px gap-24 w-full items-start">
                 <div className="text-2xl leading-[33.6px] text-[#cecece] ">
                   {general?.most_active_members.slice(0, 6).map((member) => (
                     <div key={member.name}>
@@ -96,16 +96,16 @@ export default function General() {
       {isDone && step === 2 && (
         <div
           id="GeneralRoot"
-          className="bg-black relative flex flex-col justify-between gap-48 w-full font-['Inter'] items-start pt-12 pb-[245px] px-32"
+          className="bg-black relative flex flex-col justify-between gap-[5rem] md:gap-48 w-full font-['Inter'] items-start pt-12 md:pb-[245px] md:px-32"
         >
           <Image
             src="/topprogress.svg"
             alt="Vector"
             width={1269}
             height={181}
-            className="w-[1269px] h-10 origin-top-left rotate-[-0.16deg] absolute top-48 left-24"
+            className="md:w-[1269px] w-[90%] h-10 origin-top-left rotate-[-0.16deg] absolute top-48 left-[5%] md:left-24"
           />
-          <div className="relative flex flex-row justify-between ml-4 w-full items-start">
+          <div className="relative md:flex flex-row justify-between ml-4 w-full items-start">
             <Image
               src="/logo.png"
               alt="GDSCBabcockUniversityHorizontalWhite"
@@ -123,7 +123,7 @@ export default function General() {
               <div className="text-4xl font-bold leading-[56px] text-[#34a853]">
                 Most active members per group
               </div>
-              <div className="flex flex-row ml-px gap-24 w-full items-start">
+              <div className="md:flex flex-row ml-px gap-24 w-full items-start">
                 <div className="text-2xl leading-[33.6px] text-[#cecece] ">
                   {general?.most_active_members_per_track
                     .slice(0, 6)
