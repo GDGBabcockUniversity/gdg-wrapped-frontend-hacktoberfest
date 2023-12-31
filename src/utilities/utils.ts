@@ -19,6 +19,20 @@ export function formatPhoneNumber(phoneNumber: string): string {
     return fp + " " + rest;
   }
 
+  if (phoneNumber.startsWith("+1")) {
+    let fp = phoneNumber.substring(0, 2);
+
+    let midpart = phoneNumber.substring(2, 7);
+
+    let rest = phoneNumber.slice(7);
+
+    if (rest.length == 7) {
+      rest = rest.slice(0, 3) + "-" + rest.slice(3);
+    }
+
+    return fp + " " + midpart + " " + rest;
+  }
+
   if (phoneNumber.length == 10) {
     phoneNumber = "+234" + phoneNumber;
   }
