@@ -25,6 +25,7 @@ import MessagesImpact from "@/layouts/index/messagesimpact/messagesimpact";
 import SharePage from "@/layouts/index/share/share";
 import Head from "next/head";
 import { saveToLocalStorage } from "@/utilities/localstorage";
+import StoryBar from "./StoryBar";
 
 export default function Home() {
   const [phoneNumber, setPhoneNumber] = useState<string>("");
@@ -38,6 +39,16 @@ export default function Home() {
 
   const [step, setStep] = useState<number>(1);
   const [member, setMember] = useState<DataMember>();
+  const totalSteps = 8; // Define the total number of steps
+  const [currentStep, setCurrentStep] = useState<number>(0); // State to track the current step
+
+  // Function to simulate changing the current step
+  const goToNextStep = () => {
+    setCurrentStep((prevStep) => (prevStep + 1) % totalSteps);
+  };
+  useEffect(() => {
+    goToNextStep();
+  }, [step]);
   // const [mediaRecorder, setMediaRecorder] = useState<MediaRecorder | null>(
   //   null
   // );
@@ -97,6 +108,7 @@ export default function Home() {
 
   return (
     <>
+      {step > 1 && <StoryBar steps={totalSteps} currentPosition={step - 1} />}
       <ToastContainer />
 
       {isLoading && step === 2 && (
