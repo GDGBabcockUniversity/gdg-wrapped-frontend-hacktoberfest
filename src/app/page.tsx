@@ -37,7 +37,7 @@ export default function Home() {
 
   const [step, setStep] = useState<number>(1);
   const [member, setMember] = useState<DataMember>();
-  const totalSteps = 9; // Define the total number of steps
+  const totalSteps = 8; // Define the total number of steps
   const [currentStep, setCurrentStep] = useState<number>(0); // State to track the current step
 
   // Function to simulate changing the current step
@@ -187,8 +187,7 @@ export default function Home() {
             handleNext={() => setStep(8)}
           />
         )}
-      {step === 8 && <General handleDoneGeneral={() => setStep(9)} />}
-      {step === 9 && <SharePage />}
+      {step === 8 && <General />}
     </>
   );
 }

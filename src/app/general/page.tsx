@@ -1,13 +1,12 @@
 "use client";
 import LoadingGeneral from "@/layouts/general/loading";
+import SharePage from "@/layouts/index/share/share";
 import { fetchGeneralData } from "@/services/general.handler";
 import { Data, SuccessGeneralResponse } from "@/types/general.types";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-type generalProp = {
-  handleDoneGeneral: () => void;
-};
-const General: React.FC<generalProp> = ({ handleDoneGeneral }) => {
+
+export default function General() {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [isDone, setIsDone] = useState<boolean>(false);
   const [general, setGeneral] = useState<Data>();
@@ -217,7 +216,7 @@ const General: React.FC<generalProp> = ({ handleDoneGeneral }) => {
             <button
               id="Button1"
               className="bg-[#ea4235] flex flex-row justify-center ml-1 pt-4 gap-3 w-1/3 h-12 cursor-pointer items-start rounded"
-              onClick={handleDoneGeneral}
+              onClick={() => setStep(4)}
             >
               <div
                 id="Label"
@@ -229,10 +228,10 @@ const General: React.FC<generalProp> = ({ handleDoneGeneral }) => {
           </div>
         </div>
       )}
+      {step === 4 && <SharePage />}
     </>
   );
-};
-export default General;
+}
 async function FetchGeneralData(): Promise<SuccessGeneralResponse> {
   const data = await fetchGeneralData();
   return data;
