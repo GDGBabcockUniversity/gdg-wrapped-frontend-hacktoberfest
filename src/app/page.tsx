@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import { useEffect, useState } from "react";
 import {
   Data,
@@ -13,7 +12,6 @@ import SitTight from "@/layouts/index/sittight";
 import DawnPatrol from "@/layouts/index/peakhours/dawnpatrol";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Console } from "console";
 import LoadingResource from "@/layouts/index/resourcecontributors/loading";
 import EsteemedObserver from "@/layouts/index/resourcecontributors/esteemedobserver";
 import LoadingQuestionPercentile from "@/layouts/index/questionpercentile/loading";
@@ -23,6 +21,9 @@ import MessagesPerc from "@/layouts/index/messagesperc/messagesperc";
 import LoadingMessagesImpact from "@/layouts/index/messagesimpact/loading";
 import MessagesImpact from "@/layouts/index/messagesimpact/messagesimpact";
 import SharePage from "@/layouts/index/share/share";
+import { saveToLocalStorage } from "@/utilities/localstorage";
+import StoryBar from "./StoryBar";
+import General from "./general/page";
 
 export default function Home() {
   const [phoneNumber, setPhoneNumber] = useState<string>("");
@@ -36,6 +37,18 @@ export default function Home() {
 
   const [step, setStep] = useState<number>(1);
   const [member, setMember] = useState<DataMember>();
+  const totalSteps = 9; // Define the total number of steps
+  const [currentStep, setCurrentStep] = useState<number>(0); // State to track the current step
+
+  // Function to simulate changing the current step
+  const goToNextStep = () => {
+    setCurrentStep((prevStep) => (prevStep + 1) % totalSteps);
+  };
+
+  useEffect(() => {
+    goToNextStep();
+  }, [step]);
+
   // const [mediaRecorder, setMediaRecorder] = useState<MediaRecorder | null>(
   //   null
   // );
@@ -77,6 +90,7 @@ export default function Home() {
     }
     setStep(2);
     setIsLoading(true);
+    saveToLocalStorage("number", phoneNumber);
     const response = await fetchMemberDataInfo(phoneNumber);
 
     if (!response.success) {
@@ -94,26 +108,17 @@ export default function Home() {
 
   return (
     <>
+      {step > 1 && <StoryBar steps={totalSteps} currentPosition={step - 1} />}
       <ToastContainer />
+
+      {isLoading && step === 2 && (
+        <SitTight isDone={isDone} setIsDone={setIsDone} />
+      )}
       {!isLoading && step === 1 && (
         <LandingPage
           phoneNumber={phoneNumber}
           setPhoneNumber={setPhoneNumber}
           handleSubmit={fetchData}
-          style={isLoading ? { display: "none" } : { display: "block" }}
-        />
-      )}
-      {isLoading && step === 2 && (
-        <SitTight
-          style={
-            isLoading
-              ? {
-                  display: "block",
-                }
-              : { display: "none" }
-          }
-          isDone={isDone}
-          setIsDone={setIsDone}
         />
       )}
       {member?.peak_hour && step === 3 && (
@@ -182,7 +187,8 @@ export default function Home() {
             handleNext={() => setStep(8)}
           />
         )}
-      {step === 8 && <SharePage />}
+      {step === 8 && <General handleDoneGeneral={() => setStep(9)} />}
+      {step === 9 && <SharePage />}
     </>
   );
 }
@@ -191,5 +197,10 @@ async function fetchMemberDataInfo(
   phoneNumber: string
 ): Promise<SuccessMemberResponse> {
   const data = await fetchMemberData(phoneNumber);
+  return data;
+}
+
+async function FetchGeneralData(): Promise<SuccessGeneralResponse> {
+  const data = await fetchGeneralData();
   return data;
 }

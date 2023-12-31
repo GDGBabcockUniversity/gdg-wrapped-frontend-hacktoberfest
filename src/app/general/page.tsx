@@ -3,9 +3,11 @@ import LoadingGeneral from "@/layouts/general/loading";
 import { fetchGeneralData } from "@/services/general.handler";
 import { Data, SuccessGeneralResponse } from "@/types/general.types";
 import Image from "next/image";
-import { useEffect, useState } from "react";
-
-export default function General() {
+import React, { useEffect, useState } from "react";
+type generalProp = {
+  handleDoneGeneral: () => void;
+};
+const General: React.FC<generalProp> = ({ handleDoneGeneral }) => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [isDone, setIsDone] = useState<boolean>(false);
   const [general, setGeneral] = useState<Data>();
@@ -215,6 +217,7 @@ export default function General() {
             <button
               id="Button1"
               className="bg-[#ea4235] flex flex-row justify-center ml-1 pt-4 gap-3 w-1/3 h-12 cursor-pointer items-start rounded"
+              onClick={handleDoneGeneral}
             >
               <div
                 id="Label"
@@ -228,8 +231,8 @@ export default function General() {
       )}
     </>
   );
-}
-
+};
+export default General;
 async function FetchGeneralData(): Promise<SuccessGeneralResponse> {
   const data = await fetchGeneralData();
   return data;
