@@ -15,9 +15,19 @@ const DawnPatrol: React.FC<DawnPatrolProps> = ({
   isbuttonVisible,
 }) => {
   const [hour, setHour] = React.useState<number>(hourProp);
+
+  useEffect(() => {
+    const sound = document.getElementById("song") as HTMLAudioElement;
+
+    sound.volume = 0.75
+
+    sound.play();
+  }, []);
+
   useEffect(() => {
     setHourProp(hour);
   }, [hour]);
+
   return (
     <div
       id="PeakHoursActivityRoot"

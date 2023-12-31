@@ -46,9 +46,11 @@ export default function Home() {
   const goToNextStep = () => {
     setCurrentStep((prevStep) => (prevStep + 1) % totalSteps);
   };
+
   useEffect(() => {
     goToNextStep();
   }, [step]);
+
   // const [mediaRecorder, setMediaRecorder] = useState<MediaRecorder | null>(
   //   null
   // );
