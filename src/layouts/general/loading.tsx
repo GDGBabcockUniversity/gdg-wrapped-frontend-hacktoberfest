@@ -25,7 +25,7 @@ const LoadingGeneral: React.FC<LoadingGeneralProps> = ({
         }
         return newProgress;
       });
-    }, 500000);
+    }, 50);
 
     return () => {
       clearInterval(interval);
@@ -34,7 +34,8 @@ const LoadingGeneral: React.FC<LoadingGeneralProps> = ({
   return (
     <div
       id="TopMessageRoot"
-      className="bg-black md:flex flex-col gap-10 w-full md:h-[1024px] items-start pt-16 md:px-[148px]">
+      className="bg-black md:flex flex-col gap-10 w-full md:h-[1024px] items-start pt-16 md:px-[148px]"
+    >
       <Image
         src="/logo.png"
         alt="GDSCBabcockUniversityHorizontalWhite"
