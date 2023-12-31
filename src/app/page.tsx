@@ -84,7 +84,7 @@ export default function Home() {
   //   };
   // };
   async function fetchData() {
-    if (phoneNumber.length < 11) {
+    if (phoneNumber.length < 10) {
       toast.error("Please enter a valid phone number");
       return;
     }
@@ -102,6 +102,11 @@ export default function Home() {
         setIsDone(true);
         setStep(3);
       }, 5000);
+
+      const sound = document.getElementById("song") as HTMLAudioElement;
+      sound.volume = 0.75;
+      sound.play();
+
       setMember((response as SuccessMemberResponse).data);
     }
   }

@@ -17,14 +17,6 @@ const DawnPatrol: React.FC<DawnPatrolProps> = ({
   const [hour, setHour] = React.useState<number>(hourProp);
 
   useEffect(() => {
-    const sound = document.getElementById("song") as HTMLAudioElement;
-
-    sound.volume = 0.75
-
-    sound.play();
-  }, []);
-
-  useEffect(() => {
     setHourProp(hour);
   }, [hour]);
 
