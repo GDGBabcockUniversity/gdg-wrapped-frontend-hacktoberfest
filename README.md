@@ -9,7 +9,7 @@ Before you start, make sure you have a recent version of Node.js installed. You 
 Clone the repository:
 
 ```sh
-git clone https://github.com/GDSCBabcockUniversity/gdsc-wrapped-frontend.git
+git clone https://github.com/GDGBabcockUniversity/gdsc-wrapped-frontend.git
 ```
 
 ### Navigate into the project directory
@@ -21,7 +21,7 @@ cd gdsc-wrapped-frontend
 ### Install the dependencies:
 
 ```sh
-npm install
+npm install 
 ```
 
 ### To start the development server:
