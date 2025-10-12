@@ -5,6 +5,8 @@ import { fetchGeneralData } from "@/services/general.handler";
 import { Data, SuccessGeneralResponse } from "@/types/general.types";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
+import PrimaryButton from "@/components/PrimaryButton"; // 1. Import the PrimaryButton component
+
 
 export default function General() {
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -78,20 +80,13 @@ export default function General() {
                 </div>
               </div>
             </div>
-            <button
-              id="Button1"
-              className="bg-[#ea4235] px-2 w-1/3 h-12 cursor-pointer items-start rounded"
-              onClick={() => {
-                setStep(2);
-              }}
-            >
-              <div
-                id="Label"
-                className="text-center text-lg leading-[24px] text-white"
-              >
-                Next
-              </div>
-            </button>
+            {/* --- CHANGE --- */}
+            {/* 2. Replace the old button with the PrimaryButton component */}
+            <PrimaryButton
+              label="Next"
+              onClick={() => setStep(2)}
+              variant="red"
+            />
           </div>
         </div>
       )}
@@ -149,20 +144,12 @@ export default function General() {
                 </div>
               </div>
             </div>
-            <button
-              id="Button1"
-              className="bg-[#ea4235] px-2 w-1/3 h-12 cursor-pointer items-start rounded"
-              onClick={() => {
-                setStep(3);
-              }}
-            >
-              <div
-                id="Label"
-                className="text-center text-lg leading-[24px] text-white"
-              >
-                Next
-              </div>
-            </button>
+             {/* --- CHANGE --- */}
+            <PrimaryButton
+              label="Next"
+              onClick={() => setStep(3)}
+              variant="red"
+            />
           </div>
         </div>
       )}
@@ -216,18 +203,12 @@ export default function General() {
                 </div>
               </div>
             </div>
-            <button
-              id="Button1"
-              className="bg-[#ea4235] flex flex-row justify-center ml-1 pt-4 gap-3 w-1/3 h-12 cursor-pointer items-start rounded"
+            {/* --- CHANGE --- */}
+            <PrimaryButton
+              label="Done"
               onClick={() => setStep(4)}
-            >
-              <div
-                id="Label"
-                className="text-center text-lg leading-[24px] text-white"
-              >
-                Done
-              </div>
-            </button>
+              variant="red"
+            />
           </div>
         </div>
       )}
@@ -236,6 +217,5 @@ export default function General() {
   );
 }
 async function FetchGeneralData(): Promise<SuccessGeneralResponse> {
-  const data = await fetchGeneralData();
-  return data;
+  return await fetchGeneralData();
 }
