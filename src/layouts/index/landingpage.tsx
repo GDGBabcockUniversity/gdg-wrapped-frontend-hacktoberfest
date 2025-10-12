@@ -2,12 +2,15 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import PrimaryButton from "@/components/PrimaryButton"; // Component is already imported
+
 type LandingPageProps = {
   style?: React.CSSProperties;
   phoneNumber: string;
   setPhoneNumber: (value: string) => void;
   handleSubmit: () => void;
 };
+
 const LandingPage: React.FC<LandingPageProps> = ({
   style,
   phoneNumber: phoneNumberProp,
@@ -18,9 +21,11 @@ const LandingPage: React.FC<LandingPageProps> = ({
   const handleSetPhoneNumber = (number: string) => {
     setPhoneNumber(number);
   };
+
   useEffect(() => {
     setPhoneNumberProp(phoneNumber);
-  }, [phoneNumber]);
+  }, [phoneNumber, setPhoneNumberProp]);
+
   return (
     <div
       className="bg-black flex flex-col justify-center items-center px-16 py-12 max-md:px-5"
@@ -77,18 +82,10 @@ const LandingPage: React.FC<LandingPageProps> = ({
             />
           </div>
         </div>
-        <button
-          id="Button1"
-          className="bg-[#4286f5] md:w-1/3 h-12 cursor-pointer font-['Inter'] rounded w-full mt-2 md:mt-0"
-          onClick={handleSubmitProp}
-        >
-          <div
-            id="Label"
-            className="text-center text-lg leading-[24px] text-white"
-          >
-            Next
-          </div>
-        </button>
+        {/* --- CHANGE --- */}
+        {/* The old <button> element has been replaced with the reusable PrimaryButton component. */}
+        <PrimaryButton label="Next" onClick={handleSubmitProp} />
+
       </div>
     </div>
   );
