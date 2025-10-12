@@ -2,12 +2,14 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
 type LandingPageProps = {
   style?: React.CSSProperties;
   phoneNumber: string;
   setPhoneNumber: (value: string) => void;
   handleSubmit: () => void;
 };
+
 const LandingPage: React.FC<LandingPageProps> = ({
   style,
   phoneNumber: phoneNumberProp,
@@ -15,12 +17,15 @@ const LandingPage: React.FC<LandingPageProps> = ({
   handleSubmit: handleSubmitProp,
 }) => {
   const [phoneNumber, setPhoneNumber] = useState<string>(phoneNumberProp);
+  
   const handleSetPhoneNumber = (number: string) => {
     setPhoneNumber(number);
   };
+  
   useEffect(() => {
     setPhoneNumberProp(phoneNumber);
-  }, [phoneNumber]);
+  }, [phoneNumber, setPhoneNumberProp]);
+  
   return (
     <div
       className="bg-black flex flex-col justify-center items-center px-16 py-12 max-md:px-5"
@@ -51,11 +56,23 @@ const LandingPage: React.FC<LandingPageProps> = ({
                   className="aspect-[0.93] object-contain object-center w-full overflow-hidden grow mt-56 max-md:mt-10"
                 />
               </div>
-              <div className="text-white text-xl leading-6 self-stretch mt-20 max-md:max-w-full max-md:mt-10">
+              
+              {/* --- START OF CHANGES --- */}
+
+              {/* The <div> was changed to a <label> and linked to the input with htmlFor */}
+              <label
+                htmlFor="phone"
+                className="text-white text-xl leading-6 self-stretch mt-20 max-md:max-w-full max-md:mt-10"
+              >
                 Input your whatsapp Number
-              </div>
+              </label>
+
+              {/* Attributes were added to the input field for accessibility and mobile UX */}
               <input
-                type="text"
+                id="phone"                 // ✅ Added id="phone"
+                type="tel"                 // ✅ Changed type to "tel"
+                inputMode="tel"            // ✅ Added inputMode="tel"
+                aria-describedby="phone-helper-text" // ✅ Added aria-describedby
                 className="text-neutral-600 text-base leading-6 whitespace-nowrap justify-center rounded border border-[color:var(--Primary-M\_Blue,#0671E0)] bg-blue-50 self-stretch mt-3.5 pl-5 pr-16 py-5 border-solid items-start max-md:max-w-full max-md:pr-5"
                 placeholder="+234 000 0000 000"
                 onChange={(e) => handleSetPhoneNumber(e.target.value)}
@@ -64,7 +81,15 @@ const LandingPage: React.FC<LandingPageProps> = ({
                     handleSubmitProp();
                   }
                 }}
-              ></input>
+              />
+              
+              {/* Added a helper text paragraph that is linked by aria-describedby */}
+              <p id="phone-helper-text" className="text-gray-400 text-sm mt-2 max-md:max-w-full">
+                Please enter the phone number associated with your WhatsApp account.
+              </p>
+              
+              {/* --- END OF CHANGES --- */}
+
             </div>
           </div>
           <div className="hidden md:flex md:flex-col md:items-stretch w-[35%] ml-5 max-md:w-full max-md:ml-0">
