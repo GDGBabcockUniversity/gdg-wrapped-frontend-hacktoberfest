@@ -41,3 +41,15 @@ npx next build
 ```sh
 npx next start
 ```
+## Custom Theming
+
+This project uses Tailwind CSS for styling and includes custom theme extensions.
+
+### Gradients
+We have a custom gradient defined for GDSC branding colors (blue, red, yellow, green).
+
+Config Key: gdsc-gradient (in tailwind.config.ts)
+
+Class Name: bg-gdsc-gradient
+
+Use this class whenever you need to apply the official GDSC brand gradient to a background.
