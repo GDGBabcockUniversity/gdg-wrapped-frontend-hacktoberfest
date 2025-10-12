@@ -30,7 +30,7 @@ const LoadingGeneral: React.FC<LoadingGeneralProps> = ({
     return () => {
       clearInterval(interval);
     };
-  }, []);
+  }, [setIsDoneProp]);
   return (
     <div
       id="TopMessageRoot"
