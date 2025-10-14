@@ -1,36 +1,16 @@
+// app/not-found.js
+
 import Image from "next/image";
-import React, {useEffect, useState} from "react";
+import Link from "next/link";
+import React, {useState} from "react";
 
-type sitTightProps = {
+type NotFoundProps = {
 	style?: React.CSSProperties;
-	isDone: boolean;
-	setIsDone: (value: boolean) => void;
 };
-const SitTight: React.FC<sitTightProps> = ({
-	style,
-	isDone: isDoneProp,
-	setIsDone: setIsDoneProp,
-}) => {
+const NotFound: React.FC<NotFoundProps> = ({style}) => {
 	const [progress, setProgress] = useState(0);
-	const [isDone, setIsDone] = useState(isDoneProp);
+	const [isDone, setIsDone] = useState(false);
 
-	useEffect(() => {
-		const interval = setInterval(() => {
-			setProgress((oldProgress) => {
-				const newProgress = Math.min(oldProgress + 1, 100);
-				if (newProgress === 100) {
-					setIsDone(true);
-					setIsDoneProp(true);
-					clearInterval(interval);
-				}
-				return newProgress;
-			});
-		}, 50);
-
-		return () => {
-			clearInterval(interval);
-		};
-	}, []);
 	return (
 		<div
 			className="bg-black flex flex-col justify-center items-center px-16 py-12 max-md:px-5 scale-100 opacity-100 transform transition-all duration-1000 ease-in-out"
@@ -51,19 +31,21 @@ const SitTight: React.FC<sitTightProps> = ({
 								<div className="flex flex-col items-stretch my-auto max-md:max-w-full max-md:mt-10">
 									<div className="text-white text-5xl font-semibold max-md:max-w-full max-md:text-4xl">
 										<span className="text-red-500">
-											Omo Ologo!
+											You're not a member ke? 😲
 										</span>{" "}
 										<br />
 										<br />
 										<br />
-										Welcome to the review of your GDSC
-										activity.
-									</div>
-									<div className="border bg-zinc-100 flex flex-col justify-center items-stretch mt-16 py-2 rounded-xl border-solid border-neutral-200 max-md:max-w-full max-md:mt-10">
-										<div
-											className="bg-green-600 flex shrink-0 h-5 flex-col rounded-md max-md:max-w-full"
-											style={{width: `${progress}%`}} // Control the width of the progress bar
-										/>
+										Click{" "}
+										<Link
+											target="_blank"
+											href={
+												"https://gdg.community.dev/gdg-on-campus-babcock-university-ilishan-remo-nigeria/"
+											}
+											className="text-bold bg-gradient-to-r from-blue-500 via-yellow-500 to-red-500 bg-clip-text text-transparent animate-gradient">
+											here{" "}
+										</Link>
+										to become a member!.
 									</div>
 								</div>
 							</div>
@@ -84,4 +66,4 @@ const SitTight: React.FC<sitTightProps> = ({
 	);
 };
 
-export default SitTight;
+export default NotFound;
