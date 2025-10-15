@@ -1,6 +1,6 @@
-# GDSC WRAPPED FRONTEND
+# GDG WRAPPED FRONTEND
 
-This is a brief description of the gdsc wrapped website
+This is a brief description of the gdg wrapped website
 
 ## Installation
 
@@ -9,13 +9,13 @@ Before you start, make sure you have a recent version of Node.js installed. You 
 Clone the repository:
 
 ```sh
-git clone https://github.com/GDSCBabcockUniversity/gdsc-wrapped-frontend.git
+git clone https://github.com/GDGBabcockUniversity/gdg-wrapped-frontend-hacktoberfest.git
 ```
 
 ### Navigate into the project directory
 
 ```sh
-cd gdsc-wrapped-frontend
+cd gdg-wrapped-frontend
 ```
 
 ### Install the dependencies:
