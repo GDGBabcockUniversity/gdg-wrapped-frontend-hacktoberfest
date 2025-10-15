@@ -9,7 +9,7 @@ Before you start, make sure you have a recent version of Node.js installed. You 
 Clone the repository:
 
 ```sh
-git clone https://github.com/GDGBabcockUniversity/gdg-wrapped-frontend.git
+git clone https://github.com/GDGBabcockUniversity/gdg-wrapped-frontend-hacktoberfest.git
 ```
 
 ### Navigate into the project directory
