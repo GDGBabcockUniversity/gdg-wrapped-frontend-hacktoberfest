@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React, {useEffect, useState} from "react";
 import "react-toastify/dist/ReactToastify.css";
+
 import PrimaryButton from "@/components/PrimaryButton"; // Component is already imported
 
 import Loader from "../general/loader";
