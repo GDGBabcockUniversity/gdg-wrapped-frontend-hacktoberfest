@@ -1,6 +1,8 @@
 import Image from "next/image";
 import React, {useEffect, useState} from "react";
 import "react-toastify/dist/ReactToastify.css";
+import PrimaryButton from "@/components/PrimaryButton"; // Component is already imported
+
 import Loader from "../general/loader";
 type LandingPageProps = {
 	style?: React.CSSProperties;
@@ -9,6 +11,7 @@ type LandingPageProps = {
 	handleSubmit: () => void;
 	handleLoader: boolean;
 };
+
 const LandingPage: React.FC<LandingPageProps> = ({
 	style,
 	phoneNumber: phoneNumberProp,

@@ -4,7 +4,9 @@ import SharePage from "@/layouts/index/share/share";
 import {fetchGeneralData} from "@/services/general.handler";
 import {Data, SuccessGeneralResponse} from "@/types/general.types";
 import Image from "next/image";
-import {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
+import PrimaryButton from "@/components/PrimaryButton"; // 1. Import the PrimaryButton component
+
 
 export default function General() {
 	const [isLoading, setIsLoading] = useState<boolean>(true);
