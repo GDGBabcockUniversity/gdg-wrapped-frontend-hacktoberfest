@@ -1,50 +1,53 @@
 export function formatPhoneNumber(phoneNumber: string): string {
-  phoneNumber = phoneNumber.replaceAll(" ", "");
+  // Normalize: strip spaces, hyphens, parentheses
+  phoneNumber = phoneNumber.replace(/[\s\-()]/g, "");
 
-  if (phoneNumber.startsWith("+22")) {
-    let fp = phoneNumber.substring(0, 4);
-
-    let rest = "",
-      count = 0;
-
-    for (let num of phoneNumber.slice(4)) {
-      count++;
-      rest += num;
-
-      if (count != 0 && (count & 1) == 0) {
-        rest += " ";
-      }
+  // Handle Nigerian local numbers: 10 or 11 digits
+  if (!phoneNumber.startsWith("+") && (phoneNumber.length === 10 || phoneNumber.length === 11)) {
+    if (phoneNumber.length === 11) {
+      // Drop leading 0
+      phoneNumber = "+234" + phoneNumber.substring(1);
+    } else {
+      phoneNumber = "+234" + phoneNumber;
     }
-
-    return fp + " " + rest;
   }
 
+  // Helper: format with 3-3-4 when exactly 10 digits, else chunk by 3s
+  const formatRest = (restDigits: string): string => {
+    if (restDigits.length === 10) {
+      const a = restDigits.slice(0, 3);
+      const b = restDigits.slice(3, 6);
+      const c = restDigits.slice(6, 10);
+      return `${a} ${b}-${c}`;
+    }
+    return restDigits.match(/.{1,3}/g)?.join(" ") ?? restDigits;
+  };
+
+  // Country-specific handling
   if (phoneNumber.startsWith("+1")) {
-    let fp = phoneNumber.substring(0, 2);
-
-    let midpart = phoneNumber.substring(2, 7);
-
-    let rest = phoneNumber.slice(7);
-
-    if (rest.length == 7) {
-      rest = rest.slice(0, 3) + "-" + rest.slice(3);
-    }
-
-    return fp + " " + midpart + " " + rest;
+    const rest = phoneNumber.slice(2);
+    const formatted = formatRest(rest);
+    return "+1 " + formatted;
   }
 
-  if (phoneNumber.length == 10) {
-    phoneNumber = "+234" + phoneNumber;
+  if (phoneNumber.startsWith("+233") || phoneNumber.startsWith("+234")) {
+    const cc = phoneNumber.substring(0, 4);
+    const rest = phoneNumber.slice(4);
+    return cc + " " + formatRest(rest);
   }
 
-  if (phoneNumber.length == 11) {
-    phoneNumber = "+234" + phoneNumber.substring(1);
+  // Default: if it looks like +CCC..., split country code (+ and next 2-3 digits) and chunk rest by 3
+  if (phoneNumber.startsWith("+")) {
+    // Try +XYZ first, else +XY
+    const potentialLong = phoneNumber.substring(0, 4);
+    const potentialShort = phoneNumber.substring(0, 3);
+    const useLong = /\+\d{3}/.test(potentialLong);
+    const cc = useLong ? potentialLong : potentialShort;
+    const rest = phoneNumber.slice(cc.length);
+    const grouped = rest.match(/.{1,3}/g)?.join(" ") ?? rest;
+    return cc + " " + grouped;
   }
 
-  const firstPart = phoneNumber.substring(0, 4);
-  const mainPart = phoneNumber.substring(4, 13);
-  const remainingPart = phoneNumber.substring(13);
-  const formattedMainPart = mainPart.match(/.{1,3}/g)?.join(" ");
-
-  return firstPart + " " + formattedMainPart + remainingPart;
+  // Fallback: return as-is (already normalized)
+  return phoneNumber;
 }
