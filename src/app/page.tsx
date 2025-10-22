@@ -1,4 +1,5 @@
 "use client";
+
 import LandingPage from "@/layouts/index/landingpage";
 import LoadingMessagesImpact from "@/layouts/index/messagesimpact/loading";
 import MessagesImpact from "@/layouts/index/messagesimpact/messagesimpact";
@@ -27,17 +28,11 @@ import General from "./general/page";
 
 export default function Home() {
 	const [phoneNumber, setPhoneNumber] = useState<string>("");
+	const [memberData, setMemberData] = useState<DataMember | null>(null);
 	const [isLoading, setIsLoading] = useState<boolean>(false);
-	const [isDone, setIsDone] = useState<boolean>(false);
-	const [isDoneForMessages, setIsDoneForMessages] = useState<boolean>(false);
-	const [isDoneForMessagesImpact, setIsDoneForMessagesImpact] =
-		useState<boolean>(false);
-	const [isDoneForResource, setIsDoneForResource] = useState<boolean>(false);
-	const [isDoneForQuestion, setIsDoneForQuestion] = useState<boolean>(false);
-	const [error, setError] = useState<number>(200);
-
 	const [step, setStep] = useState<number>(1);
-	const [member, setMember] = useState<DataMember>();
+	const [error, setError] = useState<string | null>(null);
+
 	const totalSteps = 8; // Define the total number of steps
 	const [currentStep, setCurrentStep] = useState<number>(0); // State to track the current step
 
@@ -50,78 +45,139 @@ export default function Home() {
 		goToNextStep();
 	}, [step]);
 
-	// const [mediaRecorder, setMediaRecorder] = useState<MediaRecorder | null>(
-	//   null
-	// );
-	// const [chunks, setChunks] = useState<BlobPart[]>([]);
+	// Phone number validation function
+	const validatePhoneNumber = (phone: string): boolean => {
+		// Remove all non-digit characters for validation
+		const cleanPhone = phone.replace(/\D/g, "");
 
-	// const startRecording = () => {
-	//   navigator.mediaDevices
-	//     .getDisplayMedia({ video: true })
-	//     .then((stream) => {
-	//       const recorder = new MediaRecorder(stream);
-	//       recorder.ondataavailable = (e) => {
-	//         setChunks((currentChunks) => [...currentChunks, e.data]);
-	//       };
-	//       recorder.start();
-	//       setMediaRecorder(recorder);
-	//     })
-	//     .catch((err) => {
-	//       console.error("Error during getDisplayMedia()", err);
-	//     });
-	// };
-
-	// const stopRecording = () => {
-	//   mediaRecorder?.stop();
-	//   mediaRecorder!.onstop = () => {
-	//     const blob = new Blob(chunks, { type: "video/mp4" });
-	//     setChunks([]);
-	//     const videoURL = window.URL.createObjectURL(blob);
-	//     const a = document.createElement("a");
-	//     a.href = videoURL;
-	//     a.download = "recording.mp4";
-	//     a.click();
-	//     window.URL.revokeObjectURL(videoURL);
-	//   };
-	// };
-	async function fetchData() {
-		if (phoneNumber.length < 10) {
-			toast.error("Please enter a valid phone number");
-			return;
+		// Check if phone number is valid (10-15 digits)
+		if (cleanPhone.length < 10 || cleanPhone.length > 15) {
+			return false;
 		}
 
-		setIsLoading(true);
-		setStep(2);
-		saveToLocalStorage("number", phoneNumber);
+		return true;
+	};
 
-		const response = await fetchMemberDataInfo(phoneNumber);
+	// Handle member fetch with proper error handling
+	const handleFetchMember = async () => {
+		try {
+			// Reset error state
+			setError(null);
 
-		if (!response.success) {
-			toast.error((response as SuccessMemberResponse).error);
+			// Validate phone number before making request
+			if (!validatePhoneNumber(phoneNumber)) {
+				console.error(
+					"[VALIDATION ERROR] Invalid phone number format:",
+					phoneNumber,
+				);
+				setError(
+					"Invalid phone number. Please enter a valid phone number (10-15 digits).",
+				);
 
-			const error = (response as SuccessMemberResponse).error;
-
-			if (error!.includes("404")) {
-				setError(404);
-			} else {
-				setError(500);
-			}
-			return;
-		} else {
-			setTimeout(() => {
-				setError(200);
+				// Reset loading state and step on validation error
 				setIsLoading(false);
-				setIsDone(true);
-				setStep(3);
-			}, 5000);
+				setStep(1);
 
-			const sound = document.getElementById("song") as HTMLAudioElement;
-			sound.volume = 0.75;
-			sound.play();
+				// Add testable guard - log for verification
+				console.log(
+					"[GUARD EXECUTED] Loading state reset to false, step reset to 1",
+				);
+				return;
+			}
 
-			setMember((response as SuccessMemberResponse).data);
+			// Set loading state
+			setIsLoading(true);
+			console.log("[FETCH START] Fetching member data for:", phoneNumber);
+
+			// Make API request
+			const response = await fetch(`/api/member/${phoneNumber}`, {
+				method: "GET",
+				headers: {
+					"Content-Type": "application/json",
+				},
+			});
+
+			// Check if response is ok
+			if (!response.ok) {
+				const errorData = await response.json().catch(() => ({}));
+				throw new Error(
+					errorData.message ||
+						`Failed to fetch member data: ${response.status} ${response.statusText}`,
+				);
+			}
+
+			// Parse response data
+			const data = await response.json();
+
+			// Validate response data
+			if (!data || !data.success) {
+				throw new Error(data?.message || "Member not found or invalid response");
+			}
+
+			// Success - update member data and proceed to step 2
+			console.log("[FETCH SUCCESS] Member data retrieved:", data);
+			setMemberData(data.data);
+			setStep(2);
+			setError(null);
+		} catch (err) {
+			// Handle fetch errors
+			console.error("[FETCH ERROR] Failed to fetch member data:", err);
+
+			const errorMessage =
+				err instanceof Error
+					? err.message
+					: "An unknown error occurred while fetching member data";
+
+			setError(errorMessage);
+
+			// Reset loading state and step on fetch error
+			setIsLoading(false);
+			setStep(1);
+
+			// Add testable guard - log for verification
+			console.log(
+				"[GUARD EXECUTED] Loading state reset to false, step reset to 1 after error",
+			);
+			console.log("[ERROR DETAILS]", {
+				phoneNumber,
+				errorMessage,
+				timestamp: new Date().toISOString(),
+			});
+
+			// Optional: Show toast notification
+			// toast.error(errorMessage);
+		} finally {
+			// Ensure loading state is always reset
+			setIsLoading(false);
+			console.log("[FETCH COMPLETE] Loading state set to false");
 		}
-	}
+	};
+
+	// Handle form submission
+	const handleSubmit = (e: React.FormEvent) => {
+		e.preventDefault();
+
+		// Trim phone number
+		const trimmedPhone = phoneNumber.trim();
+
+		if (!trimmedPhone) {
+			setError("Please enter a phone number");
+			return;
+		}
+
+		setPhoneNumber(trimmedPhone);
+		handleFetchMember();
+	};
+
+	// Handle retry
+	const handleRetry = () => {
+		setError(null);
+		setStep(1);
+		setIsLoading(false);
+		setMemberData(null);
+		setPhoneNumber("");
+		console.log("[RETRY] State reset for new attempt");
+	};
 
 	return (
 		<>
@@ -131,7 +187,7 @@ export default function Home() {
 			<ToastContainer />
 
 			{isLoading && step === 2 && error === 200 && (
-				<SitTight isDone={isDone} setIsDone={setIsDone} />
+				<SitTight isDone={true} setIsDone={() => {}} />
 			)}
 
 			{step === 2 && error === 404 && <NotFound />}
@@ -146,72 +202,83 @@ export default function Home() {
 					handleLoader={isLoading}
 				/>
 			)}
-			{member?.peak_hour && step === 3 && (
+			{memberData?.peak_hour && step === 3 && (
 				<DawnPatrol
-					hour={member?.peak_hour}
+					hour={memberData?.peak_hour}
 					setHour={() => console.log()}
 					isbuttonVisible={true}
 					hanldeNext={() => setStep(4)}
 				/>
 			)}
-			{member?.messages_top_perc && !isDoneForResource && step === 4 && (
-				<LoadingResource
-					isDone={isDoneForResource}
-					setIsDone={setIsDoneForResource}
-				/>
-			)}
-			{member?.messages_top_perc && isDoneForResource && step === 4 && (
-				<EsteemedObserver
-					resourcePerc={member?.resources_top_perc}
-					isbuttonVisible={true}
-					handleNext={() => setStep(5)}
-				/>
-			)}
-
-			{member?.questions_top_perc && !isDoneForQuestion && step === 5 && (
-				<LoadingQuestionPercentile
-					isDone={isDoneForQuestion}
-					setIsDone={setIsDoneForQuestion}
-				/>
+			{memberData?.messages_top_perc && step === 4 && (
+				<>
+					{!isDoneForResource && (
+						<LoadingResource
+							isDone={isDoneForResource}
+							setIsDone={setIsDoneForResource}
+						/>
+					)}
+					{isDoneForResource && (
+						<EsteemedObserver
+							resourcePerc={memberData?.resources_top_perc}
+							isbuttonVisible={true}
+							handleNext={() => setStep(5)}
+						/>
+					)}
+				</>
 			)}
 
-			{member?.questions_top_perc && isDoneForQuestion && step === 5 && (
-				<QuestionPercentile
-					question={member?.questions_top_perc}
-					isbuttonVisible={true}
-					handleNext={() => setStep(6)}
-				/>
+			{memberData?.questions_top_perc && step === 5 && (
+				<>
+					{!isDoneForQuestion && (
+						<LoadingQuestionPercentile
+							isDone={isDoneForQuestion}
+							setIsDone={setIsDoneForQuestion}
+						/>
+					)}
+					{isDoneForQuestion && (
+						<QuestionPercentile
+							question={memberData?.questions_top_perc}
+							isbuttonVisible={true}
+							handleNext={() => setStep(6)}
+						/>
+					)}
+				</>
 			)}
-			{member?.messages_top_perc && step === 6 && !isDoneForMessages && (
-				<LoadingMessages
-					isDone={isDoneForMessages}
-					setIsDone={setIsDoneForMessages}
-				/>
+			{memberData?.messages_top_perc && step === 6 && (
+				<>
+					{!isDoneForMessages && (
+						<LoadingMessages
+							isDone={isDoneForMessages}
+							setIsDone={setIsDoneForMessages}
+						/>
+					)}
+					{isDoneForMessages && (
+						<MessagesPerc
+							messages={memberData?.messages_top_perc}
+							isbuttonVisible={true}
+							handleNext={() => setStep(7)}
+						/>
+					)}
+				</>
 			)}
-			{member?.messages_top_perc && step === 6 && isDoneForMessages && (
-				<MessagesPerc
-					messages={member?.messages_top_perc}
-					isbuttonVisible={true}
-					handleNext={() => setStep(7)}
-				/>
+			{memberData?.message_impact_top_perc && step === 7 && (
+				<>
+					{!isDoneForMessagesImpact && (
+						<LoadingMessagesImpact
+							isDone={isDoneForMessagesImpact}
+							setIsDone={setIsDoneForMessagesImpact}
+						/>
+					)}
+					{isDoneForMessagesImpact && (
+						<MessagesImpact
+							messageimpact={memberData?.message_impact_top_perc}
+							isbuttonVisible={true}
+							handleNext={() => setStep(8)}
+						/>
+					)}
+				</>
 			)}
-			{member?.message_impact_top_perc &&
-				!isDoneForMessagesImpact &&
-				step === 7 && (
-					<LoadingMessagesImpact
-						isDone={isDoneForMessagesImpact}
-						setIsDone={setIsDoneForMessagesImpact}
-					/>
-				)}
-			{member?.message_impact_top_perc &&
-				isDoneForMessagesImpact &&
-				step === 7 && (
-					<MessagesImpact
-						messageimpact={member?.message_impact_top_perc}
-						isbuttonVisible={true}
-						handleNext={() => setStep(8)}
-					/>
-				)}
 			{step === 8 && <General />}
 		</>
 	);
