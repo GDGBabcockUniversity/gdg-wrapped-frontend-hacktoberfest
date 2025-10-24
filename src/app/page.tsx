@@ -315,11 +315,11 @@ export default function Home() {
 			onTouchEnd={onTouchEnd}
 			className="relative w-full min-h-screen"
 		>
-		{step > 1 && (
+		{step > 2 && (
 			<StoryBar 
-				steps={totalSteps} 
-				currentPosition={step > 13 ? 12 + generalStep : step - 1}
-				onSegmentClick={jumpToStep}
+				steps={14} 
+				currentPosition={step > 13 ? 9 + generalStep : step - 3}
+				onSegmentClick={(targetStep) => jumpToStep(targetStep + 2)}
 				progressPercent={progressPercent}
 			/>
 		)}
