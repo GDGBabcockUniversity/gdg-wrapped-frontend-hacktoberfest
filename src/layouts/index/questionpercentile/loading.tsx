@@ -35,10 +35,10 @@ const LoadingQuestionPercentile: React.FC<LoadingQuestionPercentileProps> = ({
       className="bg-black flex flex-row gap-10 w-full md:h-[1024px] items-start pt-16 md:px-[148px]"
     >
       <div className="flex flex-col justify-between gap-10 md:gap-32 w-full md:w-3/4 items-start">
-        <img src="/logo.png" alt="GDSCBabcockUniversityHorizontalWhite" />
-        <div className="flex flex-col ml-2 md:ml-12 gap-5 w-full font-['Inter'] items-start">
+        <img src="/logo.png" alt="GDGBabcockUniversityHorizontalWhite" />
+        <div className="flex flex-col ml-2 md:ml-12 gap-5 w-full font-sans items-start">
           <div className="relative flex flex-row justify-end w-full items-start pt-5 md:pt-16 md:px-16">
-            <div className="text-5xl font-['Inter'] font-semibold text-[#34a853] w-full">
+            <div className="text-5xl font-sans font-semibold text-[#34a853] w-full">
               Keep going!
               <br />
               <span className="text-white md:text-5xl text-xl">

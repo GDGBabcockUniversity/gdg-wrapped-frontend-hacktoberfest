@@ -35,6 +35,12 @@ export default function Home() {
 
 	const totalSteps = 8; // Define the total number of steps
 	const [currentStep, setCurrentStep] = useState<number>(0); // State to track the current step
+	
+	// Loading states for different sections
+	const [isDoneForResource, setIsDoneForResource] = useState<boolean>(false);
+	const [isDoneForQuestion, setIsDoneForQuestion] = useState<boolean>(false);
+	const [isDoneForMessages, setIsDoneForMessages] = useState<boolean>(false);
+	const [isDoneForMessagesImpact, setIsDoneForMessagesImpact] = useState<boolean>(false);
 
 	// Function to simulate changing the current step
 	const goToNextStep = () => {
@@ -89,35 +95,18 @@ export default function Home() {
 			setIsLoading(true);
 			console.log("[FETCH START] Fetching member data for:", phoneNumber);
 
-			// Make API request
-			const response = await fetch(`/api/member/${phoneNumber}`, {
-				method: "GET",
-				headers: {
-					"Content-Type": "application/json",
-				},
-			});
-
-			// Check if response is ok
-			if (!response.ok) {
-				const errorData = await response.json().catch(() => ({}));
-				throw new Error(
-					errorData.message ||
-						`Failed to fetch member data: ${response.status} ${response.statusText}`,
-				);
-			}
-
-			// Parse response data
-			const data = await response.json();
+			// Make API request using the existing handler
+			const data = await fetchMemberData(phoneNumber);
 
 			// Validate response data
-			if (!data || !data.success) {
-				throw new Error(data?.message || "Member not found or invalid response");
+			if (!data || !data.success || !data.data) {
+				throw new Error(data?.error || "Member not found or invalid response");
 			}
 
-			// Success - update member data and proceed to step 2
+			// Success - update member data and proceed to step 3 (first content screen)
 			console.log("[FETCH SUCCESS] Member data retrieved:", data);
 			setMemberData(data.data);
-			setStep(2);
+			setStep(3);
 			setError(null);
 		} catch (err) {
 			// Handle fetch errors
@@ -186,19 +175,19 @@ export default function Home() {
 			)}
 			<ToastContainer />
 
-			{isLoading && step === 2 && error === 200 && (
+			{isLoading && step === 2 && error === "200" && (
 				<SitTight isDone={true} setIsDone={() => {}} />
 			)}
 
-			{step === 2 && error === 404 && <NotFound />}
+			{step === 2 && error === "404" && <NotFound />}
 
-			{step === 2 && error === 500 && <ServerError />}
+			{step === 2 && error === "500" && <ServerError />}
 
 			{!isLoading && step === 1 && (
 				<LandingPage
 					phoneNumber={phoneNumber}
 					setPhoneNumber={setPhoneNumber}
-					handleSubmit={fetchData}
+					handleSubmit={handleSubmit}
 					handleLoader={isLoading}
 				/>
 			)}
