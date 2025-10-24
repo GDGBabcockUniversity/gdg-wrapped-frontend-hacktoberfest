@@ -1,18 +1,16 @@
 "use client";
-import LoadingGeneral from "@/layouts/general/loading";
 import SharePage from "@/layouts/index/share/share";
 import {fetchGeneralData} from "@/services/general.handler";
 import {Data, SuccessGeneralResponse} from "@/types/general.types";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import PrimaryButton from "@/components/PrimaryButton"; // 1. Import the PrimaryButton component
 
+interface GeneralProps {
+	step?: number; // Current sub-step (1-4) from parent
+}
 
-export default function General() {
-	const [isLoading, setIsLoading] = useState<boolean>(true);
-	const [isDone, setIsDone] = useState<boolean>(false);
+export default function General({ step = 1 }: GeneralProps) {
 	const [general, setGeneral] = useState<Data>();
-	const [step, setStep] = useState<number>(1);
 
 	useEffect(() => {
 		async function fetchData() {
@@ -24,11 +22,7 @@ export default function General() {
 
 	return (
 		<>
-			{isLoading && !isDone && (
-				<LoadingGeneral setIsDone={setIsDone} isDone={isDone} />
-			)}
-
-			{isDone && step === 1 && (
+			{step === 1 && (
 				<div
 					id="GeneralRoot"
 					className="bg-black relative flex flex-col justify-between gap-35 md:gap-48 w-full font-sans items-start pt-12 md:pb-[245px] md:px-32">
@@ -82,22 +76,10 @@ export default function General() {
 								</div>
 							</div>
 						</div>
-						<button
-							id="Button1"
-							className="bg-[#ea4235] px-2 w-1/3 h-12 cursor-pointer items-start rounded"
-							onClick={() => {
-								setStep(2);
-							}}>
-							<div
-								id="Label"
-								className="text-center text-lg leading-[24px] text-white">
-								Next
-							</div>
-						</button>
 					</div>
 				</div>
 			)}
-			{isDone && step === 2 && (
+			{step === 2 && (
 				<div
 					id="GeneralRoot"
 					className="bg-black relative flex flex-col justify-between gap-[5rem] md:gap-48 w-full font-sans items-start pt-12 md:pb-[245px] md:px-32">
@@ -152,22 +134,10 @@ export default function General() {
 								</div>
 							</div>
 						</div>
-						<button
-							id="Button1"
-							className="bg-[#ea4235] px-2 w-1/3 h-12 cursor-pointer items-start rounded"
-							onClick={() => {
-								setStep(3);
-							}}>
-							<div
-								id="Label"
-								className="text-center text-lg leading-[24px] text-white">
-								Next
-							</div>
-						</button>
 					</div>
 				</div>
 			)}
-			{isDone && step === 3 && (
+			{step === 3 && (
 				<div
 					id="GeneralRoot"
 					className="bg-black h-full relative flex flex-col justify-between gap-[100px] md:gap-[146px] w-full font-sans items-start pt-12 md:pb-[237px] md:px-20">
@@ -224,16 +194,6 @@ export default function General() {
 								</div>
 							</div>
 						</div>
-						<button
-							id="Button1"
-							className="bg-[#ea4235] flex flex-row justify-center ml-1 pt-4 gap-3 w-1/3 h-12 cursor-pointer items-start rounded"
-							onClick={() => setStep(4)}>
-							<div
-								id="Label"
-								className="text-center text-lg leading-[24px] text-white">
-								Done
-							</div>
-						</button>
 					</div>
 				</div>
 			)}

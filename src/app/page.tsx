@@ -25,6 +25,7 @@ import StoryBar from "./StoryBar";
 import NotFound from "./error/notfound";
 import ServerError from "./error/servererror";
 import General from "./general/page";
+import LoadingGeneral from "@/layouts/general/loading";
 
 export default function Home() {
 	const [phoneNumber, setPhoneNumber] = useState<string>("");
@@ -33,24 +34,18 @@ export default function Home() {
 	const [step, setStep] = useState<number>(1);
 	const [error, setError] = useState<string | null>(null);
 
-	// New step structure with separate loader pages:
+	// Complete step structure with all loaders as separate pages:
 	// 1: Landing, 2: Error, 3: Peak Hour
 	// 4: LoaderResource, 5: Resource (EsteemedObserver)
 	// 6: LoaderQuestion, 7: Question (QuestionPercentile)
 	// 8: LoaderMessages, 9: Messages (MessagesPerc)
 	// 10: LoaderImpact, 11: Impact (MessagesImpact)
-	// 12-15: General (4 sub-pages)
-	const totalSteps = 15;
+	// 12: LoaderGeneral, 13-16: General (4 sub-pages)
+	const totalSteps = 16;
 	const [currentStep, setCurrentStep] = useState<number>(0); // State to track the current step
 	
-	// General page sub-step (for steps 12-15)
+	// General page sub-step (for steps 13-16)
 	const [generalStep, setGeneralStep] = useState<number>(1);
-	
-	// Loading states for different sections
-	const [isDoneForResource, setIsDoneForResource] = useState<boolean>(false);
-	const [isDoneForQuestion, setIsDoneForQuestion] = useState<boolean>(false);
-	const [isDoneForMessages, setIsDoneForMessages] = useState<boolean>(false);
-	const [isDoneForMessagesImpact, setIsDoneForMessagesImpact] = useState<boolean>(false);
 
 	// Auto-advance timer state (timer hidden from UI but still functional)
 	const [isPaused, setIsPaused] = useState<boolean>(false);
@@ -77,35 +72,17 @@ export default function Home() {
 			return;
 		}
 
-		// Auto-advance for loader pages when animation completes
-		if (step === 4 && isDoneForResource) {
-			setStep(5); // Move from LoaderResource to Resource page
-			return;
-		}
-		if (step === 6 && isDoneForQuestion) {
-			setStep(7); // Move from LoaderQuestion to Question page
-			return;
-		}
-		if (step === 8 && isDoneForMessages) {
-			setStep(9); // Move from LoaderMessages to Messages page
-			return;
-		}
-		if (step === 10 && isDoneForMessagesImpact) {
-			setStep(11); // Move from LoaderImpact to Impact page
-			return;
-		}
-
 		const timer = setInterval(() => {
 			setTimeRemaining((prev) => {
 				if (prev <= 1) {
 					// Auto-advance to next step
-					if (step === 12) {
-						// Handle General page sub-steps (12-15)
+					if (step === 13) {
+						// Handle General page sub-steps (13-16)
 						if (generalStep < 4) {
 							setGeneralStep(generalStep + 1);
 						}
 						// Don't auto-advance past last General sub-step
-					} else if (step < 12) {
+					} else if (step < 13) {
 						setStep(step + 1);
 					}
 					return 10;
@@ -115,7 +92,10 @@ export default function Home() {
 		}, 1000);
 
 		return () => clearInterval(timer);
-	}, [step, generalStep, isPaused, isDoneForResource, isDoneForQuestion, isDoneForMessages, isDoneForMessagesImpact, isLoading]);
+	}, [step, generalStep, isPaused, isLoading]);
+
+	// Calculate progress percentage for Instagram-style progress bar
+	const progressPercent = ((10 - timeRemaining) / 10) * 100;
 
 	// Reset timer when step changes
 	useEffect(() => {
@@ -126,16 +106,13 @@ export default function Home() {
 	const handleNext = () => {
 		if (step === 1 || step === 2) return; // Don't navigate from landing or error pages
 
-		// Don't skip loader pages - they're part of the flow now
-		// Loaders will auto-advance when their animation completes
-
-		// Handle General page sub-steps (steps 12-15)
-		if (step === 12 && generalStep < 4) {
+		// Handle General page sub-steps (steps 13-16)
+		if (step === 13 && generalStep < 4) {
 			setGeneralStep(generalStep + 1);
 			return;
 		}
 
-		if (step < 12) {
+		if (step < 13) {
 			setStep(step + 1);
 		}
 	};
@@ -144,12 +121,16 @@ export default function Home() {
 		if (step === 1 || step === 2) return; // Don't navigate from landing or error pages
 
 		// Handle General page sub-steps
-		if (step === 12 && generalStep > 1) {
+		if (step === 13 && generalStep > 1) {
 			setGeneralStep(generalStep - 1);
 			return;
 		}
 
-		if (step > 3) {
+		// Go back one step at a time - ALL pages including loaders
+		if (step === 13) {
+			setStep(12); // Go from first General page to General loader
+			setGeneralStep(1); // Reset general step
+		} else if (step > 3) {
 			setStep(step - 1);
 		}
 	};
@@ -158,10 +139,10 @@ export default function Home() {
 	const jumpToStep = (targetStep: number) => {
 		if (targetStep <= 2) return; // Don't allow jumping to landing or error pages
 
-		// Adjust for General sub-pages (steps 12-15 map to step 12 with generalStep 1-4)
-		if (targetStep >= 12) {
-			setStep(12);
-			setGeneralStep(targetStep - 11); // 12->1, 13->2, 14->3, 15->4
+		// Adjust for General sub-pages (steps 13-16 map to step 13 with generalStep 1-4)
+		if (targetStep >= 13) {
+			setStep(13);
+			setGeneralStep(targetStep - 12); // 13->1, 14->2, 15->3, 16->4
 		} else {
 			setStep(targetStep);
 			setGeneralStep(1); // Reset general step when jumping away
@@ -208,7 +189,7 @@ export default function Home() {
 
 		window.addEventListener("keydown", handleKeyPress);
 		return () => window.removeEventListener("keydown", handleKeyPress);
-	}, [step, generalStep, isDoneForResource, isDoneForQuestion, isDoneForMessages, isDoneForMessagesImpact]);
+	}, [step, generalStep, handleNext, handlePrevious]);
 
 	// Phone number validation function
 	const validatePhoneNumber = (phone: string): boolean => {
@@ -337,8 +318,9 @@ export default function Home() {
 		{step > 1 && (
 			<StoryBar 
 				steps={totalSteps} 
-				currentPosition={step > 12 ? 11 + generalStep : step - 1}
+				currentPosition={step > 13 ? 12 + generalStep : step - 1}
 				onSegmentClick={jumpToStep}
+				progressPercent={progressPercent}
 			/>
 		)}
 		
@@ -346,7 +328,7 @@ export default function Home() {
 		{step > 2 && (
 			<>
 				{/* Left Navigation Button */}
-				{(step > 3 || (step === 12 && generalStep > 1)) && (
+				{(step > 3 || (step === 13 && generalStep > 1)) && (
 					<button
 						onClick={handlePrevious}
 						className="fixed left-4 top-1/2 -translate-y-1/2 z-30 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white p-3 rounded-full transition-all duration-300 hover:scale-110 hidden md:block"
@@ -359,7 +341,7 @@ export default function Home() {
 				)}
 				
 				{/* Right Navigation Button */}
-				{(step < 12 || (step === 12 && generalStep < 4)) && (
+				{(step < 13 || (step === 13 && generalStep < 4)) && (
 					<button
 						onClick={handleNext}
 						className="fixed right-4 top-1/2 -translate-y-1/2 z-30 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white p-3 rounded-full transition-all duration-300 hover:scale-110 hidden md:block"
@@ -400,12 +382,7 @@ export default function Home() {
 			)}
 
 			{/* Step 4: Loader for Resource */}
-			{memberData?.messages_top_perc && step === 4 && (
-				<LoadingResource
-					isDone={isDoneForResource}
-					setIsDone={setIsDoneForResource}
-				/>
-			)}
+			{step === 4 && <LoadingResource isDone={false} setIsDone={() => {}} />}
 
 			{/* Step 5: Resource (EsteemedObserver) */}
 			{memberData?.resources_top_perc && step === 5 && (
@@ -417,12 +394,7 @@ export default function Home() {
 			)}
 
 			{/* Step 6: Loader for Question */}
-			{memberData?.questions_top_perc && step === 6 && (
-				<LoadingQuestionPercentile
-					isDone={isDoneForQuestion}
-					setIsDone={setIsDoneForQuestion}
-				/>
-			)}
+			{step === 6 && <LoadingQuestionPercentile isDone={false} setIsDone={() => {}} />}
 
 			{/* Step 7: Question Percentile */}
 			{memberData?.questions_top_perc && step === 7 && (
@@ -434,12 +406,7 @@ export default function Home() {
 			)}
 
 			{/* Step 8: Loader for Messages */}
-			{memberData?.messages_top_perc && step === 8 && (
-				<LoadingMessages
-					isDone={isDoneForMessages}
-					setIsDone={setIsDoneForMessages}
-				/>
-			)}
+			{step === 8 && <LoadingMessages isDone={false} setIsDone={() => {}} />}
 
 			{/* Step 9: Messages Percentile */}
 			{memberData?.messages_top_perc && step === 9 && (
@@ -449,13 +416,9 @@ export default function Home() {
 					handleNext={() => setStep(10)}
 				/>
 			)}
+
 			{/* Step 10: Loader for Impact */}
-			{memberData?.message_impact_top_perc && step === 10 && (
-				<LoadingMessagesImpact
-					isDone={isDoneForMessagesImpact}
-					setIsDone={setIsDoneForMessagesImpact}
-				/>
-			)}
+			{step === 10 && <LoadingMessagesImpact isDone={false} setIsDone={() => {}} />}
 
 			{/* Step 11: Messages Impact */}
 			{memberData?.message_impact_top_perc && step === 11 && (
@@ -466,8 +429,11 @@ export default function Home() {
 				/>
 			)}
 
-			{/* Steps 12-15: General (4 sub-pages) */}
-			{step === 12 && <General />}
+			{/* Step 12: Loader for General */}
+			{step === 12 && <LoadingGeneral isDone={false} setIsDone={() => {}} />}
+
+			{/* Steps 13-16: General (4 sub-pages) */}
+			{step === 13 && <General step={generalStep} />}
 		</div>
 	);
 }
