@@ -43,9 +43,6 @@ export default function Home() {
 	// 12: LoaderGeneral, 13-16: General (4 sub-pages)
 	const totalSteps = 16;
 	const [currentStep, setCurrentStep] = useState<number>(0); // State to track the current step
-	
-	// General page sub-step (for steps 13-16)
-	const [generalStep, setGeneralStep] = useState<number>(1);
 
 	// Auto-advance timer state (timer hidden from UI but still functional)
 	const [isPaused, setIsPaused] = useState<boolean>(false);
@@ -75,14 +72,8 @@ export default function Home() {
 		const timer = setInterval(() => {
 			setTimeRemaining((prev) => {
 				if (prev <= 1) {
-					// Auto-advance to next step
-					if (step === 13) {
-						// Handle General page sub-steps (13-16)
-						if (generalStep < 4) {
-							setGeneralStep(generalStep + 1);
-						}
-						// Don't auto-advance past last General sub-step
-					} else if (step < 13) {
+					// Auto-advance to next step (don't advance past step 16)
+					if (step < 16) {
 						setStep(step + 1);
 					}
 					return 10;
@@ -92,7 +83,7 @@ export default function Home() {
 		}, 1000);
 
 		return () => clearInterval(timer);
-	}, [step, generalStep, isPaused, isLoading]);
+	}, [step, isPaused, isLoading]);
 
 	// Calculate progress percentage for Instagram-style progress bar
 	const progressPercent = ((10 - timeRemaining) / 10) * 100;
@@ -100,19 +91,13 @@ export default function Home() {
 	// Reset timer when step changes
 	useEffect(() => {
 		setTimeRemaining(10);
-	}, [step, generalStep]);
+	}, [step]);
 
 	// Navigation functions
 	const handleNext = () => {
 		if (step === 1 || step === 2) return; // Don't navigate from landing or error pages
 
-		// Handle General page sub-steps (steps 13-16)
-		if (step === 13 && generalStep < 4) {
-			setGeneralStep(generalStep + 1);
-			return;
-		}
-
-		if (step < 13) {
+		if (step < 16) {
 			setStep(step + 1);
 		}
 	};
@@ -120,17 +105,8 @@ export default function Home() {
 	const handlePrevious = () => {
 		if (step === 1 || step === 2) return; // Don't navigate from landing or error pages
 
-		// Handle General page sub-steps
-		if (step === 13 && generalStep > 1) {
-			setGeneralStep(generalStep - 1);
-			return;
-		}
-
 		// Go back one step at a time - ALL pages including loaders
-		if (step === 13) {
-			setStep(12); // Go from first General page to General loader
-			setGeneralStep(1); // Reset general step
-		} else if (step > 3) {
+		if (step > 3) {
 			setStep(step - 1);
 		}
 	};
@@ -139,14 +115,7 @@ export default function Home() {
 	const jumpToStep = (targetStep: number) => {
 		if (targetStep <= 2) return; // Don't allow jumping to landing or error pages
 
-		// Adjust for General sub-pages (steps 13-16 map to step 13 with generalStep 1-4)
-		if (targetStep >= 13) {
-			setStep(13);
-			setGeneralStep(targetStep - 12); // 13->1, 14->2, 15->3, 16->4
-		} else {
-			setStep(targetStep);
-			setGeneralStep(1); // Reset general step when jumping away
-		}
+		setStep(targetStep);
 	};
 
 	// Touch event handlers for swipe navigation
@@ -189,7 +158,7 @@ export default function Home() {
 
 		window.addEventListener("keydown", handleKeyPress);
 		return () => window.removeEventListener("keydown", handleKeyPress);
-	}, [step, generalStep, handleNext, handlePrevious]);
+	}, [step, handleNext, handlePrevious]);
 
 	// Phone number validation function
 	const validatePhoneNumber = (phone: string): boolean => {
@@ -318,7 +287,7 @@ export default function Home() {
 		{step > 2 && (
 			<StoryBar 
 				steps={14} 
-				currentPosition={step > 13 ? 9 + generalStep : step - 3}
+				currentPosition={step - 3}
 				onSegmentClick={(targetStep) => jumpToStep(targetStep + 2)}
 				progressPercent={progressPercent}
 			/>
@@ -328,7 +297,7 @@ export default function Home() {
 		{step > 2 && (
 			<>
 				{/* Left Navigation Button */}
-				{(step > 3 || (step === 13 && generalStep > 1)) && (
+				{step > 3 && (
 					<button
 						onClick={handlePrevious}
 						className="fixed left-4 top-1/2 -translate-y-1/2 z-30 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white p-3 rounded-full transition-all duration-300 hover:scale-110 hidden md:block"
@@ -341,7 +310,7 @@ export default function Home() {
 				)}
 				
 				{/* Right Navigation Button */}
-				{(step < 13 || (step === 13 && generalStep < 4)) && (
+				{step < 16 && (
 					<button
 						onClick={handleNext}
 						className="fixed right-4 top-1/2 -translate-y-1/2 z-30 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white p-3 rounded-full transition-all duration-300 hover:scale-110 hidden md:block"
@@ -432,8 +401,11 @@ export default function Home() {
 			{/* Step 12: Loader for General */}
 			{step === 12 && <LoadingGeneral isDone={false} setIsDone={() => {}} />}
 
-			{/* Steps 13-16: General (4 sub-pages) */}
-			{step === 13 && <General step={generalStep} />}
+			{/* Steps 13-16: General (4 separate pages) */}
+			{step === 13 && <General step={1} />}
+			{step === 14 && <General step={2} />}
+			{step === 15 && <General step={3} />}
+			{step === 16 && <General step={4} />}
 		</div>
 	);
 }
