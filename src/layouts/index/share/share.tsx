@@ -10,8 +10,8 @@ export default function SharePage() {
         src="/topprogress.svg"
         alt="Vector"
         width={1269}
-        height={181}
-        className="w-[90%] md:w-[1269px] h-10 origin-top-left rotate-[-0.16deg] absolute top-[8rem] md:top-48 md:left-24 left-[5%]"
+        height={6}
+        className="w-full h-[2px] absolute object-cover object-left top-[8rem] md:top-48 left-0"
       />
       <Image
         src="/logo.png"
@@ -29,7 +29,7 @@ export default function SharePage() {
         <span className="text-3xl md:text-5xl text-white">
           We spent time cooking this Wrapped for you so share it and tag us{" "}
         </span>
-        <span className="text-3xl md:text-5xl text-[#ea4235]">@gdcsbabcock</span>
+        <span className="text-3xl md:text-5xl text-[#ea4235]">@gdgbabcock</span>
         <span className="text-3xl md:text-5xl text-white">
           {" "}
           make our food no burn.

@@ -22,8 +22,8 @@ const QuestionPercentile: React.FC<QuestionPercentileProps> = ({
         src="/topprogress.svg"
         alt="Vector"
         width={1269}
-        height={181}
-        className="w-[1269px] h-10 origin-top-left rotate-[-0.16deg] absolute top-[10.5rem] md:top-48 md:left-24"
+        height={6}
+        className="w-[1269px] h-[3px] absolute top-[10.5rem] md:top-48 md:left-24"
       />
       <div className="relative md:flex flex-row justify-between w-full items-start">
         <Image

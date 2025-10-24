@@ -30,9 +30,9 @@ export default function General({ step = 1 }: GeneralProps) {
 						src="/topprogress.svg"
 						alt="Vector"
 						width={1269}
-						height={181}
+						height={6}
 						loading="eager"
-						className="md:w-[1269px] w-[90%] h-10 origin-top-left rotate-[-0.16deg] absolute top-[10rem] md:top-48 left-[5%] md:left-24"
+						className="w-full h-[2px] absolute object-cover object-left top-[10rem] md:top-48 left-0"
 					/>
 					<div className="relative flex flex-col md:flex-row justify-between ml-4 w-full items-start gap-4 md:gap-0">
 						<Image
@@ -87,8 +87,8 @@ export default function General({ step = 1 }: GeneralProps) {
 						src="/topprogress.svg"
 						alt="Vector"
 						width={1269}
-						height={181}
-						className="md:w-[1269px] w-[90%] h-10 origin-top-left rotate-[-0.16deg] absolute top-[10rem] md:top-48 left-[5%] md:left-24"
+						height={6}
+						className="w-full h-[2px] absolute object-cover object-left top-[10rem] md:top-48 left-0"
 					/>
 					<div className="relative flex flex-col md:flex-row justify-between ml-4 w-full items-start gap-4 md:gap-0">
 						<Image
@@ -145,8 +145,8 @@ export default function General({ step = 1 }: GeneralProps) {
 						src="/topprogress.svg"
 						alt="Vector"
 						width={1269}
-						height={181}
-						className="md:w-[1269px] w-[90%] h-10 origin-top-left rotate-[-0.16deg] absolute top-[10rem] md:top-48 left-[5%] md:left-24"
+						height={6}
+						className="w-full h-[2px] absolute object-cover object-left top-[10rem] md:top-48 left-0"
 					/>
 					<div className="relative flex flex-col md:flex-row justify-between ml-4 md:ml-12 w-full items-start gap-4 md:gap-0">
 						<Image
