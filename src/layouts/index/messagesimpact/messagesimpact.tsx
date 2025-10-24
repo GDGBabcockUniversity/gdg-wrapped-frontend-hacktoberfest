@@ -16,7 +16,7 @@ const MessagesImpact: React.FC<MessagesImpactProps> = ({
   return (
     <div
       id="TopMessageRoot"
-      className="bg-black relative flex flex-col justify-between gap-[90px] md:gap-[177px] w-full font-['Inter'] items-start pt-12 md:pb-[369px] md:px-24"
+      className="bg-black relative flex flex-col justify-between gap-[90px] md:gap-[177px] w-full font-sans items-start pt-12 md:pb-[369px] md:px-24"
     >
       <Image
         src="/topprogress.svg"
@@ -52,8 +52,8 @@ const MessagesImpact: React.FC<MessagesImpactProps> = ({
                 id="GhostWriter2"
                 className="text-4xl font-bold leading-[56px] text-[#34a853] mb-px"
               >
-                Ghost<span className="font-['Inter'] text-white"> </span>
-                <span className="font-['Inter'] text-[#fabc05]">Writer!</span>
+                Ghost<span className="font-sans text-white"> </span>
+                <span className="font-sans text-[#fabc05]">Writer!</span>
               </div>
               <div className="text-xl md:text-3xl leading-[42px] text-[#cecece]">
                 We didn’t feel you this year as much as we would have loved to.
@@ -64,10 +64,10 @@ const MessagesImpact: React.FC<MessagesImpactProps> = ({
             </>
           )}
         {messageimpact === "Top 1%" && (
-          <div className="flex flex-col gap-6 w-full font-['Inter'] items-start">
+          <div className="flex flex-col gap-6 w-full font-sans items-start">
             <div className="text-4xl font-bold leading-[56px] text-[#fabc05]">
               GDSC Babcock
-              <span className="font-['Inter'] text-[#34a853]">
+              <span className="font-sans text-[#34a853]">
                 {" "}
                 Oga Patapata of Tech!
               </span>
@@ -81,10 +81,10 @@ const MessagesImpact: React.FC<MessagesImpactProps> = ({
           </div>
         )}
         {messageimpact === "Top 5%" && (
-          <div className="flex flex-col gap-12 w-full font-['Inter'] items-start">
+          <div className="flex flex-col gap-12 w-full font-sans items-start">
             <div className="text-4xl font-bold leading-[56px] text-[#34a853]">
               GDSC Babcock
-              <span className="font-['Inter'] text-[#fabc05]">
+              <span className="font-sans text-[#fabc05]">
                 {" "}
                 Tech Titan!
               </span>
@@ -98,10 +98,10 @@ const MessagesImpact: React.FC<MessagesImpactProps> = ({
           </div>
         )}
         {messageimpact === "Top 10%" && (
-          <div className="flex flex-col gap-12 w-full font-['Inter'] items-start">
+          <div className="flex flex-col gap-12 w-full font-sans items-start">
             <div className="text-4xl font-bold leading-[56px] text-[#34a853]">
               GDSC Babcock{" "}
-              <span className="font-['Inter'] text-[#fabc05]">
+              <span className="font-sans text-[#fabc05]">
                 Tech Pepper!
               </span>
             </div>
@@ -114,10 +114,10 @@ const MessagesImpact: React.FC<MessagesImpactProps> = ({
         )}
 
         {messageimpact === "Top 20%" && (
-          <div className="flex flex-col gap-12 w-full font-['Inter'] items-start">
+          <div className="flex flex-col gap-12 w-full font-sans items-start">
             <div className="text-4xl font-bold leading-[56px] text-[#fabc05]">
               GDSC Babcock
-              <span className="font-['Inter'] text-[#34a853]">
+              <span className="font-sans text-[#34a853]">
                 {" "}
                 Tech Terminator!
               </span>
@@ -130,10 +130,10 @@ const MessagesImpact: React.FC<MessagesImpactProps> = ({
           </div>
         )}
         {messageimpact === "Top 30%" && (
-          <div className="flex flex-col gap-12 w-full font-['Inter'] items-start">
+          <div className="flex flex-col gap-12 w-full font-sans items-start">
             <div className="text-4xl font-bold leading-[56px] text-[#34a853]">
               GDSC Babcock{" "}
-              <span className="font-['Inter'] text-[#fabc05]">
+              <span className="font-sans text-[#fabc05]">
                 Tech Whisperer!
               </span>
             </div>

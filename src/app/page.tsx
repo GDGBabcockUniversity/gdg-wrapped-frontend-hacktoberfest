@@ -35,6 +35,12 @@ export default function Home() {
 
 	const totalSteps = 8; // Define the total number of steps
 	const [currentStep, setCurrentStep] = useState<number>(0); // State to track the current step
+	
+	// Loading states for different sections
+	const [isDoneForResource, setIsDoneForResource] = useState<boolean>(false);
+	const [isDoneForQuestion, setIsDoneForQuestion] = useState<boolean>(false);
+	const [isDoneForMessages, setIsDoneForMessages] = useState<boolean>(false);
+	const [isDoneForMessagesImpact, setIsDoneForMessagesImpact] = useState<boolean>(false);
 
 	// Function to simulate changing the current step
 	const goToNextStep = () => {
@@ -186,19 +192,19 @@ export default function Home() {
 			)}
 			<ToastContainer />
 
-			{isLoading && step === 2 && error === 200 && (
+			{isLoading && step === 2 && error === "200" && (
 				<SitTight isDone={true} setIsDone={() => {}} />
 			)}
 
-			{step === 2 && error === 404 && <NotFound />}
+			{step === 2 && error === "404" && <NotFound />}
 
-			{step === 2 && error === 500 && <ServerError />}
+			{step === 2 && error === "500" && <ServerError />}
 
 			{!isLoading && step === 1 && (
 				<LandingPage
 					phoneNumber={phoneNumber}
 					setPhoneNumber={setPhoneNumber}
-					handleSubmit={fetchData}
+					handleSubmit={handleSubmit}
 					handleLoader={isLoading}
 				/>
 			)}

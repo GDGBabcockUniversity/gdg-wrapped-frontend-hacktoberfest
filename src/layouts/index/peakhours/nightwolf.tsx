@@ -2,7 +2,7 @@ export default function Nigtwold() {
   return (
     <div
       id="PeakHoursActivityRoot"
-      className="bg-black relative flex flex-col justify-between gap-[173px] w-full font-['Inter'] items-start pt-12 pb-[317px] px-20"
+      className="bg-black relative flex flex-col justify-between gap-[173px] w-full font-sans items-start pt-12 pb-[317px] px-20"
     >
       <div className="relative flex flex-row justify-between w-full items-start">
         <img src="/logo.png" alt="GDSCBabcockUniversityHorizontalWhite" />
@@ -20,8 +20,8 @@ export default function Nigtwold() {
             id="DonBabaNightingale2"
             className="text-4xl font-bold leading-[56px] text-[#ea4235]"
           >
-            Don Baba<span className="font-['Inter'] text-white"> </span>
-            <span className="font-['Inter'] text-[#34a853]">Nightingale!</span>
+            Don Baba<span className="font-sans text-white"> </span>
+            <span className="font-sans text-[#34a853]">Nightingale!</span>
           </div>
           <div className="text-3xl leading-[42px] text-white">
             Normally we suppose dey sleep by this time but you <br />

@@ -9,7 +9,7 @@ type LandingPageProps = {
 	style?: React.CSSProperties;
 	phoneNumber: string;
 	setPhoneNumber: (value: string) => void;
-	handleSubmit: () => void;
+	handleSubmit: (e: React.FormEvent) => void;
 	handleLoader: boolean;
 };
 
@@ -89,7 +89,8 @@ const LandingPage: React.FC<LandingPageProps> = ({
 								}
 								onKeyDown={(e) => {
 									if (e.key === "Enter") {
-										handleSubmitProp();
+										e.preventDefault();
+										handleSubmitProp(e as any);
 									}
 								}}></input>
 						</div>
@@ -107,7 +108,7 @@ const LandingPage: React.FC<LandingPageProps> = ({
 				<button
 					id="Button1"
 					disabled={load}
-					className="bg-[#4286f5] disabled:bg-transparent md:w-1/3 h-12 cursor-pointer disabled:cursor-not-allowed font-['Inter'] rounded w-full mt-2 md:mt-0"
+					className="bg-[#4286f5] disabled:bg-transparent md:w-1/3 h-12 cursor-pointer disabled:cursor-not-allowed font-sans rounded w-full mt-2 md:mt-0"
 					onClick={handleSubmitProp}>
 					<div
 						id="Label"

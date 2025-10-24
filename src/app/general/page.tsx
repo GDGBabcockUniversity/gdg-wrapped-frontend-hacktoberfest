@@ -31,7 +31,7 @@ export default function General() {
 			{isDone && step === 1 && (
 				<div
 					id="GeneralRoot"
-					className="bg-black relative flex flex-col justify-between gap-35 md:gap-48 w-full font-['Inter'] items-start pt-12 md:pb-[245px] md:px-32">
+					className="bg-black relative flex flex-col justify-between gap-35 md:gap-48 w-full font-sans items-start pt-12 md:pb-[245px] md:px-32">
 					<Image
 						src="/topprogress.svg"
 						alt="Vector"
@@ -100,7 +100,7 @@ export default function General() {
 			{isDone && step === 2 && (
 				<div
 					id="GeneralRoot"
-					className="bg-black relative flex flex-col justify-between gap-[5rem] md:gap-48 w-full font-['Inter'] items-start pt-12 md:pb-[245px] md:px-32">
+					className="bg-black relative flex flex-col justify-between gap-[5rem] md:gap-48 w-full font-sans items-start pt-12 md:pb-[245px] md:px-32">
 					<Image
 						src="/topprogress.svg"
 						alt="Vector"
@@ -170,7 +170,7 @@ export default function General() {
 			{isDone && step === 3 && (
 				<div
 					id="GeneralRoot"
-					className="bg-black h-full relative flex flex-col justify-between gap-[100px] md:gap-[146px] w-full font-['Inter'] items-start pt-12 md:pb-[237px] md:px-20">
+					className="bg-black h-full relative flex flex-col justify-between gap-[100px] md:gap-[146px] w-full font-sans items-start pt-12 md:pb-[237px] md:px-20">
 					<Image
 						src="/topprogress.svg"
 						alt="Vector"
@@ -196,13 +196,13 @@ export default function General() {
 								The most active track in GDSC Babcock is{" "}
 								<br className="hidden md:block" />
 								the{" "}
-								<span className="font-['Inter'] text-[#ea4235]">
+								<span className="font-sans text-[#ea4235]">
 									{general?.most_active_group.group}{" "}
 									Development
 								</span>
-								<div className="font-['Inter']"> Track!</div>
+								<div className="font-sans"> Track!</div>
 							</div>
-							<div className="text-lg md:text-3xl leading-[42px] text-[#cecece] ml-1 w-full font-['Inter']">
+							<div className="text-lg md:text-3xl leading-[42px] text-[#cecece] ml-1 w-full font-sans">
 								Under the leadership of{" "}
 								<span className="font-bold">
 									Onuada Alfred{" "}

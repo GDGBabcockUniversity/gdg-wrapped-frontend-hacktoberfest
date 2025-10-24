@@ -39,12 +39,12 @@ const LoadingResource: React.FC<LoadingResourceProps> = ({
           width={655}
           height={100}
           className="aspect-[6.62] object-contain object-center w-[655px] overflow-hidden max-w-full" />
-        <div className="flex flex-col md:ml-12 gap-5 w-full font-['Inter'] items-start">
+        <div className="flex flex-col md:ml-12 gap-5 w-full font-sans items-start">
           <div className="relative flex flex-row justify-end w-full items-start pt-16 md:px-16">
             <div className="text-5xl font-semibold text-[#34a853] absolute top-0 left-0 h-[70px] md:h-[300px] w-full">
               Well done!
               <br />
-              <span className="font-['Inter'] text-white md:text-5xl text-xl">
+              <span className="font-sans text-white md:text-5xl text-xl">
                 <br />
                 The next section is a measure of all the good stuff you have
                 shared with the community so far.

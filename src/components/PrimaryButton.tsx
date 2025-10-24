@@ -36,7 +36,7 @@ const PrimaryButton: React.FC<PrimaryButtonProps> = ({
   testId,
 }) => {
   // Base styles
-  const baseClasses = "cursor-pointer font-['Inter'] rounded transition-all duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 flex items-center justify-center gap-2";
+  const baseClasses = "cursor-pointer font-sans rounded transition-all duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 flex items-center justify-center gap-2";
   
   // Size variations
   const sizeClasses = {

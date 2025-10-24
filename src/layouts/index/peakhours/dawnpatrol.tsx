@@ -23,9 +23,9 @@ const DawnPatrol: React.FC<DawnPatrolProps> = ({
   return (
     <div
       id="PeakHoursActivityRoot"
-      className="bg-black relative flex flex-col justify-between gap-[20px] md:gap-[149px] w-full font-['Inter'] items-start md:pt-12 md:pb-[271px] md:px-24 p-5"
+      className="bg-black relative flex flex-col justify-between gap-[20px] md:gap-[149px] w-full font-sans items-start md:pt-12 md:pb-[271px] md:px-24 p-5"
     >
-      <div className="relative md:flex flex-row justify-between w-full font-['Inter'] items-start md:pl-3 md:pr-16">
+      <div className="relative md:flex flex-row justify-between w-full font-sans items-start md:pl-3 md:pr-16">
         <Image
           src="/topprogress.svg"
           alt="Vector"
@@ -75,13 +75,13 @@ const DawnPatrol: React.FC<DawnPatrolProps> = ({
           <div className="flex flex-col gap-6 w-full items-start">
             <div className="text-4xl font-semibold leading-[56px] text-white">
               You are a member of the{" "}
-              <span className="font-['Inter'] font-bold text-[#ea4235]">
+              <span className="font-sans font-bold text-[#ea4235]">
                 Dawn Patrol. <br />
               </span>
-              <div className="font-['Inter']">Honorable Shareholder in the</div>
-              <span className="font-['Inter'] text-[#4285f6]"> </span>
-              <span className="font-['Inter'] text-[#34a853]">“</span>
-              <span className="font-['Inter'] font-bold text-[#34a853]">
+              <div className="font-sans">Honorable Shareholder in the</div>
+              <span className="font-sans text-[#4285f6]"> </span>
+              <span className="font-sans text-[#34a853]">“</span>
+              <span className="font-sans font-bold text-[#34a853]">
                 Up and <br />
                 Grateful” Association.{" "}
               </span>
@@ -102,7 +102,7 @@ const DawnPatrol: React.FC<DawnPatrolProps> = ({
               className="text-4xl font-bold leading-[56px] text-[#ea4235]"
             >
               Oyoyo{" "}
-              <span className="font-['Inter'] text-[#34a853]">
+              <span className="font-sans text-[#34a853]">
                 Express Manager!{" "}
               </span>
             </div>
@@ -123,11 +123,11 @@ const DawnPatrol: React.FC<DawnPatrolProps> = ({
               id="ToriNoDeyFinishFM3"
               className="text-4xl font-bold leading-[56px] text-[#ea4235]"
             >
-              97.2<span className="font-['Inter'] text-white"> </span>
-              <span className="font-['Inter'] text-[#34a853]">
+              97.2<span className="font-sans text-white"> </span>
+              <span className="font-sans text-[#34a853]">
                 “Tori No Dey Finish”
               </span>
-              <span className="font-['Inter'] text-white"> FM! </span>
+              <span className="font-sans text-white"> FM! </span>
             </div>
             <div className="text-xl md:text-3xl leading-[42px] text-white">
               Our evening walks are all that more pleasant because of you.{" "}
@@ -144,8 +144,8 @@ const DawnPatrol: React.FC<DawnPatrolProps> = ({
               id="DonBabaNightingale2"
               className="text-4xl font-bold leading-[56px] text-[#ea4235]"
             >
-              Don Baba<span className="font-['Inter'] text-white"> </span>
-              <span className="font-['Inter'] text-[#34a853]">
+              Don Baba<span className="font-sans text-white"> </span>
+              <span className="font-sans text-[#34a853]">
                 Nightingale!
               </span>
             </div>
@@ -159,7 +159,7 @@ const DawnPatrol: React.FC<DawnPatrolProps> = ({
         )}
         <button
           id="Button1"
-          className="bg-[#4286f5] md:w-1/3 h-12 cursor-pointer font-['Inter'] rounded w-full mt-2 md:mt-0"
+          className="bg-[#4286f5] md:w-1/3 h-12 cursor-pointer font-sans rounded w-full mt-2 md:mt-0"
           onClick={hanldeNext}
           style={{ visibility: isbuttonVisible ? "visible" : "hidden" }}
         >

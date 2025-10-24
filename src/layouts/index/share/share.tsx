@@ -4,7 +4,7 @@ export default function SharePage() {
   return (
     <div
       id="TopMessageRoot"
-      className="overflow-hidden bg-black relative flex flex-col justify-between gap-20 md:gap-32 w-full font-['Inter'] items-start pt-16 md:pb-[281px] md:px-[148px]"
+      className="overflow-hidden bg-black relative flex flex-col justify-between gap-20 md:gap-32 w-full font-sans items-start pt-16 md:pb-[281px] md:px-[148px]"
     >
       <Image
         src="/topprogress.svg"
@@ -20,7 +20,7 @@ export default function SharePage() {
         alt="GDSCBabcockUniversityHorizontalWhite"
         className="relative"
       />
-      <div className="text-5xl font-semibold text-[#34a853] relative ml-[5%] md:ml-8 w-[90%] md:w-3/5 font-['Inter']">
+      <div className="text-5xl font-semibold text-[#34a853] relative ml-[5%] md:ml-8 w-[90%] md:w-3/5 font-sans">
         Omo Ologo!
         <br />
         <span className="text-white">

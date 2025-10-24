@@ -4,7 +4,7 @@ export default function ToriNoDeyFinish() {
   return (
     <div
       id="PeakHoursActivityRoot"
-      className="bg-black relative flex flex-col justify-between gap-[173px] w-full font-['Inter'] items-start pt-12 pb-[317px] px-20"
+      className="bg-black relative flex flex-col justify-between gap-[173px] w-full font-sans items-start pt-12 pb-[317px] px-20"
     >
       <Image
         src="/blueprogress.svg"
@@ -55,11 +55,11 @@ export default function ToriNoDeyFinish() {
             id="ToriNoDeyFinishFM3"
             className="text-4xl font-bold leading-[56px] text-[#ea4235]"
           >
-            97.2<span className="font-['Inter'] text-white"> </span>
-            <span className="font-['Inter'] text-[#34a853]">
+            97.2<span className="font-sans text-white"> </span>
+            <span className="font-sans text-[#34a853]">
               “Tori No Dey Finish”
             </span>
-            <span className="font-['Inter'] text-white"> FM! </span>
+            <span className="font-sans text-white"> FM! </span>
           </div>
           <div className="text-3xl leading-[42px] text-white">
             Our evening walks are all that more pleasant because of you. <br />

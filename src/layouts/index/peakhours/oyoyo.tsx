@@ -4,7 +4,7 @@ export default function OyoyExpress() {
   return (
     <div
       id="PeakHoursActivityRoot"
-      className="bg-black relative flex flex-col justify-between gap-[173px] w-full font-['Inter'] items-start pt-12 pb-[283px] px-20"
+      className="bg-black relative flex flex-col justify-between gap-[173px] w-full font-sans items-start pt-12 pb-[283px] px-20"
     >
       <Image
         src="/blueprogress.svg"
@@ -56,7 +56,7 @@ export default function OyoyExpress() {
             className="text-4xl font-bold leading-[56px] text-[#ea4235]"
           >
             Oyoyo{" "}
-            <span className="font-['Inter'] text-[#34a853]">
+            <span className="font-sans text-[#34a853]">
               Express Manager!{" "}
             </span>
           </div>

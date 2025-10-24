@@ -43,14 +43,14 @@ const LoadingGeneral: React.FC<LoadingGeneralProps> = ({
         width={655}
       />
       <div className="flex flex-col md:ml-12 gap-6 w-full md:w-4/5 items-start">
-        <div className="relative flex flex-row  w-full font-['Inter'] md:mt-0 mt-5 items-start pt-[50px] md:pt-[303px] md:px-20">
+        <div className="relative flex flex-row  w-full font-sans md:mt-0 mt-5 items-start pt-[50px] md:pt-[303px] md:px-20">
           <div className="md:px-0 px-5 text-3xl md:text-5xl font-semibold text-[#34a853] absolute top-2 left-px h-[648px] w-full">
             And now presenting...
             <br />
-            <span className="font-['Inter'] text-white">
+            <span className="font-sans text-white">
               <br />
             </span>
-            <span className="text-2xl md:text-6xl font-['Inter'] font-bold text-white">
+            <span className="text-2xl md:text-6xl font-sans font-bold text-white">
               GDSC BABCOCK
               <br />
               GENERAL
@@ -59,11 +59,11 @@ const LoadingGeneral: React.FC<LoadingGeneralProps> = ({
               <br />
               <br />
             </span>
-            <span className="text-2xl md:text-3xl font-['Inter'] font-bold text-[#ea4235] pb-10">
+            <span className="text-2xl md:text-3xl font-sans font-bold text-[#ea4235] pb-10">
               The efforts of these individuals shone through and we just had to
               recognize them. <br />
             </span>
-            <span className="text-3xl font-['Inter'] font-bold text-white">
+            <span className="text-3xl font-sans font-bold text-white">
               <br />
             </span>
           </div>

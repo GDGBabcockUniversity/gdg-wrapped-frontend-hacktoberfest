@@ -16,7 +16,7 @@ const QuestionPercentile: React.FC<QuestionPercentileProps> = ({
   return (
     <div
       id="QuestionRoot"
-      className="bg-black relative flex flex-col justify-between gap-[50px] md:gap-[177px] w-full font-['Inter'] items-start pt-12 md:pb-[329px] md:px-24"
+      className="bg-black relative flex flex-col justify-between gap-[50px] md:gap-[177px] w-full font-sans items-start pt-12 md:pb-[329px] md:px-24"
     >
       <Image
         src="/topprogress.svg"
@@ -124,7 +124,7 @@ const QuestionPercentile: React.FC<QuestionPercentileProps> = ({
 
         <button
           id="Button1"
-          className="bg-[#34a853] px-2 w-full md:w-1/3 h-12 cursor-pointer font-['Inter'] items-start rounded"
+          className="bg-[#34a853] px-2 w-full md:w-1/3 h-12 cursor-pointer font-sans items-start rounded"
           onClick={() => handleNext()}
           style={{ visibility: isbuttonVisible ? "visible" : "hidden" }}
         >
