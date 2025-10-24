@@ -40,15 +40,15 @@ export default function General() {
 						loading="eager"
 						className="md:w-[1269px] w-[90%] h-10 origin-top-left rotate-[-0.16deg] absolute top-[10rem] md:top-48 left-[5%] md:left-24"
 					/>
-					<div className="relative flex flex-col md:flex-row justify-between ml-4 w-full items-start gap-4 md:gap-0">
+					<div className="relative md:flex flex-row justify-between ml-4 w-full items-start">
 						<Image
 							src="/logo.png"
 							alt="GDGBabcockUniversityHorizontalWhite"
 							width={655}
 							height={100}
-							className="w-full md:w-auto max-w-[655px]"
+							className="w-[90%]"
 						/>
-						<div className="text-xl md:text-3xl font-black leading-[34.8px] text-[#ea4235] md:mt-5">
+						<div className="text-xl md:text-3xl font-black leading-[34.8px] text-[#ea4235] mt-5">
 							GENERAL GDG <span className="md:hidden"> </span>
 							<br className="hidden md:block" />
 							BABCOCK WRAPPED
@@ -108,15 +108,15 @@ export default function General() {
 						height={181}
 						className="md:w-[1269px] w-[90%] h-10 origin-top-left rotate-[-0.16deg] absolute top-[10rem] md:top-48 left-[5%] md:left-24"
 					/>
-					<div className="relative flex flex-col md:flex-row justify-between ml-4 w-full items-start gap-4 md:gap-0">
+					<div className="relative md:flex flex-row justify-between ml-4 w-full items-start">
 						<Image
 							src="/logo.png"
 							alt="GDGBabcockUniversityHorizontalWhite"
 							width={655}
 							height={100}
-							className="w-full md:w-auto max-w-[655px]"
+							className="w-[90%]"
 						/>
-						<div className="text-xl md:text-3xl font-black leading-[34.8px] text-[#ea4235] md:mt-5">
+						<div className="text-xl md:text-3xl font-black leading-[34.8px] text-[#ea4235] mt-5">
 							GENERAL GDG <span className="md:hidden"> </span>
 							<br className="hidden md:block" />
 							BABCOCK WRAPPED
@@ -178,15 +178,15 @@ export default function General() {
 						height={181}
 						className="md:w-[1269px] w-[90%] h-10 origin-top-left rotate-[-0.16deg] absolute top-[10rem] md:top-48 left-[5%] md:left-24"
 					/>
-					<div className="relative flex flex-col md:flex-row justify-between ml-4 md:ml-12 w-full items-start gap-4 md:gap-0">
+					<div className="relative md:flex flex-row justify-between ml-12 w-full items-start">
 						<Image
 							src="/logo.png"
 							alt="GDGBabcockUniversityHorizontalWhite"
 							width={655}
 							height={100}
-							className="w-full md:w-auto max-w-[655px]"
+							className="w-[90%]"
 						/>
-						<div className="text-xl md:text-3xl font-black leading-[34.8px] text-[#ea4235] md:mt-5">
+						<div className="text-xl md:text-3xl font-black leading-[34.8px] text-[#ea4235] mt-5">
 							GDG on Campus Babcock WRAPPED
 						</div>
 					</div>
