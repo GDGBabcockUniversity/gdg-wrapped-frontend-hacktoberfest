@@ -46,7 +46,7 @@ const StoryBar: React.FC<StoryBarProps> = ({
           }`}
           style={{
             width: isActive ? `${progressPercent}%` : undefined,
-            transition: isActive ? 'width 0.1s linear' : 'width 0.3s ease'
+            transition: isActive ? 'width 0.016s linear' : 'width 0.3s ease'
           }}
         />
       </div>

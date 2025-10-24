@@ -46,7 +46,7 @@ export default function Home() {
 
 	// Auto-advance timer state (timer hidden from UI but still functional)
 	const [isPaused, setIsPaused] = useState<boolean>(false);
-	const [timeRemaining, setTimeRemaining] = useState<number>(10); // 10 seconds per page
+	const [progressPercent, setProgressPercent] = useState<number>(0); // 0-100% for smooth animation
 
 	// Touch detection for swipe navigation
 	const [touchStartX, setTouchStartX] = useState<number>(0);
@@ -61,36 +61,37 @@ export default function Home() {
 		goToNextStep();
 	}, [step]);
 
-	// Auto-advance timer effect (10 seconds per page)
+	// Auto-advance timer effect (10 seconds per page with smooth 60fps animation)
 	useEffect(() => {
 		// Don't auto-advance on landing (1) or error (2) pages
 		if (step <= 2 || isLoading || isPaused) {
-			setTimeRemaining(10);
+			setProgressPercent(0);
 			return;
 		}
 
+		const duration = 10000; // 10 seconds in milliseconds
+		const startTime = Date.now();
+
 		const timer = setInterval(() => {
-			setTimeRemaining((prev) => {
-				if (prev <= 1) {
-					// Auto-advance to next step (don't advance past step 16)
-					if (step < 16) {
-						setStep(step + 1);
-					}
-					return 10;
+			const elapsed = Date.now() - startTime;
+			const progress = Math.min((elapsed / duration) * 100, 100);
+			
+			setProgressPercent(progress);
+
+			if (elapsed >= duration) {
+				// Auto-advance to next step (don't advance past step 16)
+				if (step < 16) {
+					setStep(step + 1);
 				}
-				return prev - 1;
-			});
-		}, 1000);
+			}
+		}, 16); // ~60fps for smooth animation
 
 		return () => clearInterval(timer);
 	}, [step, isPaused, isLoading]);
 
-	// Calculate progress percentage for Instagram-style progress bar
-	const progressPercent = ((10 - timeRemaining) / 10) * 100;
-
-	// Reset timer when step changes
+	// Reset progress when step changes
 	useEffect(() => {
-		setTimeRemaining(10);
+		setProgressPercent(0);
 	}, [step]);
 
 	// Navigation functions
