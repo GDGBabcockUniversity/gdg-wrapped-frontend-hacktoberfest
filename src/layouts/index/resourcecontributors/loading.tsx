@@ -35,7 +35,7 @@ const LoadingResource: React.FC<LoadingResourceProps> = ({
       className="bg-black flex flex-row gap-10 w-full h-full md:h-[1024px] items-start pt-16 md:px-[148px]"
     >
       <div className="flex flex-col justify-between gap-6 md:gap-32 w-full md:w-3/4 items-start md:px-0 px-5">
-        <img src="/logo.png" alt="GDSCBabcockUniversityHorizontalWhite"
+        <img src="/logo.png" alt="GDGBabcockUniversityHorizontalWhite"
           width={655}
           height={100}
           className="aspect-[6.62] object-contain object-center w-[655px] overflow-hidden max-w-full" />

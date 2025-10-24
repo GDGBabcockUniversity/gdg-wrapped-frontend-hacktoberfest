@@ -4,8 +4,8 @@ import "../../app/globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "GDSC WRAPPED!",
-  description: "GDSC WRAPPED",
+  title: "GDG WRAPPED!",
+  description: "GDG WRAPPED",
 };
 
 export default function RootLayout({

@@ -57,7 +57,7 @@ const DawnPatrol: React.FC<DawnPatrolProps> = ({
         <div className="relative md:flex flex-row justify-between w-full items-start">
           <Image
             src="/logo.png"
-            alt="GDSCBabcockUniversityHorizontalWhite"
+            alt="GDGBabcockUniversityHorizontalWhite"
             width={500}
             height={500}
           />
@@ -91,7 +91,7 @@ const DawnPatrol: React.FC<DawnPatrolProps> = ({
               <br />
               You are mostly active
               {"  "}
-              in GDSC Babcock during the morning hours.
+              in GDG on Campus Babcock during the morning hours.
             </div>
           </div>
         )}{" "}
@@ -153,7 +153,7 @@ const DawnPatrol: React.FC<DawnPatrolProps> = ({
               Normally we suppose dey sleep by this time but you <br />
               showed us that sleep is for the weak. You too much! <br />
               <br />
-              You come alive for GDSC Babcock in the nighttime.
+              You come alive for GDG on Campus Babcock in the nighttime.
             </div>
           </div>
         )}

@@ -45,13 +45,13 @@ const PrimaryButton: React.FC<PrimaryButtonProps> = ({
     large: 'h-14 px-6 text-xl',
   };
 
-  // Variant styles with GDSC branding
+  // Variant styles with GDG branding
   const variantClasses = {
     blue: 'bg-[#4286f5] hover:bg-blue-600 text-white focus:ring-blue-500',
     red: 'bg-[#ea4335] hover:bg-red-600 text-white focus:ring-red-500',
     green: 'bg-[#34a853] hover:bg-green-600 text-white focus:ring-green-500',
     yellow: 'bg-[#fbbc05] hover:bg-yellow-500 text-gray-900 focus:ring-yellow-500',
-    gradient: 'bg-gdsc-gradient hover:opacity-90 text-white focus:ring-blue-500',
+    gradient: 'bg-gdg-gradient hover:opacity-90 text-white focus:ring-blue-500',
     outline: 'border-2 border-[#4286f5] text-[#4286f5] hover:bg-[#4286f5] hover:text-white focus:ring-blue-500',
   };
 

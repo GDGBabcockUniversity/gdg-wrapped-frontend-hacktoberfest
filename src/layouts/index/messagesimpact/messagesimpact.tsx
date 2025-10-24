@@ -28,7 +28,7 @@ const MessagesImpact: React.FC<MessagesImpactProps> = ({
       <div className="relative md:flex flex-row gap-20 w-full items-start">
         <Image
           src="/logo.png"
-          alt="GDSCBabcockUniversityHorizontalWhite"
+          alt="GDGBabcockUniversityHorizontalWhite"
           height={100}
           width={655}
         />
@@ -66,7 +66,7 @@ const MessagesImpact: React.FC<MessagesImpactProps> = ({
         {messageimpact === "Top 1%" && (
           <div className="flex flex-col gap-6 w-full font-sans items-start">
             <div className="text-4xl font-bold leading-[56px] text-[#fabc05]">
-              GDSC Babcock
+              GDG on Campus Babcock
               <span className="font-sans text-[#34a853]">
                 {" "}
                 Oga Patapata of Tech!
@@ -83,7 +83,7 @@ const MessagesImpact: React.FC<MessagesImpactProps> = ({
         {messageimpact === "Top 5%" && (
           <div className="flex flex-col gap-12 w-full font-sans items-start">
             <div className="text-4xl font-bold leading-[56px] text-[#34a853]">
-              GDSC Babcock
+              GDG on Campus Babcock
               <span className="font-sans text-[#fabc05]">
                 {" "}
                 Tech Titan!
@@ -100,7 +100,7 @@ const MessagesImpact: React.FC<MessagesImpactProps> = ({
         {messageimpact === "Top 10%" && (
           <div className="flex flex-col gap-12 w-full font-sans items-start">
             <div className="text-4xl font-bold leading-[56px] text-[#34a853]">
-              GDSC Babcock{" "}
+              GDG on Campus Babcock{" "}
               <span className="font-sans text-[#fabc05]">
                 Tech Pepper!
               </span>
@@ -116,7 +116,7 @@ const MessagesImpact: React.FC<MessagesImpactProps> = ({
         {messageimpact === "Top 20%" && (
           <div className="flex flex-col gap-12 w-full font-sans items-start">
             <div className="text-4xl font-bold leading-[56px] text-[#fabc05]">
-              GDSC Babcock
+              GDG on Campus Babcock
               <span className="font-sans text-[#34a853]">
                 {" "}
                 Tech Terminator!
@@ -132,7 +132,7 @@ const MessagesImpact: React.FC<MessagesImpactProps> = ({
         {messageimpact === "Top 30%" && (
           <div className="flex flex-col gap-12 w-full font-sans items-start">
             <div className="text-4xl font-bold leading-[56px] text-[#34a853]">
-              GDSC Babcock{" "}
+              GDG on Campus Babcock{" "}
               <span className="font-sans text-[#fabc05]">
                 Tech Whisperer!
               </span>

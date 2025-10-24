@@ -26,7 +26,7 @@ const EsteemedObserver: React.FC<EsteemedObserverProps> = ({
       />
       <div className="relative md:flex flex-row gap-20 w-full items-start">
         <img src="/logo.png" 
-            alt="GDSCBabcockUniversityHorizontalWhite" 
+            alt="GDGBabcockUniversityHorizontalWhite" 
             width={500}
             height={500} />
         <div className="text-xl md:text-3xl font-black leading-[34.8px] text-[#fabc05] mt-5 md:ml-0 ml-4">

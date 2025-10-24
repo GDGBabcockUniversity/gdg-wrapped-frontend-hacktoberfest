@@ -37,7 +37,7 @@ export default function OyoyExpress() {
       <div className="relative flex flex-row justify-between w-full items-start">
         <Image
           src="/logo.png"
-          alt="GDSCBabcockUniversityHorizontalWhite"
+          alt="GDGBabcockUniversityHorizontalWhite"
           width={500}
           height={500}
         />

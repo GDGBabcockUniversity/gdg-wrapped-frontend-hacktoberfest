@@ -15,7 +15,7 @@ const StoryBar: React.FC<StoryBarProps> = ({ steps, currentPosition }) => {
       <div
         key={i}
         className={`flex-1 h-1 sm:h-2 ${
-          isActive ? "bg-gdsc-gradient" : "bg-white"
+          isActive ? "bg-gdg-gradient" : "bg-white"
         } mx-0.5`}
       />
     );

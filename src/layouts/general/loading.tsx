@@ -38,7 +38,7 @@ const LoadingGeneral: React.FC<LoadingGeneralProps> = ({
     >
       <Image
         src="/logo.png"
-        alt="GDSCBabcockUniversityHorizontalWhite"
+        alt="GDGBabcockUniversityHorizontalWhite"
         height={100}
         width={655}
       />
@@ -51,7 +51,7 @@ const LoadingGeneral: React.FC<LoadingGeneralProps> = ({
               <br />
             </span>
             <span className="text-2xl md:text-6xl font-sans font-bold text-white">
-              GDSC BABCOCK
+              GDG on Campus Babcock
               <br />
               GENERAL
               {"  "}

@@ -37,7 +37,7 @@ const LoadingMessagesImpact: React.FC<LoadingMessagesImpactProps> = ({
       className="bg-black flex flex-row gap-10 w-full md:h-[1024px] items-start pt-16 md:px-[148px]"
     >
       <div className="flex flex-col justify-between gap-10 md:gap-32 w-full md:w-3/4 items-start">
-        <img src="/logo.png" alt="GDSCBabcockUniversityHorizontalWhite" />
+        <img src="/logo.png" alt="GDGBabcockUniversityHorizontalWhite" />
         <div className="flex flex-col ml-2 md:ml-12 gap-5 w-full font-sans items-start">
           <div className="relative flex flex-row justify-end w-full items-start pt-5 md:pt-16 md:px-16">
             <div className="text-5xl font-sans font-semibold text-[#34a853] w-full">
@@ -45,7 +45,7 @@ const LoadingMessagesImpact: React.FC<LoadingMessagesImpactProps> = ({
               <span className="text-white md:text-5xl text-xl">
                 <br />
                 Stay glued to your screen to see the measurement of your overall
-                impact in GDSC Babcock.
+                impact in GDG on Campus Babcock.
               </span>
             </div>
             <img

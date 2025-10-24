@@ -95,35 +95,18 @@ export default function Home() {
 			setIsLoading(true);
 			console.log("[FETCH START] Fetching member data for:", phoneNumber);
 
-			// Make API request
-			const response = await fetch(`/api/member/${phoneNumber}`, {
-				method: "GET",
-				headers: {
-					"Content-Type": "application/json",
-				},
-			});
-
-			// Check if response is ok
-			if (!response.ok) {
-				const errorData = await response.json().catch(() => ({}));
-				throw new Error(
-					errorData.message ||
-						`Failed to fetch member data: ${response.status} ${response.statusText}`,
-				);
-			}
-
-			// Parse response data
-			const data = await response.json();
+			// Make API request using the existing handler
+			const data = await fetchMemberData(phoneNumber);
 
 			// Validate response data
-			if (!data || !data.success) {
-				throw new Error(data?.message || "Member not found or invalid response");
+			if (!data || !data.success || !data.data) {
+				throw new Error(data?.error || "Member not found or invalid response");
 			}
 
-			// Success - update member data and proceed to step 2
+			// Success - update member data and proceed to step 3 (first content screen)
 			console.log("[FETCH SUCCESS] Member data retrieved:", data);
 			setMemberData(data.data);
-			setStep(2);
+			setStep(3);
 			setError(null);
 		} catch (err) {
 			// Handle fetch errors

@@ -53,19 +53,19 @@ const LandingPage: React.FC<LandingPageProps> = ({
 									view your personalized{" "}
 								</span>
 								<span className="font-medium text-blue-500">
-									G
+									GDG{" "}
 								</span>
 								<span className="font-medium text-red-500">
-									D
+									on{" "}
 								</span>
 								<span className="font-medium text-yellow-500">
-									S
+									Campus{" "}
 								</span>
 								<span className="font-medium text-green-600">
-									C{" "}
+									Babcock{" "}
 								</span>
 								<span className="font-medium">
-									Babcock Wrapped.
+									Wrapped.
 								</span>
 							</div>
 							<div className="md:hidden flex flex-col items-stretch w-[35%] ml-5 max-md:w-full max-md:ml-0">

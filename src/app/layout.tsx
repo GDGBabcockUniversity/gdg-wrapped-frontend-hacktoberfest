@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "GDSC WRAPPED",
-  description: "GDSC WRAPPED",
+  title: "GDG WRAPPED",
+  description: "GDG WRAPPED",
 };
 
 export default function RootLayout({

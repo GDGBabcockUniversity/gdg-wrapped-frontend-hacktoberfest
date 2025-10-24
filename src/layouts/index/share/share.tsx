@@ -17,7 +17,7 @@ export default function SharePage() {
         src="/logo.png"
         height={100}
         width={655}
-        alt="GDSCBabcockUniversityHorizontalWhite"
+        alt="GDGBabcockUniversityHorizontalWhite"
         className="relative"
       />
       <div className="text-5xl font-semibold text-[#34a853] relative ml-[5%] md:ml-8 w-[90%] md:w-3/5 font-sans">

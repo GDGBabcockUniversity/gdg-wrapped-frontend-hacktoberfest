@@ -30,7 +30,7 @@ const QuestionPercentile: React.FC<QuestionPercentileProps> = ({
           src="/logo.png"
           height={100}
           width={655}
-          alt="GDSCBabcockUniversityHorizontalWhite"
+          alt="GDGBabcockUniversityHorizontalWhite"
         />
         <div className="text-center text-3xl font-black leading-[34.8px] text-[#34a853] mt-8">
           CURIOSITY METER
