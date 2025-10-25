@@ -3,8 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "fingerprint": "node scripts/fingerprint-assets.mjs",
+    "prepare": "npm run fingerprint",
+    "predev": "npm run fingerprint",
+    "prestart": "npm run fingerprint",
+    "prebuild": "npm run fingerprint",
+    "pretest": "npm run fingerprint",
     "dev": "next dev",
     "build": "next build",
+    "validate:shutdown": "node scripts/validate-graceful-shutdown.mjs",
     "start": "next start",
     "lint": "next lint",
     "test": "vitest run"

@@ -1,0 +1,47 @@
+{
+  "generatedAt": "2025-10-25T11:32:42.988Z",
+  "loadFactors": [
+    1,
+    1.2,
+    1.5,
+    2
+  ],
+  "results": [
+    {
+      "factor": 1,
+      "totalRequests": 20,
+      "successes": 20,
+      "failures": 0,
+      "failureRate": 0,
+      "p99": 379.70818899999995,
+      "durationMs": 966.5646469999999
+    },
+    {
+      "factor": 1.2,
+      "totalRequests": 24,
+      "successes": 24,
+      "failures": 0,
+      "failureRate": 0,
+      "p99": 397.0262819999998,
+      "durationMs": 1008.68722
+    },
+    {
+      "factor": 1.5,
+      "totalRequests": 30,
+      "successes": 30,
+      "failures": 0,
+      "failureRate": 0,
+      "p99": 368.1094989999997,
+      "durationMs": 740.5624600000001
+    },
+    {
+      "factor": 2,
+      "totalRequests": 40,
+      "successes": 6,
+      "failures": 34,
+      "failureRate": 0.85,
+      "p99": 411.9595979999999,
+      "durationMs": 412.33221200000025
+    }
+  ]
+}
