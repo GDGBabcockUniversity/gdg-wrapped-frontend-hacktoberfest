@@ -22,8 +22,8 @@ const MessagesImpact: React.FC<MessagesImpactProps> = ({
         src="/topprogress.svg"
         alt="Vector"
         width={1269}
-        height={181}
-        className="w-[90%] md:w-[1269px] h-10 origin-top-left rotate-[-0.16deg] absolute top-[12rem] md:top-48 md:left-24 left-[5%]"
+        height={6}
+        className="w-full h-[2px] absolute object-cover object-left top-[12rem] md:top-48 left-0"
       />
       <div className="relative md:flex flex-row gap-20 w-full items-start">
         <Image

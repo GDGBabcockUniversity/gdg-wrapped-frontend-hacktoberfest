@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { useEffect, useState } from "react";
 
 type LoadingGeneralProps = {
   style?: React.CSSProperties;
@@ -11,26 +10,6 @@ const LoadingGeneral: React.FC<LoadingGeneralProps> = ({
   setIsDone: setIsDoneProp,
   style,
 }) => {
-  const [progress, setProgress] = useState(0);
-  const [isDone, setIsDone] = useState(isDoneProp);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setProgress((oldProgress) => {
-        const newProgress = Math.min(oldProgress + 1, 100);
-        if (newProgress === 100) {
-          setIsDone(true);
-          setIsDoneProp(true);
-          clearInterval(interval);
-        }
-        return newProgress;
-      });
-    }, 50);
-
-    return () => {
-      clearInterval(interval);
-    };
-  }, [setIsDoneProp]);
   return (
     <div
       id="TopMessageRoot"
@@ -95,12 +74,6 @@ const LoadingGeneral: React.FC<LoadingGeneralProps> = ({
             height={500}
             className="hidden md:block w-3 h-3 absolute top-16 left-[752px]"
           />
-          <div className="md:ml-0 ml-[5%] px-3 border-solid border-[#e3e3e3] w-[90%] md:w-2/5 h-8 bg-[#f4f4f4] absolute top-[400px] left-0 flex flex-row items-start pt-1 border rounded-lg">
-            <div
-              className="bg-[#fabc05] w-3/5 h-5 rounded"
-              style={{ width: `${progress}%` }}
-            />
-          </div>
         </div>
       </div>
     </div>
