@@ -66,7 +66,7 @@ export default function General({ step = 1 }: GeneralProps) {
 								</div>
 								<div className="text-lg md:text-2xl md:leading-[33.6px] text-[#cecece] mb-2">
 									{general?.most_active_members
-										.slice(7)
+										.slice(6)
 										.map((member) => (
 											<div key={member.name}>
 												• {member.name}
@@ -123,7 +123,7 @@ export default function General({ step = 1 }: GeneralProps) {
 								</div>
 								<div className="text-lg md:text-2xl md:leading-[33.6px] text-[#cecece] mb-2">
 									{general?.most_active_members_per_track
-										.slice(7)
+										.slice(6)
 										.map((member) => (
 											<div key={member.name}>
 												• {member.name} -{" "}
