@@ -31,7 +31,7 @@ const NotFound: React.FC<NotFoundProps> = ({style}) => {
 								<div className="flex flex-col items-stretch my-auto max-md:max-w-full max-md:mt-10">
 									<div className="text-white text-5xl font-semibold max-md:max-w-full max-md:text-4xl">
 										<span className="text-red-500">
-											You're not a member ke? 😲
+											You&apos;re not a member ke? 😲
 										</span>{" "}
 										<br />
 										<br />
