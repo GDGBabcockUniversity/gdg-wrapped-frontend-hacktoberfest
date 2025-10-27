@@ -282,7 +282,7 @@ export const AchievementSystem = ({ userStats, achievements }) => {
             </div>
             <Target className="w-12 h-12 opacity-80" />
           </div>
-          <div className="mt-4 text-sm opacity-90">You're doing great!</div>
+          <div className="mt-4 text-sm opacity-90">You&apos;re doing great!</div>
         </div>
       </div>
 
