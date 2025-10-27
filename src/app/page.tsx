@@ -24,7 +24,7 @@ import "react-toastify/dist/ReactToastify.css";
 import StoryBar from "./StoryBar";
 import NotFound from "./error/notfound";
 import ServerError from "./error/servererror";
-import General from "./general/page";
+import General from "@/components/General";
 import LoadingGeneral from "@/layouts/general/loading";
 
 export default function Home() {
