@@ -79,17 +79,18 @@ export const trapFocus = (container: Element): (() => void) => {
   const firstElement = focusableElements[0];
   const lastElement = focusableElements[focusableElements.length - 1];
   
-  const handleTabKey = (e: KeyboardEvent) => {
-    if (e.key !== 'Tab') return;
+  const handleTabKey = (e: Event) => {
+    const keyboardEvent = e as KeyboardEvent;
+    if (keyboardEvent.key !== 'Tab') return;
     
-    if (e.shiftKey) {
+    if (keyboardEvent.shiftKey) {
       if (document.activeElement === firstElement) {
-        e.preventDefault();
+        keyboardEvent.preventDefault();
         lastElement?.focus();
       }
     } else {
       if (document.activeElement === lastElement) {
-        e.preventDefault();
+        keyboardEvent.preventDefault();
         firstElement?.focus();
       }
     }
