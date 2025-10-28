@@ -18,6 +18,17 @@ git clone https://github.com/GDGBabcockUniversity/gdg-wrapped-frontend-hacktober
 cd gdg-wrapped-frontend
 ```
 
+### Create your local environment file
+
+```sh
+cp .env.example .env.local
+
+```
+
+###  Update API URL
+
+NEXT_PUBLIC_API_BASE_URL=https://gdsc-wrapped.onrender.com
+
 ### Install the dependencies:
 
 ```sh

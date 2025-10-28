@@ -5,11 +5,14 @@ import {
 } from "@/types/general.types";
 import { formatPhoneNumber } from "@/utilities/utils";
 
+const BASE_URL =
+    process.env.NEXT_PUBLIC_API_BASE_URL || "https://gdsc-wrapped.onrender.com";
+
 export async function fetchGeneralData(): Promise<SuccessGeneralResponse> {
-  try {
-    const response = await axios.get<SuccessGeneralResponse>(
-      "https://gdsc-wrapped.onrender.com/2023/general"
-    );
+    try {
+        const response = await axios.get<SuccessGeneralResponse>(
+            `${BASE_URL}/2023/general`
+        );
     return response.data;
   } catch (error: any) {
     console.error("Error fetching data:", error);
@@ -33,10 +36,10 @@ export async function fetchMemberData(
   number: string
 ): Promise<SuccessMemberResponse> {
   number = formatPhoneNumber(number);
-  try {
-    const response = await axios.get<SuccessMemberResponse>(
-      `https://gdsc-wrapped.onrender.com/2023/member/${number}`
-    );
+    try {
+        const response = await axios.get<SuccessMemberResponse>(
+            `${BASE_URL}/2023/member/${number}`
+        );
     return response.data;
   } catch (error: any) {
     console.error("Error fetching data:", error);
