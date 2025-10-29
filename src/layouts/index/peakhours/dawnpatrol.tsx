@@ -158,7 +158,7 @@ const DawnPatrol: React.FC<DawnPatrolProps> = ({
           </div>
         )}
         <button
-          id="Button1"
+          id="dawn-patrol-next-btn"
           className="bg-[#4286f5] md:w-1/3 h-12 cursor-pointer font-sans rounded w-full mt-2 md:mt-0"
           onClick={hanldeNext}
           style={{ visibility: isbuttonVisible ? "visible" : "hidden" }}

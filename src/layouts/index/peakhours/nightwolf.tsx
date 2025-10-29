@@ -31,7 +31,7 @@ export default function Nigtwold() {
           </div>
         </div>
         <button
-          id="Button1"
+          id="night-wolf-next-btn"
           className="bg-[#4286f5] flex flex-row justify-center pt-4 gap-3 w-2/5 h-12 cursor-pointer items-start rounded"
         >
           <div
