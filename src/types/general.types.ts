@@ -9,7 +9,8 @@ interface MostActiveTime {
 }
 
 interface MostActiveMembers {
-  [key: string]: number;
+  name: string;
+  message_count: number;
 }
 
 interface MemberActivity {
