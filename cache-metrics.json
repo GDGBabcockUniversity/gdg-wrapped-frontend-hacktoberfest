@@ -1,0 +1,128 @@
+{
+  "generatedAt": "2025-10-25T11:32:38.896Z",
+  "assetCount": 24,
+  "totalBytes": 17052337,
+  "averageBytes": 710514.04,
+  "assets": [
+    {
+      "logical": "/blueprogress.svg",
+      "fingerprinted": "/assets-fingerprint/blueprogress.2a4e38f0b4b8.svg",
+      "bytes": 199
+    },
+    {
+      "logical": "/favicon.png",
+      "fingerprinted": "/assets-fingerprint/favicon.41456e7fa774.png",
+      "bytes": 542
+    },
+    {
+      "logical": "/fonts/GoogleSans-Bold.ttf",
+      "fingerprinted": "/assets-fingerprint/fonts/GoogleSans-Bold.9dc62de94a94.ttf",
+      "bytes": 2148428
+    },
+    {
+      "logical": "/fonts/GoogleSans-BoldItalic.ttf",
+      "fingerprinted": "/assets-fingerprint/fonts/GoogleSans-BoldItalic.0a108c7a3df6.ttf",
+      "bytes": 2217796
+    },
+    {
+      "logical": "/fonts/GoogleSans-Italic.ttf",
+      "fingerprinted": "/assets-fingerprint/fonts/GoogleSans-Italic.2805d09fbfd9.ttf",
+      "bytes": 2192096
+    },
+    {
+      "logical": "/fonts/GoogleSans-Medium.ttf",
+      "fingerprinted": "/assets-fingerprint/fonts/GoogleSans-Medium.0a430bcac98f.ttf",
+      "bytes": 2168548
+    },
+    {
+      "logical": "/fonts/GoogleSans-MediumItalic.ttf",
+      "fingerprinted": "/assets-fingerprint/fonts/GoogleSans-MediumItalic.9c5d1ba2caab.ttf",
+      "bytes": 2220636
+    },
+    {
+      "logical": "/fonts/GoogleSans-Regular.ttf",
+      "fingerprinted": "/assets-fingerprint/fonts/GoogleSans-Regular.b8b46f6a754e.ttf",
+      "bytes": 2119572
+    },
+    {
+      "logical": "/greenprogress.svg",
+      "fingerprinted": "/assets-fingerprint/greenprogress.eac9fef86666.svg",
+      "bytes": 205
+    },
+    {
+      "logical": "/greydot.svg",
+      "fingerprinted": "/assets-fingerprint/greydot.dea425bc783a.svg",
+      "bytes": 243
+    },
+    {
+      "logical": "/logo.png",
+      "fingerprinted": "/assets-fingerprint/logo.10ff414ae5eb.png",
+      "bytes": 61123
+    },
+    {
+      "logical": "/next.svg",
+      "fingerprinted": "/assets-fingerprint/next.55995dfad6ec.svg",
+      "bytes": 1375
+    },
+    {
+      "logical": "/notfound.svg",
+      "fingerprinted": "/assets-fingerprint/notfound.5a729c7cf337.svg",
+      "bytes": 26119
+    },
+    {
+      "logical": "/redprogress.svg",
+      "fingerprinted": "/assets-fingerprint/redprogress.cde672fa0484.svg",
+      "bytes": 201
+    },
+    {
+      "logical": "/share.png",
+      "fingerprinted": "/assets-fingerprint/share.0144d6a52fde.png",
+      "bytes": 59648
+    },
+    {
+      "logical": "/share.svg",
+      "fingerprinted": "/assets-fingerprint/share.992780e1e2ee.svg",
+      "bytes": 1470045
+    },
+    {
+      "logical": "/sound.mp3",
+      "fingerprinted": "/assets-fingerprint/sound.bf420c73fcbb.mp3",
+      "bytes": 2304346
+    },
+    {
+      "logical": "/topprogress.svg",
+      "fingerprinted": "/assets-fingerprint/topprogress.6f2d2c503a09.svg",
+      "bytes": 505
+    },
+    {
+      "logical": "/triangle.svg",
+      "fingerprinted": "/assets-fingerprint/triangle.e2fb08d5c63f.svg",
+      "bytes": 154
+    },
+    {
+      "logical": "/vercel.svg",
+      "fingerprinted": "/assets-fingerprint/vercel.3fa5cd757b41.svg",
+      "bytes": 629
+    },
+    {
+      "logical": "/warp.svg",
+      "fingerprinted": "/assets-fingerprint/warp.3d921d43976d.svg",
+      "bytes": 1358
+    },
+    {
+      "logical": "/whitetriangle.svg",
+      "fingerprinted": "/assets-fingerprint/whitetriangle.8765f940935a.svg",
+      "bytes": 872
+    },
+    {
+      "logical": "/woman.svg",
+      "fingerprinted": "/assets-fingerprint/woman.85adbf9db328.svg",
+      "bytes": 57492
+    },
+    {
+      "logical": "/yellowprogress.svg",
+      "fingerprinted": "/assets-fingerprint/yellowprogress.6651874c70c3.svg",
+      "bytes": 205
+    }
+  ]
+}
