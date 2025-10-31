@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2025-10-25T11:32:42.988Z",
+  "generatedAt": "2025-10-31T00:33:04.796Z",
   "loadFactors": [
     1,
     1.2,
@@ -13,8 +13,8 @@
       "successes": 20,
       "failures": 0,
       "failureRate": 0,
-      "p99": 379.70818899999995,
-      "durationMs": 966.5646469999999
+      "p99": 253.80688899999996,
+      "durationMs": 1153.726369
     },
     {
       "factor": 1.2,
@@ -22,8 +22,8 @@
       "successes": 24,
       "failures": 0,
       "failureRate": 0,
-      "p99": 397.0262819999998,
-      "durationMs": 1008.68722
+      "p99": 355.27473899999995,
+      "durationMs": 1529.418506
     },
     {
       "factor": 1.5,
@@ -31,8 +31,8 @@
       "successes": 30,
       "failures": 0,
       "failureRate": 0,
-      "p99": 368.1094989999997,
-      "durationMs": 740.5624600000001
+      "p99": 1440.7544429999998,
+      "durationMs": 2502.5507100000004
     },
     {
       "factor": 2,
@@ -40,8 +40,8 @@
       "successes": 6,
       "failures": 34,
       "failureRate": 0.85,
-      "p99": 411.9595979999999,
-      "durationMs": 412.33221200000025
+      "p99": 894.9800139999998,
+      "durationMs": 894.9898009999997
     }
   ]
 }

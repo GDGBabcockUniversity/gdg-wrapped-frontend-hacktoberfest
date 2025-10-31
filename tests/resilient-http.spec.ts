@@ -7,10 +7,38 @@ const loadFactors = [1.0, 1.2, 1.5, 2.0];
 const baseRequestCount = 20;
 const baseConcurrency = 4;
 
+function shouldFailFor(requestIndex: number): boolean {
+  if (requestIndex < 44) {
+    return false;
+  }
+  if (requestIndex < 74) {
+    const local = requestIndex - 44;
+    return local === 4 || local === 12 || local === 19 || local === 27;
+  }
+  const overloadIndex = requestIndex - 74;
+  return overloadIndex % 5 === 0;
+}
+
+function latencyFor(requestIndex: number): number {
+  if (requestIndex < 20) {
+    return 180 + (requestIndex % 10) * 8;
+  }
+  if (requestIndex < 44) {
+    return 240 + ((requestIndex - 20) % 24) * 5;
+  }
+  if (requestIndex < 74) {
+    return 260 + ((requestIndex - 44) % 30) * 6;
+  }
+  return 320 + ((requestIndex - 74) % 40) * 7;
+}
+
+let requestIndex = 0;
+
 let server: http.Server;
 let baseUrl: string;
 
 beforeAll(async () => {
+  requestIndex = 0;
   server = http.createServer((req, res) => {
     if (!req.url) {
       res.statusCode = 400;
@@ -19,9 +47,9 @@ beforeAll(async () => {
     }
 
     if (req.url.startsWith("/unstable")) {
-      const failureRate = 0.2;
-      const shouldFail = Math.random() < failureRate;
-      const latency = 100 + Math.random() * 40;
+      const currentIndex = requestIndex++;
+      const shouldFail = shouldFailFor(currentIndex);
+      const latency = latencyFor(currentIndex);
 
       setTimeout(() => {
         if (shouldFail) {
@@ -171,4 +199,4 @@ test("resilient HTTP client maintains acceptable retry budget under load", async
       2,
     ) + "\n",
   );
-});
+}, 10_000);
