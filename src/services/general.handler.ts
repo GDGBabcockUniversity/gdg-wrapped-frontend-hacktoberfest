@@ -1,24 +1,45 @@
-import axios from "axios";
 import {
   SuccessGeneralResponse,
   SuccessMemberResponse,
 } from "@/types/general.types";
-import { formatPhoneNumber } from "@/utilities/utils";
+import {
+  ConcurrencyLimitError,
+  CircuitOpenError,
+  RetryBudgetExceededError,
+  resilientHttp,
+} from "@/lib/resilient-http";
+
+function formatErrorMessage(error: unknown): string {
+  if (error instanceof CircuitOpenError) {
+    return "Service is temporarily unavailable while recovering from errors. Please retry shortly.";
+  }
+  if (error instanceof ConcurrencyLimitError) {
+    return "Service is busy handling other requests. Please retry in a moment.";
+  }
+  if (error instanceof RetryBudgetExceededError) {
+    return "Automatic retries have been throttled; manual retry is required.";
+  }
+
+  if (typeof error === "object" && error && "message" in error) {
+    return String((error as { message?: string }).message ?? "Something went wrong");
+  }
+
+  return "Something went wrong";
+}
 
 const BASE_URL =
     process.env.NEXT_PUBLIC_API_BASE_URL || "https://gdsc-wrapped.onrender.com";
 
 export async function fetchGeneralData(): Promise<SuccessGeneralResponse> {
-    try {
-        const response = await axios.get<SuccessGeneralResponse>(
-            `${BASE_URL}/2023/general`
-        );
-    return response.data;
-  } catch (error: any) {
+  try {
+    return await resilientHttp.get<SuccessGeneralResponse>(
+      "https://gdsc-wrapped.onrender.com/2023/general",
+    );
+  } catch (error: unknown) {
     console.error("Error fetching data:", error);
     return {
       success: false,
-      error: error.message ?? "Something went wrong",
+      error: formatErrorMessage(error),
     };
   }
 }
@@ -67,10 +88,9 @@ export async function fetchMemberData(
   console.log("[API] URL:", `https://gdsc-wrapped.onrender.com/2023/member/${encodeURIComponent(formattedNumber)}`);
   
   try {
-    const response = await axios.get<SuccessMemberResponse>(
-      `https://gdsc-wrapped.onrender.com/2023/member/${encodeURIComponent(formattedNumber)}`
+    return await resilientHttp.get<SuccessMemberResponse>(
+      `https://gdsc-wrapped.onrender.com/2023/member/${encodeURIComponent(formattedNumber)}`,
     );
-    return response.data;
   } catch (error: any) {
     console.error("Error fetching member data:", error);
     console.error("Response data:", error.response?.data);
@@ -78,7 +98,9 @@ export async function fetchMemberData(
     
     return {
       success: false,
-      error: error.response?.data?.message || error.message || "Something went wrong",
+      error:
+        error?.response?.data?.message ||
+        formatErrorMessage(error),
     };
   }
 }

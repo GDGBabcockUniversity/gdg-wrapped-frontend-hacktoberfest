@@ -1,0 +1,59 @@
+{
+  "generatedAt": "2025-10-25T11:26:47.153Z",
+  "gracePeriodMs": 1000,
+  "cycles": [
+    {
+      "cycle": 1,
+      "slowResult": {
+        "status": 200,
+        "duration": 201.76412600000003,
+        "body": {
+          "ok": true,
+          "delay": 200,
+          "drained": true,
+          "timestamp": "2025-10-25T11:26:40.712Z"
+        }
+      },
+      "drainingStatus": null,
+      "exitCode": 0,
+      "stderr": ""
+    },
+    {
+      "cycle": 2,
+      "slowResult": {
+        "status": 200,
+        "duration": 203.2832389999994,
+        "body": {
+          "ok": true,
+          "delay": 200,
+          "drained": true,
+          "timestamp": "2025-10-25T11:26:43.516Z"
+        }
+      },
+      "drainingStatus": null,
+      "exitCode": 0,
+      "stderr": ""
+    },
+    {
+      "cycle": 3,
+      "slowResult": {
+        "status": 200,
+        "duration": 202.21093500000006,
+        "body": {
+          "ok": true,
+          "delay": 200,
+          "drained": true,
+          "timestamp": "2025-10-25T11:26:46.292Z"
+        }
+      },
+      "drainingStatus": null,
+      "exitCode": 0,
+      "stderr": ""
+    }
+  ],
+  "metrics": {
+    "dropRate": 0,
+    "p99Duration": 203.2832389999994,
+    "meetsGraceBudget": true
+  }
+}

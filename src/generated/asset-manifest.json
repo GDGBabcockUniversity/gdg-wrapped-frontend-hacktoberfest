@@ -1,0 +1,122 @@
+{
+  "/blueprogress.svg": {
+    "path": "/assets-fingerprint/blueprogress.2a4e38f0b4b8.svg",
+    "integrity": "sha256-Kk448LS48sNQw/BAe2iM9IX+4j/gqX37CNVCr6yrJZE=",
+    "sha256": "2a4e38f0b4b8f2c350c3f0407b688cf485fee23fe0a97dfb08d542afacab2591"
+  },
+  "/favicon.png": {
+    "path": "/assets-fingerprint/favicon.41456e7fa774.png",
+    "integrity": "sha256-QUVuf6d0gXVtTV+kEZRP5UE0YrFjvO2MMDcNG89e18E=",
+    "sha256": "41456e7fa77481756d4d5fa411944fe5413462b163bced8c30370d1bcf5ed7c1"
+  },
+  "/fonts/GoogleSans-Bold.ttf": {
+    "path": "/assets-fingerprint/fonts/GoogleSans-Bold.9dc62de94a94.ttf",
+    "integrity": "sha256-ncYt6UqUlFYjEHCOOdavxP6AooI/Zd0OxQId6tIGfb0=",
+    "sha256": "9dc62de94a9494562310708e39d6afc4fe80a2823f65dd0ec5021dead2067dbd"
+  },
+  "/fonts/GoogleSans-BoldItalic.ttf": {
+    "path": "/assets-fingerprint/fonts/GoogleSans-BoldItalic.0a108c7a3df6.ttf",
+    "integrity": "sha256-ChCMej32n64W8zlyTtgQA/xz6ym6dny9GkFVxu/xgCw=",
+    "sha256": "0a108c7a3df69fae16f339724ed81003fc73eb29ba767cbd1a4155c6eff1802c"
+  },
+  "/fonts/GoogleSans-Italic.ttf": {
+    "path": "/assets-fingerprint/fonts/GoogleSans-Italic.2805d09fbfd9.ttf",
+    "integrity": "sha256-KAXQn7/ZjqCaGALCrEcIsrnaMYIySsnHTbriXJSz5LQ=",
+    "sha256": "2805d09fbfd98ea09a1802c2ac4708b2b9da3182324ac9c74dbae25c94b3e4b4"
+  },
+  "/fonts/GoogleSans-Medium.ttf": {
+    "path": "/assets-fingerprint/fonts/GoogleSans-Medium.0a430bcac98f.ttf",
+    "integrity": "sha256-CkMLysmPPVOtinBJkkhGW+AuguGLxJ7Jk9TN0C4vOFU=",
+    "sha256": "0a430bcac98f3d53ad8a70499248465be02e82e18bc49ec993d4cdd02e2f3855"
+  },
+  "/fonts/GoogleSans-MediumItalic.ttf": {
+    "path": "/assets-fingerprint/fonts/GoogleSans-MediumItalic.9c5d1ba2caab.ttf",
+    "integrity": "sha256-nF0bosqrnXKj8WFQwJ/AJhJV46enCfSEnSaXqQJaDx4=",
+    "sha256": "9c5d1ba2caab9d72a3f16150c09fc0261255e3a7a709f4849d2697a9025a0f1e"
+  },
+  "/fonts/GoogleSans-Regular.ttf": {
+    "path": "/assets-fingerprint/fonts/GoogleSans-Regular.b8b46f6a754e.ttf",
+    "integrity": "sha256-uLRvanVOFpzXrdrxpDEQSOQlVF9euLgiPD86VUaHDPw=",
+    "sha256": "b8b46f6a754e169cd7addaf1a4311048e425545f5eb8b8223c3f3a5546870cfc"
+  },
+  "/greenprogress.svg": {
+    "path": "/assets-fingerprint/greenprogress.eac9fef86666.svg",
+    "integrity": "sha256-6sn++GZmtU2aGL+iJI0K0rsFOtLjEwpIpHc45Q47v2A=",
+    "sha256": "eac9fef86666b54d9a18bfa2248d0ad2bb053ad2e3130a48a47738e50e3bbf60"
+  },
+  "/greydot.svg": {
+    "path": "/assets-fingerprint/greydot.dea425bc783a.svg",
+    "integrity": "sha256-3qQlvHg6p9dAyb8Pt/W8kj8jJa2hOgSaSLKJu/2+KD8=",
+    "sha256": "dea425bc783aa7d740c9bf0fb7f5bc923f2325ada13a049a48b289bbfdbe283f"
+  },
+  "/logo.png": {
+    "path": "/assets-fingerprint/logo.10ff414ae5eb.png",
+    "integrity": "sha256-EP9BSuXr8QQAUdgA1SRCOx4noqSGN17VkF5Ppk89rRg=",
+    "sha256": "10ff414ae5ebf1040051d800d524423b1e27a2a486375ed5905e4fa64f3dad18"
+  },
+  "/next.svg": {
+    "path": "/assets-fingerprint/next.55995dfad6ec.svg",
+    "integrity": "sha256-VZld+tbstJRaHoVt3KA8XhaqW/E/0htN9qdK55NXvPw=",
+    "sha256": "55995dfad6ecb4945a1e856ddca03c5e16aa5bf13fd21b4df6a74ae79357bcfc"
+  },
+  "/notfound.svg": {
+    "path": "/assets-fingerprint/notfound.5a729c7cf337.svg",
+    "integrity": "sha256-WnKcfPM3OSw07elIC3Rqwm38KWslMkb+agyT4TrorC0=",
+    "sha256": "5a729c7cf337392c34ede9480b746ac26dfc296b253246fe6a0c93e13ae8ac2d"
+  },
+  "/redprogress.svg": {
+    "path": "/assets-fingerprint/redprogress.cde672fa0484.svg",
+    "integrity": "sha256-zeZy+gSEDtPKacpEqUoExlYEiMV1qxYBt7Q/UqeSXFE=",
+    "sha256": "cde672fa04840ed3ca69ca44a94a04c6560488c575ab1601b7b43f52a7925c51"
+  },
+  "/share.png": {
+    "path": "/assets-fingerprint/share.0144d6a52fde.png",
+    "integrity": "sha256-AUTWpS/e1oMean8rKxIqn3A2NupLX+1ft+GKd9tkcGs=",
+    "sha256": "0144d6a52fded6831e6a7f2b2b122a9f703636ea4b5fed5fb7e18a77db64706b"
+  },
+  "/share.svg": {
+    "path": "/assets-fingerprint/share.992780e1e2ee.svg",
+    "integrity": "sha256-mSeA4eLuHeIRU/4k4AxcGdT8npSYe1at79en9ZJEYWc=",
+    "sha256": "992780e1e2ee1de21153fe24e00c5c19d4fc9e94987b56adefd7a7f592446167"
+  },
+  "/sound.mp3": {
+    "path": "/assets-fingerprint/sound.bf420c73fcbb.mp3",
+    "integrity": "sha256-v0IMc/y7Njpkwn3tRy+RJkXM8HWowSjrLK+AIF3Ligc=",
+    "sha256": "bf420c73fcbb363a64c27ded472f912645ccf075a8c128eb2caf80205dcb8a07"
+  },
+  "/topprogress.svg": {
+    "path": "/assets-fingerprint/topprogress.6f2d2c503a09.svg",
+    "integrity": "sha256-by0sUDoJZiJOrqTXUGMfgcV8SCVoI3c75nPTaILJsLQ=",
+    "sha256": "6f2d2c503a0966224eaea4d750631f81c57c48256823773be673d36882c9b0b4"
+  },
+  "/triangle.svg": {
+    "path": "/assets-fingerprint/triangle.e2fb08d5c63f.svg",
+    "integrity": "sha256-4vsI1cY/XlksScZq9B715EVP6SmJsytnevK7comxX0o=",
+    "sha256": "e2fb08d5c63f5e592c49c66af41ef5e4454fe92989b32b677af2bb7289b15f4a"
+  },
+  "/vercel.svg": {
+    "path": "/assets-fingerprint/vercel.3fa5cd757b41.svg",
+    "integrity": "sha256-P6XNdXtBjhivxo3eutVfRDIG5BAyeSHdsr8b5zFliIA=",
+    "sha256": "3fa5cd757b418e18afc68ddebad55f443206e410327921ddb2bf1be731658880"
+  },
+  "/warp.svg": {
+    "path": "/assets-fingerprint/warp.3d921d43976d.svg",
+    "integrity": "sha256-PZIdQ5dtXmb0neDQTQK+as3h9N60geU8o/071gi6M6I=",
+    "sha256": "3d921d43976d5e66f49de0d04d02be6acde1f4deb481e53ca3fd3bd608ba33a2"
+  },
+  "/whitetriangle.svg": {
+    "path": "/assets-fingerprint/whitetriangle.8765f940935a.svg",
+    "integrity": "sha256-h2X5QJNafGDte5yNwfFINg+J9InGipsuRgJykL/1YF0=",
+    "sha256": "8765f940935a7c60ed7b9c8dc1f148360f89f489c68a9b2e46027290bff5605d"
+  },
+  "/woman.svg": {
+    "path": "/assets-fingerprint/woman.85adbf9db328.svg",
+    "integrity": "sha256-ha2/nbMovOVIWrj4sEu8HVqiQkaggmdEKZ2aA3I914Q=",
+    "sha256": "85adbf9db328bce5485ab8f8b04bbc1d5aa24246a0826744299d9a03723dd784"
+  },
+  "/yellowprogress.svg": {
+    "path": "/assets-fingerprint/yellowprogress.6651874c70c3.svg",
+    "integrity": "sha256-ZlGHTHDDsgxbn5jLniKoo3gzj283SCiLJtTYHbcJtFQ=",
+    "sha256": "6651874c70c3b20c5b9f98cb9e22a8a378338f6f3748288b26d4d81db709b454"
+  }
+}
