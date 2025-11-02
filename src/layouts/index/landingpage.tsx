@@ -106,7 +106,7 @@ const LandingPage: React.FC<LandingPageProps> = ({
 					</div>
 				</div>
 				<button
-					id="Button1"
+					id="LandingPage_NextButton"
 					disabled={load}
 					className="bg-[#4286f5] disabled:bg-transparent md:w-1/3 h-12 cursor-pointer disabled:cursor-not-allowed font-sans rounded w-full mt-2 md:mt-0"
 					onClick={handleSubmitProp}>
