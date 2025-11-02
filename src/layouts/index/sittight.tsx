@@ -56,7 +56,7 @@ const SitTight: React.FC<sitTightProps> = ({
 										<br />
 										<br />
 										<br />
-										Welcome to the review of your GDSC
+										Welcome to the review of your GDG
 										activity.
 									</div>
 									<div className="border bg-zinc-100 flex flex-col justify-center items-stretch mt-16 py-2 rounded-xl border-solid border-neutral-200 max-md:max-w-full max-md:mt-10">

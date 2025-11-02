@@ -109,6 +109,7 @@ const VideoPage: React.FC = () => {
           phoneNumber={phoneNumber}
           setPhoneNumber={setPhoneNumber}
           handleSubmit={() => fetchData(phoneNumber)}
+          handleLoader={isLoading}
           style={isLoading ? { display: "hi" } : { display: "block" }}
         />
       )}

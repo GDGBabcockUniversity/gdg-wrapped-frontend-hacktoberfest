@@ -15,18 +15,18 @@ const EsteemedObserver: React.FC<EsteemedObserverProps> = ({
   return (
     <div
       id="ResourceCRoot"
-      className="bg-black relative flex flex-col justify-between md:gap-[177px] w-full font-['Inter'] items-start pt-12 md:pb-[293px] md:px-24"
+      className="bg-black relative flex flex-col justify-between md:gap-[177px] w-full font-sans items-start pt-12 md:pb-[293px] md:px-24"
     >
       <Image
         src="/topprogress.svg"
         alt="Vector"
         width={1269}
-        height={181}
-        className="w-[90%] md:w-[1269px] h-10 origin-top-left rotate-[-0.16deg] absolute top-[12rem] md:top-48 md:left-24 left-[5%]"
+        height={6}
+        className="w-full h-[2px] absolute object-cover object-left top-[12rem] md:top-48 left-0"
       />
       <div className="relative md:flex flex-row gap-20 w-full items-start">
         <img src="/logo.png" 
-            alt="GDSCBabcockUniversityHorizontalWhite" 
+            alt="GDGBabcockUniversityHorizontalWhite" 
             width={500}
             height={500} />
         <div className="text-xl md:text-3xl font-black leading-[34.8px] text-[#fabc05] mt-5 md:ml-0 ml-4">
@@ -47,8 +47,8 @@ const EsteemedObserver: React.FC<EsteemedObserverProps> = ({
                 id="EsteemedObserver2"
                 className="text-4xl font-bold leading-[56px] text-[#fabc05]"
               >
-                Esteemed<span className="font-['Inter'] text-white"> </span>
-                <span className="font-['Inter'] text-[#4286f5]">Observer!</span>
+                Esteemed<span className="font-sans text-white"> </span>
+                <span className="font-sans text-[#4286f5]">Observer!</span>
               </div>
               <div className="text-xl md:text-3xl md:px-0 leading-[42px] text-[#cecece] w-[95%]">
                 At this point you are our Oga. We live to supply all your
@@ -60,7 +60,7 @@ const EsteemedObserver: React.FC<EsteemedObserverProps> = ({
           )}
 
         {resourcePerc === "Top 1%" && (
-          <div className="flex flex-col gap-12 w-full font-['Inter'] items-start">
+          <div className="flex flex-col gap-12 w-full font-sans items-start">
             <div className="text-4xl font-bold leading-[56px] text-[#4286f5]">
               Top 1%
             </div>
@@ -73,7 +73,7 @@ const EsteemedObserver: React.FC<EsteemedObserverProps> = ({
         )}
 
         {resourcePerc === "Top 5%" && (
-          <div className="flex flex-col gap-12 w-full font-['Inter'] items-start">
+          <div className="flex flex-col gap-12 w-full font-sans items-start">
             <div className="text-4xl font-bold leading-[56px] text-[#4286f5]">
               Top 5%
             </div>
@@ -86,7 +86,7 @@ const EsteemedObserver: React.FC<EsteemedObserverProps> = ({
         )}
 
         {resourcePerc === "Top 10%" && (
-          <div className="flex flex-col gap-12 w-full font-['Inter'] items-start">
+          <div className="flex flex-col gap-12 w-full font-sans items-start">
             <div className="text-4xl font-bold leading-[56px] text-[#4286f5]">
               Top 10%
             </div>
@@ -98,7 +98,7 @@ const EsteemedObserver: React.FC<EsteemedObserverProps> = ({
           </div>
         )}
         {resourcePerc === "Top 20%" && (
-          <div className="flex flex-col gap-12 w-full font-['Inter'] items-start">
+          <div className="flex flex-col gap-12 w-full font-sans items-start">
             <div className="text-4xl font-bold leading-[56px] text-[#4286f5]">
               Top 20%
             </div>
@@ -110,7 +110,7 @@ const EsteemedObserver: React.FC<EsteemedObserverProps> = ({
           </div>
         )}
         {resourcePerc === "Top 35%" && (
-          <div className="flex flex-col gap-12 w-full font-['Inter'] items-start">
+          <div className="flex flex-col gap-12 w-full font-sans items-start">
             <div className="text-4xl font-bold leading-[56px] text-[#4286f5]">
               Top 30%
             </div>
@@ -122,7 +122,7 @@ const EsteemedObserver: React.FC<EsteemedObserverProps> = ({
           </div>
         )}
         <button
-          id="Button1"
+          id="ResourceContributorNextBtn"
           className="bg-[#fabc05] w-[95%] md:w-1/3 h-12 cursor-pointer items-start rounded"
           onClick={handleNext}
           style={{ visibility: isbuttonVisible ? "visible" : "hidden" }}

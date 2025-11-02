@@ -1,18 +1,16 @@
 "use client";
-import LoadingGeneral from "@/layouts/general/loading";
 import SharePage from "@/layouts/index/share/share";
 import {fetchGeneralData} from "@/services/general.handler";
 import {Data, SuccessGeneralResponse} from "@/types/general.types";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import PrimaryButton from "@/components/PrimaryButton"; // 1. Import the PrimaryButton component
 
+interface GeneralProps {
+	step?: number; // Current sub-step (1-4) from parent
+}
 
-export default function General() {
-	const [isLoading, setIsLoading] = useState<boolean>(true);
-	const [isDone, setIsDone] = useState<boolean>(false);
+export default function General({ step = 1 }: GeneralProps) {
 	const [general, setGeneral] = useState<Data>();
-	const [step, setStep] = useState<number>(1);
 
 	useEffect(() => {
 		async function fetchData() {
@@ -24,32 +22,28 @@ export default function General() {
 
 	return (
 		<>
-			{isLoading && !isDone && (
-				<LoadingGeneral setIsDone={setIsDone} isDone={isDone} />
-			)}
-
-			{isDone && step === 1 && (
+			{step === 1 && (
 				<div
 					id="GeneralRoot"
-					className="bg-black relative flex flex-col justify-between gap-35 md:gap-48 w-full font-['Inter'] items-start pt-12 md:pb-[245px] md:px-32">
+					className="bg-black relative flex flex-col justify-between gap-35 md:gap-48 w-full font-sans items-start pt-12 md:pb-[245px] md:px-32">
 					<Image
 						src="/topprogress.svg"
 						alt="Vector"
 						width={1269}
-						height={181}
+						height={6}
 						loading="eager"
-						className="md:w-[1269px] w-[90%] h-10 origin-top-left rotate-[-0.16deg] absolute top-[10rem] md:top-48 left-[5%] md:left-24"
+						className="w-full h-[2px] absolute object-cover object-left top-[10rem] md:top-48 left-0"
 					/>
-					<div className="relative md:flex flex-row justify-between ml-4 w-full items-start">
+					<div className="relative flex flex-col md:flex-row justify-between ml-4 w-full items-start gap-4 md:gap-0">
 						<Image
 							src="/logo.png"
-							alt="GDSCBabcockUniversityHorizontalWhite"
+							alt="GDGBabcockUniversityHorizontalWhite"
 							width={655}
 							height={100}
-							className="w-[90%]"
+							className="w-full md:w-auto max-w-[655px]"
 						/>
-						<div className="text-xl md:text-3xl font-black leading-[34.8px] text-[#ea4235] mt-5">
-							GENERAL GDSC <span className="md:hidden"> </span>
+						<div className="text-xl md:text-3xl font-black leading-[34.8px] text-[#ea4235] md:mt-5">
+							GENERAL GDG <span className="md:hidden"> </span>
 							<br className="hidden md:block" />
 							BABCOCK WRAPPED
 						</div>
@@ -57,7 +51,7 @@ export default function General() {
 					<div className="relative flex flex-col justify-between ml-8 gap-[60px] md:gap-[117px] md:w-3/4 mt-[20px] md:mt-0 items-start">
 						<div className="flex flex-col gap-2 w-full items-start mt-10">
 							<div className="text-2xl md:text-4xl font-bold md:leading-[56px] text-[#34a853]">
-								Most active GDSC Babcock members
+								Most active GDG on Campus Babcock members
 							</div>
 							<div className="md:flex flex-row ml-px gap-24 w-full items-start">
 								<div className="text-lg md:text-2xl md:leading-[33.6px] text-[#cecece] ">
@@ -82,42 +76,30 @@ export default function General() {
 								</div>
 							</div>
 						</div>
-						<button
-							id="Button1"
-							className="bg-[#ea4235] px-2 w-1/3 h-12 cursor-pointer items-start rounded"
-							onClick={() => {
-								setStep(2);
-							}}>
-							<div
-								id="Label"
-								className="text-center text-lg leading-[24px] text-white">
-								Next
-							</div>
-						</button>
 					</div>
 				</div>
 			)}
-			{isDone && step === 2 && (
+			{step === 2 && (
 				<div
 					id="GeneralRoot"
-					className="bg-black relative flex flex-col justify-between gap-[5rem] md:gap-48 w-full font-['Inter'] items-start pt-12 md:pb-[245px] md:px-32">
+					className="bg-black relative flex flex-col justify-between gap-[5rem] md:gap-48 w-full font-sans items-start pt-12 md:pb-[245px] md:px-32">
 					<Image
 						src="/topprogress.svg"
 						alt="Vector"
 						width={1269}
-						height={181}
-						className="md:w-[1269px] w-[90%] h-10 origin-top-left rotate-[-0.16deg] absolute top-[10rem] md:top-48 left-[5%] md:left-24"
+						height={6}
+						className="w-full h-[2px] absolute object-cover object-left top-[10rem] md:top-48 left-0"
 					/>
-					<div className="relative md:flex flex-row justify-between ml-4 w-full items-start">
+					<div className="relative flex flex-col md:flex-row justify-between ml-4 w-full items-start gap-4 md:gap-0">
 						<Image
 							src="/logo.png"
-							alt="GDSCBabcockUniversityHorizontalWhite"
+							alt="GDGBabcockUniversityHorizontalWhite"
 							width={655}
 							height={100}
-							className="w-[90%]"
+							className="w-full md:w-auto max-w-[655px]"
 						/>
-						<div className="text-xl md:text-3xl font-black leading-[34.8px] text-[#ea4235] mt-5">
-							GENERAL GDSC <span className="md:hidden"> </span>
+						<div className="text-xl md:text-3xl font-black leading-[34.8px] text-[#ea4235] md:mt-5">
+							GENERAL GDG <span className="md:hidden"> </span>
 							<br className="hidden md:block" />
 							BABCOCK WRAPPED
 						</div>
@@ -152,57 +134,45 @@ export default function General() {
 								</div>
 							</div>
 						</div>
-						<button
-							id="Button1"
-							className="bg-[#ea4235] px-2 w-1/3 h-12 cursor-pointer items-start rounded"
-							onClick={() => {
-								setStep(3);
-							}}>
-							<div
-								id="Label"
-								className="text-center text-lg leading-[24px] text-white">
-								Next
-							</div>
-						</button>
 					</div>
 				</div>
 			)}
-			{isDone && step === 3 && (
+			{step === 3 && (
 				<div
 					id="GeneralRoot"
-					className="bg-black h-full relative flex flex-col justify-between gap-[100px] md:gap-[146px] w-full font-['Inter'] items-start pt-12 md:pb-[237px] md:px-20">
+					className="bg-black h-full relative flex flex-col justify-between gap-[100px] md:gap-[146px] w-full font-sans items-start pt-12 md:pb-[237px] md:px-20">
 					<Image
 						src="/topprogress.svg"
 						alt="Vector"
 						width={1269}
-						height={181}
-						className="md:w-[1269px] w-[90%] h-10 origin-top-left rotate-[-0.16deg] absolute top-[10rem] md:top-48 left-[5%] md:left-24"
+						height={6}
+						className="w-full h-[2px] absolute object-cover object-left top-[10rem] md:top-48 left-0"
 					/>
-					<div className="relative md:flex flex-row justify-between ml-12 w-full items-start">
+					<div className="relative flex flex-col md:flex-row justify-between ml-4 md:ml-12 w-full items-start gap-4 md:gap-0">
 						<Image
 							src="/logo.png"
-							alt="GDSCBabcockUniversityHorizontalWhite"
+							alt="GDGBabcockUniversityHorizontalWhite"
 							width={655}
 							height={100}
-							className="w-[90%]"
+							className="w-full md:w-auto max-w-[655px]"
 						/>
-						<div className="text-xl md:text-3xl font-black leading-[34.8px] text-[#ea4235] mt-5">
-							GDSC BABCOCK WRAPPED
+						<div className="text-xl md:text-3xl font-black leading-[34.8px] text-[#ea4235] md:mt-5">
+							GDG on Campus Babcock WRAPPED
 						</div>
 					</div>
 					<div className="relative flex flex-col ml-[20px] md:ml-[114px] gap-20 md:w-2/3 items-start">
 						<div className="flex flex-col gap-10 w-full items-start">
 							<div className="text-xl md:text-4xl font-bold md:leading-[56px] text-[#34a853]">
-								The most active track in GDSC Babcock is{" "}
+								The most active track in GDG on Campus Babcock is{" "}
 								<br className="hidden md:block" />
 								the{" "}
-								<span className="font-['Inter'] text-[#ea4235]">
+								<span className="font-sans text-[#ea4235]">
 									{general?.most_active_group.group}{" "}
 									Development
 								</span>
-								<div className="font-['Inter']"> Track!</div>
+								<div className="font-sans"> Track!</div>
 							</div>
-							<div className="text-lg md:text-3xl leading-[42px] text-[#cecece] ml-1 w-full font-['Inter']">
+							<div className="text-lg md:text-3xl leading-[42px] text-[#cecece] ml-1 w-full font-sans">
 								Under the leadership of{" "}
 								<span className="font-bold">
 									Onuada Alfred{" "}
@@ -224,16 +194,6 @@ export default function General() {
 								</div>
 							</div>
 						</div>
-						<button
-							id="Button1"
-							className="bg-[#ea4235] flex flex-row justify-center ml-1 pt-4 gap-3 w-1/3 h-12 cursor-pointer items-start rounded"
-							onClick={() => setStep(4)}>
-							<div
-								id="Label"
-								className="text-center text-lg leading-[24px] text-white">
-								Done
-							</div>
-						</button>
 					</div>
 				</div>
 			)}

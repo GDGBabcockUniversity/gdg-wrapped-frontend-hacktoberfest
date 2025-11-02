@@ -9,7 +9,7 @@ type LandingPageProps = {
 	style?: React.CSSProperties;
 	phoneNumber: string;
 	setPhoneNumber: (value: string) => void;
-	handleSubmit: () => void;
+	handleSubmit: (e: React.FormEvent) => void;
 	handleLoader: boolean;
 };
 
@@ -53,19 +53,19 @@ const LandingPage: React.FC<LandingPageProps> = ({
 									view your personalized{" "}
 								</span>
 								<span className="font-medium text-blue-500">
-									G
+									GDG{" "}
 								</span>
 								<span className="font-medium text-red-500">
-									D
+									on{" "}
 								</span>
 								<span className="font-medium text-yellow-500">
-									S
+									Campus{" "}
 								</span>
 								<span className="font-medium text-green-600">
-									C{" "}
+									Babcock{" "}
 								</span>
 								<span className="font-medium">
-									Babcock Wrapped.
+									Wrapped.
 								</span>
 							</div>
 							<div className="md:hidden flex flex-col items-stretch w-[35%] ml-5 max-md:w-full max-md:ml-0">
@@ -89,7 +89,8 @@ const LandingPage: React.FC<LandingPageProps> = ({
 								}
 								onKeyDown={(e) => {
 									if (e.key === "Enter") {
-										handleSubmitProp();
+										e.preventDefault();
+										handleSubmitProp(e as any);
 									}
 								}}></input>
 						</div>
@@ -105,9 +106,9 @@ const LandingPage: React.FC<LandingPageProps> = ({
 					</div>
 				</div>
 				<button
-					id="Button1"
+					id="LandingPage_NextButton"
 					disabled={load}
-					className="bg-[#4286f5] disabled:bg-transparent md:w-1/3 h-12 cursor-pointer disabled:cursor-not-allowed font-['Inter'] rounded w-full mt-2 md:mt-0"
+					className="bg-[#4286f5] disabled:bg-transparent md:w-1/3 h-12 cursor-pointer disabled:cursor-not-allowed font-sans rounded w-full mt-2 md:mt-0"
 					onClick={handleSubmitProp}>
 					<div
 						id="Label"

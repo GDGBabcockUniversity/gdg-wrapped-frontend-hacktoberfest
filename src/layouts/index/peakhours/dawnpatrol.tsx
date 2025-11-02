@@ -23,41 +23,41 @@ const DawnPatrol: React.FC<DawnPatrolProps> = ({
   return (
     <div
       id="PeakHoursActivityRoot"
-      className="bg-black relative flex flex-col justify-between gap-[20px] md:gap-[149px] w-full font-['Inter'] items-start md:pt-12 md:pb-[271px] md:px-24 p-5"
+      className="bg-black relative flex flex-col justify-between gap-[20px] md:gap-[149px] w-full font-sans items-start md:pt-12 md:pb-[271px] md:px-24 p-5"
     >
-      <div className="relative md:flex flex-row justify-between w-full font-['Inter'] items-start md:pl-3 md:pr-16">
+      <div className="relative md:flex flex-row justify-between w-full font-sans items-start md:pl-3 md:pr-16">
         <Image
           src="/topprogress.svg"
           alt="Vector"
           width={1269}
-          height={181}
-          className="w-[1269px] h-10 origin-top-left rotate-[-0.16deg] absolute md:top-48 top-[6.5rem] md:left-24"
+          height={6}
+          className="w-[1269px] h-[3px] absolute md:top-48 top-[6.5rem] md:left-24"
         />
         {/* <Image
         src="/yellowprogress.svg"
         alt="yellow"
         width={663}
         height={6}
-        className="w-[663px] h-1.5 origin-top-left rotate-[-0.32deg] absolute top-48 left-[381.7841796875px]"
+        className="w-[663px] h-1.5 absolute top-48 left-[381.7841796875px]"
       />
       <Image
         src="/greenprogress.svg"
         alt="green"
         width={242}
         height={6}
-        className="w-[242px] h-1.5 origin-top-left rotate-[-0.32deg] absolute top-48 left-[847.4814453125px]"
+        className="w-[242px] h-1.5 absolute top-48 left-[847.4814453125px]"
       />
       <Image
         src="/redprogress.svg"
         alt="red"
         width={380}
         height={6}
-        className="w-[380px] h-1.5 origin-top-left rotate-[-0.32deg] absolute top-48 left-[967.15771484375px]"
+        className="w-[380px] h-1.5 absolute top-48 left-[967.15771484375px]"
       /> */}
         <div className="relative md:flex flex-row justify-between w-full items-start">
           <Image
             src="/logo.png"
-            alt="GDSCBabcockUniversityHorizontalWhite"
+            alt="GDGBabcockUniversityHorizontalWhite"
             width={500}
             height={500}
           />
@@ -75,13 +75,13 @@ const DawnPatrol: React.FC<DawnPatrolProps> = ({
           <div className="flex flex-col gap-6 w-full items-start">
             <div className="text-4xl font-semibold leading-[56px] text-white">
               You are a member of the{" "}
-              <span className="font-['Inter'] font-bold text-[#ea4235]">
+              <span className="font-sans font-bold text-[#ea4235]">
                 Dawn Patrol. <br />
               </span>
-              <div className="font-['Inter']">Honorable Shareholder in the</div>
-              <span className="font-['Inter'] text-[#4285f6]"> </span>
-              <span className="font-['Inter'] text-[#34a853]">“</span>
-              <span className="font-['Inter'] font-bold text-[#34a853]">
+              <div className="font-sans">Honorable Shareholder in the</div>
+              <span className="font-sans text-[#4285f6]"> </span>
+              <span className="font-sans text-[#34a853]">“</span>
+              <span className="font-sans font-bold text-[#34a853]">
                 Up and <br />
                 Grateful” Association.{" "}
               </span>
@@ -91,7 +91,7 @@ const DawnPatrol: React.FC<DawnPatrolProps> = ({
               <br />
               You are mostly active
               {"  "}
-              in GDSC Babcock during the morning hours.
+              in GDG on Campus Babcock during the morning hours.
             </div>
           </div>
         )}{" "}
@@ -102,7 +102,7 @@ const DawnPatrol: React.FC<DawnPatrolProps> = ({
               className="text-4xl font-bold leading-[56px] text-[#ea4235]"
             >
               Oyoyo{" "}
-              <span className="font-['Inter'] text-[#34a853]">
+              <span className="font-sans text-[#34a853]">
                 Express Manager!{" "}
               </span>
             </div>
@@ -123,11 +123,11 @@ const DawnPatrol: React.FC<DawnPatrolProps> = ({
               id="ToriNoDeyFinishFM3"
               className="text-4xl font-bold leading-[56px] text-[#ea4235]"
             >
-              97.2<span className="font-['Inter'] text-white"> </span>
-              <span className="font-['Inter'] text-[#34a853]">
+              97.2<span className="font-sans text-white"> </span>
+              <span className="font-sans text-[#34a853]">
                 “Tori No Dey Finish”
               </span>
-              <span className="font-['Inter'] text-white"> FM! </span>
+              <span className="font-sans text-white"> FM! </span>
             </div>
             <div className="text-xl md:text-3xl leading-[42px] text-white">
               Our evening walks are all that more pleasant because of you.{" "}
@@ -144,8 +144,8 @@ const DawnPatrol: React.FC<DawnPatrolProps> = ({
               id="DonBabaNightingale2"
               className="text-4xl font-bold leading-[56px] text-[#ea4235]"
             >
-              Don Baba<span className="font-['Inter'] text-white"> </span>
-              <span className="font-['Inter'] text-[#34a853]">
+              Don Baba<span className="font-sans text-white"> </span>
+              <span className="font-sans text-[#34a853]">
                 Nightingale!
               </span>
             </div>
@@ -153,13 +153,13 @@ const DawnPatrol: React.FC<DawnPatrolProps> = ({
               Normally we suppose dey sleep by this time but you <br />
               showed us that sleep is for the weak. You too much! <br />
               <br />
-              You come alive for GDSC Babcock in the nighttime.
+              You come alive for GDG on Campus Babcock in the nighttime.
             </div>
           </div>
         )}
         <button
-          id="Button1"
-          className="bg-[#4286f5] md:w-1/3 h-12 cursor-pointer font-['Inter'] rounded w-full mt-2 md:mt-0"
+          id="dawn-patrol-next-btn"
+          className="bg-[#4286f5] md:w-1/3 h-12 cursor-pointer font-sans rounded w-full mt-2 md:mt-0"
           onClick={hanldeNext}
           style={{ visibility: isbuttonVisible ? "visible" : "hidden" }}
         >

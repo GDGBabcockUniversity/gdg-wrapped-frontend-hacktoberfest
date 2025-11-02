@@ -16,21 +16,21 @@ const QuestionPercentile: React.FC<QuestionPercentileProps> = ({
   return (
     <div
       id="QuestionRoot"
-      className="bg-black relative flex flex-col justify-between gap-[50px] md:gap-[177px] w-full font-['Inter'] items-start pt-12 md:pb-[329px] md:px-24"
+      className="bg-black relative flex flex-col justify-between gap-[50px] md:gap-[177px] w-full font-sans items-start pt-12 md:pb-[329px] md:px-24"
     >
       <Image
         src="/topprogress.svg"
         alt="Vector"
         width={1269}
-        height={181}
-        className="w-[1269px] h-10 origin-top-left rotate-[-0.16deg] absolute top-[10.5rem] md:top-48 md:left-24"
+        height={6}
+        className="w-[1269px] h-[3px] absolute top-[10.5rem] md:top-48 md:left-24"
       />
       <div className="relative md:flex flex-row justify-between w-full items-start">
         <Image
           src="/logo.png"
           height={100}
           width={655}
-          alt="GDSCBabcockUniversityHorizontalWhite"
+          alt="GDGBabcockUniversityHorizontalWhite"
         />
         <div className="text-center text-3xl font-black leading-[34.8px] text-[#34a853] mt-8">
           CURIOSITY METER
@@ -123,8 +123,8 @@ const QuestionPercentile: React.FC<QuestionPercentileProps> = ({
         )}
 
         <button
-          id="Button1"
-          className="bg-[#34a853] px-2 w-full md:w-1/3 h-12 cursor-pointer font-['Inter'] items-start rounded"
+          id="question-percentile-next-btn"
+          className="bg-[#34a853] px-2 w-full md:w-1/3 h-12 cursor-pointer font-sans items-start rounded"
           onClick={() => handleNext()}
           style={{ visibility: isbuttonVisible ? "visible" : "hidden" }}
         >

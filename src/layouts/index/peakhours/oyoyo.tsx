@@ -4,7 +4,7 @@ export default function OyoyExpress() {
   return (
     <div
       id="PeakHoursActivityRoot"
-      className="bg-black relative flex flex-col justify-between gap-[173px] w-full font-['Inter'] items-start pt-12 pb-[283px] px-20"
+      className="bg-black relative flex flex-col justify-between gap-[173px] w-full font-sans items-start pt-12 pb-[283px] px-20"
     >
       <Image
         src="/blueprogress.svg"
@@ -37,7 +37,7 @@ export default function OyoyExpress() {
       <div className="relative flex flex-row justify-between w-full items-start">
         <Image
           src="/logo.png"
-          alt="GDSCBabcockUniversityHorizontalWhite"
+          alt="GDGBabcockUniversityHorizontalWhite"
           width={500}
           height={500}
         />
@@ -56,7 +56,7 @@ export default function OyoyExpress() {
             className="text-4xl font-bold leading-[56px] text-[#ea4235]"
           >
             Oyoyo{" "}
-            <span className="font-['Inter'] text-[#34a853]">
+            <span className="font-sans text-[#34a853]">
               Express Manager!{" "}
             </span>
           </div>
@@ -71,7 +71,7 @@ export default function OyoyExpress() {
           </div>
         </div>
         <button
-          id="Button1"
+          id="oyoyo-express-next-btn"
           className="bg-[#4286f5] flex flex-row justify-center pt-4 gap-3 w-1/3 h-12 cursor-pointer items-start rounded"
         >
           <div
