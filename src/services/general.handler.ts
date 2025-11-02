@@ -27,6 +27,9 @@ function formatErrorMessage(error: unknown): string {
   return "Something went wrong";
 }
 
+const BASE_URL =
+    process.env.NEXT_PUBLIC_API_BASE_URL || "https://gdsc-wrapped.onrender.com";
+
 export async function fetchGeneralData(): Promise<SuccessGeneralResponse> {
   try {
     return await resilientHttp.get<SuccessGeneralResponse>(

@@ -123,7 +123,7 @@ const QuestionPercentile: React.FC<QuestionPercentileProps> = ({
         )}
 
         <button
-          id="Button1"
+          id="question-percentile-next-btn"
           className="bg-[#34a853] px-2 w-full md:w-1/3 h-12 cursor-pointer font-sans items-start rounded"
           onClick={() => handleNext()}
           style={{ visibility: isbuttonVisible ? "visible" : "hidden" }}
